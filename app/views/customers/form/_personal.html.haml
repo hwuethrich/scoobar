@@ -1,0 +1,15 @@
+.form-inputs
+  .row
+    .col-sm-4
+      = form.input :first_name
+    .col-sm-4
+      = form.input :last_name
+    .col-sm-2
+      = form.input :date_of_birth, as: :string
+    .col-sm-2
+      = form.input :gender, collection: ['male', 'female']
+  .row
+    .col-sm-4
+      = form.input :email
+    .col-sm-4
+      = form.input :phone_number

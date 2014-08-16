@@ -1,0 +1,15 @@
+.form-inputs
+  .row
+    .col-sm-4
+      = form.input :address1
+    .col-sm-4
+      = form.input :address2
+    .col-sm-4
+      = form.input :city
+  .row
+    .col-sm-2
+      = form.input :state
+    .col-sm-2
+      = form.input :post_code
+    .col-sm-4
+      = form.input :country, as: :string

@@ -1,0 +1,13 @@
+.form-inputs
+  .row
+    .col-sm-8
+      = form.input :certification_name
+    .col-sm-4
+      = form.input :certification_number
+  .row
+    .col-sm-4
+      = form.input :certification_date, as: :string
+    .col-sm-4
+      = form.input :last_dive_on, as: :string
+    .col-sm-4
+      = form.input :number_of_dives

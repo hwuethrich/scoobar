@@ -1,0 +1,25 @@
+de:
+  activerecord:
+    models:
+      customer:
+        one: "Kunde"
+        other: "Kunden"
+    attributes:
+      customer:
+        first_name: "Vorname"
+        last_name: "Nachname"
+        date_of_birth: "Geburtsdatum"
+        gender: "Geschlecht"
+        email: "E-Mail"
+        phone_number: "Telefon-Nummer"
+        address1: "Adresse 1"
+        address2: "Adresse 2"
+        city: "Wohnort"
+        state: "Bundesland"
+        post_code: "Postleitzahl"
+        country: "Land"
+        certification_name: "Zertifizierungsname"
+        certification_number: "Zertifizierungsnummer"
+        certification_date: "Zertifizierungsdatum"
+        last_dive_on: "Letzter Tauchgang"
+        number_of_dives: "Anzahl Tauchgänge"

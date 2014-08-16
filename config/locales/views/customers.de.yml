@@ -1,0 +1,11 @@
+de:
+  customers:
+    index:
+      title: 'Kunden'
+      register_customer: 'Kunde registrieren'
+    edit:
+      title: 'Kunde bearbeiten'
+    form:
+      personal_info: 'Personalien'
+      address: 'Adresse'
+      certification: 'Zertifizierung'

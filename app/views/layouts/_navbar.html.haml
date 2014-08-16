@@ -1,0 +1,30 @@
+%nav.navbar.navbar-inverse.navbar-fixed-top
+  .container
+    .navbar-header
+
+      %button.navbar-toggle(type='button' data-toggle='collapse' data-target='#main-nav')
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+
+      = link_to '/', class: 'navbar-brand' do
+        %i.fa.fa-database
+        SCUBAR
+
+    #main-nav.collapse.navbar-collapse
+      %ul.nav.navbar-nav
+
+        %li
+          = link_to :customers do
+            %i.fa.fa-users
+            = t '.customers'
+
+        %li
+          = link_to :customers do
+            %i.fa.fa-users
+            Dive Sites
+
+        %li
+          = link_to :customers do
+            %i.fa.fa-users
+            Boats

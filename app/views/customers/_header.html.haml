@@ -1,0 +1,64 @@
+#customer-header
+
+  .page-header
+    .pull-right
+      .btn-group
+        = link_to [:edit, customer], class: 'btn btn-default' do
+          %i.fa.fa-pencil
+          Edit
+
+        = link_to customer, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default' do
+          %i.fa.fa-ban
+          Delete
+
+    %h2= customer.full_name
+
+
+  .row
+    .col-xs-6.col-xs-offset-3.col-sm-2.col-sm-offset-0
+      %p= image_tag 'portrait.jpg', class: 'img-thumbnail img-responsive'
+
+    .col-xs-12.col-sm-5
+      %table.table.table-condensed
+        %tbody
+          %tr
+            %th Date of birth
+            %td
+              - if customer.date_of_birth.present?
+                =l customer.date_of_birth
+                %span.text-muted= '(%d)' % customer.age
+              - else
+                %span.text-muted -
+          %tr
+            %th Gender
+            %td
+              - if customer.gender.present?
+                %i.fa{class: 'fa-%s' % customer.gender }
+                = customer.gender
+              - else
+                %span.text-muted -
+          %tr
+            %th Hotel
+            %td Mama's Chalet
+          %tr
+            %th Room #
+            %td 104
+
+    .col-xs-12.col-sm-5
+      %table.table.table-condensed
+        %tbody
+          %tr
+            %th Address
+            %td
+              = customer.address1
+              %br
+              = '%s %s' % [customer.post_code, customer.city]
+              %br
+              = customer.country
+          %tr
+            %th E-Mail
+            %td= customer.email
+          %tr
+            %th Phone
+            %td= customer.phone_number
+= render 'navbar'

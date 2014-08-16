@@ -1,0 +1,12 @@
+en:
+  customers:
+    index:
+      title: 'Customers'
+      register_customer: 'Register customer'
+      search_customer: 'Kunde suchen'
+    edit:
+      title: 'Edit customer'
+    form:
+      personal_info: 'Personal'
+      address: 'Address'
+      certification: 'Certification'

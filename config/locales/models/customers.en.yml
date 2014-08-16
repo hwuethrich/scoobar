@@ -1,0 +1,25 @@
+en:
+  activerecord:
+    models:
+      customer:
+        one: "Customer"
+        other: "Customers"
+    attributes:
+      customer:
+        first_name: "First name"
+        last_name: "Last name"
+        date_of_birth: "Date of birth"
+        gender: "Gender"
+        email: "E-Mail"
+        phone_number: "Phone number"
+        address1: "Address 1"
+        address2: "Address 2"
+        city: "City"
+        state: "State"
+        post_code: "Post code"
+        country: "Country"
+        certification_name: "Certification name"
+        certification_number: "Certification number"
+        certification_date: "Certification date"
+        last_dive_on: "Last dive"
+        number_of_dive: "No. of dives"
