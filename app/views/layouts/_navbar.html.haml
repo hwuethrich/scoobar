@@ -1,4 +1,4 @@
-%nav.navbar.navbar-inverse.navbar-fixed-top
+%nav.navbar.navbar-default.navbar-fixed-top
   .container
     .navbar-header
 
@@ -14,15 +14,15 @@
     #main-nav.collapse.navbar-collapse
       %ul.nav.navbar-nav
 
-        %li
+        %li{class: navbar_item_state(:customers)}
           = link_to :customers do
             %i.fa.fa-users
             = t '.customers'
 
-        %li
-          = link_to :customers do
-            %i.fa.fa-users
-            Dive Sites
+        %li{class: navbar_item_state(:events)}
+          = link_to '#' do
+            %i.fa.fa-calendar
+            = t '.events'
 
         %li
           = link_to :customers do

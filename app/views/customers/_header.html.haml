@@ -15,11 +15,11 @@
 
 
   .row
-    .col-xs-6.col-xs-offset-3.col-sm-2.col-sm-offset-0
+    .col-xs-6.col-xs-offset-3.col-sm-4.col-sm-offset-0.col-md-2
       %p= image_tag 'portrait.jpg', class: 'img-thumbnail img-responsive'
 
-    .col-xs-12.col-sm-5
-      %table.table.table-condensed
+    .col-xs-12.col-sm-8.col-md-5
+      %table.table
         %tbody
           %tr
             %th Date of birth
@@ -44,9 +44,15 @@
             %th Room #
             %td 104
 
-    .col-xs-12.col-sm-5
-      %table.table.table-condensed
+    .col-xs-12.col-sm-8.col-md-5
+      %table.table
         %tbody
+          %tr
+            %th E-Mail
+            %td= customer.email
+          %tr
+            %th Phone
+            %td= customer.phone_number
           %tr
             %th Address
             %td
@@ -55,10 +61,4 @@
               = '%s %s' % [customer.post_code, customer.city]
               %br
               = customer.country
-          %tr
-            %th E-Mail
-            %td= customer.email
-          %tr
-            %th Phone
-            %td= customer.phone_number
 = render 'navbar'

@@ -66,6 +66,10 @@ gem 'simple_form', '~> 3.1.0.rc2'
 
 gem 'decent_exposure'
 
-gem 'validates_timeliness'
+gem 'date_validator'
 
 gem 'rails-i18n', '~> 4.0.0'
+
+gem 'faker', group: :development
+
+gem 'kaminari'

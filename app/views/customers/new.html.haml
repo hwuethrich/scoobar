@@ -1,5 +1,11 @@
-%h2.page-header
-  %i.fa.fa-file-text
-  Customer Registration
+.page-header
+  .pull-right
+    = link_to :customers, class: 'btn btn-default' do
+      %i.fa.fa-list
+      = t '.customer_list'
+
+  %h2
+    %i.fa.fa-file-text
+    = t '.title'
 
 = render 'form'

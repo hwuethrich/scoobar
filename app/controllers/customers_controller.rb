@@ -1,5 +1,7 @@
 class CustomersController < ApplicationController
 
+  active_navbar_item :customers
+
   expose(:customers) { Customer.alphabetical }
   expose(:customer, attributes: :customer_params)
 

@@ -17,10 +17,10 @@ ActiveRecord::Schema.define(version: 20140816045437) do
   enable_extension "plpgsql"
 
   create_table "customers", force: true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.date     "date_of_birth"
-    t.integer  "gender"
+    t.string   "first_name",           null: false
+    t.string   "last_name",            null: false
+    t.date     "date_of_birth",        null: false
+    t.integer  "gender",               null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "email"

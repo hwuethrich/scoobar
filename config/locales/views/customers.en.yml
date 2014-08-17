@@ -1,11 +1,17 @@
 en:
   customers:
+
     index:
       title: 'Customers'
       register_customer: 'Register customer'
-      search_customer: 'Kunde suchen'
+      search_customer: 'Search customer'
+
+    new:
+      title: 'Register Customer'
+
     edit:
       title: 'Edit customer'
+
     form:
       personal_info: 'Personal'
       address: 'Address'
