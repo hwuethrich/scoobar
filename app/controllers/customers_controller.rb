@@ -2,7 +2,7 @@ class CustomersController < ApplicationController
 
   active_navbar_item :customers
 
-  expose(:customers) { Customer.alphabetical }
+  expose(:customers) { Customer.alphabetical.page params[:page] }
   expose(:customer, attributes: :customer_params)
 
   def create

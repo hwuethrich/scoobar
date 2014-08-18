@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :events do
+    get 'calendar', on: :collection
+  end
+
   resources :customers
 
   root 'home#index'

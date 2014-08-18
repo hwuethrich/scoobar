@@ -2,7 +2,7 @@
 
   .pull-right
     = link_to new_customer_path, class: 'btn btn-success' do
-      %i.fa.fa-file-text
+      %i.fa.fa-plus-circle
       = t '.register_customer'
 
   %h2
@@ -12,6 +12,7 @@
 %form
   .form-group
     = text_field_tag :query, '', class: 'form-control input-lg', placeholder: 'Search customer'
+
 
 %table.table.table-striped
   %tr
@@ -29,3 +30,6 @@
         = link_to 'Show', customer
         = link_to 'Edit', edit_customer_path(customer)
         = link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' }
+
+.pull-right
+  = paginate customers

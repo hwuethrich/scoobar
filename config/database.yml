@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: scubar_production
-  username: scubar
-  password: <%= ENV['SCUBAR_DATABASE_PASSWORD'] %>
+  database: scubar_development
+  # username: scubar
+  # password: <%= ENV['SCUBAR_DATABASE_PASSWORD'] %>

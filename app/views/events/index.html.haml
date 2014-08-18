@@ -1,0 +1,30 @@
+= render 'events_header', mode: :list
+
+%p
+  .row
+    .col-sm-4.text-left
+      .btn-group
+        = link_to url_for(date: current_day - 1.week), class: 'btn btn-default' do
+          %i.fa.fa-angle-double-left
+        = link_to url_for(date: current_day - 1.day), class: 'btn btn-default' do
+          %i.fa.fa-angle-left
+
+    .col-sm-4.text-center
+      .btn-group
+        = link_to url_for(date: Date.today), class: 'btn btn-default' do
+          %i.fa.fa-bullseye
+          Today
+
+    .col-sm-4.text-right
+      .btn-group
+        = link_to url_for(date: current_day + 1.day), class: 'btn btn-default' do
+          %i.fa.fa-angle-right
+        = link_to url_for(date: current_day + 1.week), class: 'btn btn-default' do
+          %i.fa.fa-angle-double-right
+.row
+  .col-sm-4
+    = render 'events/panels/overview', date: current_day - 1.day
+  .col-sm-4
+    = render 'events/panels/overview', date: current_day
+  .col-sm-4
+    = render 'events/panels/overview', date: current_day + 1.day

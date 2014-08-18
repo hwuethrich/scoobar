@@ -18,17 +18,28 @@
 
 // Variables
 $font-family-sans-serif: 'Open Sans', sans-serif;
+body { font-weight: 200; }
 
 // Bootstrap
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+// Bootstrap Datepicker
+@import "bootstrap-datetimepicker";
+
 // Font Awesome
 @import "font-awesome/font-awesome";
 
+// Fullcalendar
+@import "fullcalendar";
+@import "fullcalendar-theme";
+
+// Utils
+@import "utils";
+
 // Navbar
 body {
-  margin-top: 70px;
+  margin: 70px 0;
 }
 
 .page-header { margin-top: 20px; }
@@ -51,4 +62,12 @@ body {
 #quick-links .btn {
   padding: 30px 10px;
   margin-bottom: 10px;
+}
+
+tr.table-divider > th {
+  background-color: #EBEBEB !important;
+  color: #808080;
+  font-size: 85%;
+  font-weight: 400;
+  border-bottom: 4px solid #D5D5D5 !important
 }

@@ -1,0 +1,35 @@
+%table.table.table-striped.events-table
+  %tbody
+    - events.group_by(&:start_time).each do |start_time, events_by_time|
+      %tr.table-divider
+        %th.text-muted
+          %i.fa.fa-clock-o
+          = l start_time, format: '%H:%M'
+
+      - events_by_time.each do |event|
+        %tr
+          %td
+
+            .pull-right
+              = link_to new_event_path(event: { start_time: start_time }) do
+                %i.fa.fa-check-square
+
+            %span.label.label-info<
+              = %w(BL SW BN PW SHD).sample
+            = event.name
+
+            %br
+            %small.text-muted
+              %i.fa.fa-map-marker
+              BL
+              = ' | '
+              %i.fa.fa-life-ring
+              B1
+              = ' | '
+              %i.fa.fa-mail-reply
+              = l event.end_time, format: '%H:%M'
+              = ' | '
+              %i.fa.fa-user
+              - capacity = 5 + rand(5)
+              - booked = capacity - rand(5)
+              = '%d/%d' % [booked, capacity]

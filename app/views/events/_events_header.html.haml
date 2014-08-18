@@ -1,0 +1,16 @@
+.page-header
+
+  .pull-right
+    .btn-group
+      = link_to :events, class: 'btn btn-default ' + (mode == :list ? 'active' : '') do
+        %i.fa.fa-list
+      = link_to [:calendar, :events], class: 'btn btn-default ' + (mode == :calendar ? 'active' : '') do
+        %i.fa.fa-calendar
+
+    = link_to [:new, :event], class: 'btn btn-success' do
+      %i.fa.fa-plus-circle
+      = t '.create_event'
+
+  %h2
+    %i.fa.fa-calendar
+    = t '.title'

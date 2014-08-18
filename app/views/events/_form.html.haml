@@ -1,0 +1,17 @@
+= simple_form_for(event, html: { id: 'event-form' }) do |f|
+  = f.error_notification
+
+  .form-inputs
+    .row
+      .col-xs-12.col-sm-6
+        = f.input :name
+      .col-xs-6.col-sm-3
+        = f.input :start_time
+      .col-xs-6.col-sm-3
+        = f.input :duration, as: :numeric
+    .row
+      .col-sm-12
+        = f.input :description
+
+  %p.form-actions
+    = f.button :submit

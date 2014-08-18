@@ -1,5 +1,18 @@
  namespace :fake do
 
+  def generate(model, &block)
+    count = ENV.fetch('count', 100).to_i
+
+    print 'Generating %d %s ' % [count, model.name.pluralize]
+
+    count.times do |i|
+      print '.'
+      model.create! block.call
+    end
+
+    puts ' DONE'
+  end
+
   desc 'Generate fake customers'
   task :customers do
 
@@ -12,10 +25,10 @@
       'en-US' => 'United States of America'
     }
 
-    100.times do
+    generate Customer do
       Faker::Config.locale = countries.keys.sample
 
-      attrs = {
+      {
         # Personal
         first_name:    Faker::Name.first_name,
         last_name:     Faker::Name.last_name,
@@ -32,8 +45,20 @@
         post_code:     Faker::Address.postcode,
         country:       countries[Faker::Config.locale]
       }
+    end
+  end
 
-      Customer.create! attrs
+  desc 'Generate fake events'
+  task :events do
+    generate Event do
+      start_time = (-10 + rand(20)).days.from_now.to_date + 8.hours + (rand(4) * 2).hours
+
+      {
+        name:          Faker::Company.catch_phrase,
+        start_time:    start_time,
+        duration:      30 + 15 * rand(6),
+        description:   Faker::Lorem.paragraphs(rand(2)).join("\n\n")
+      }
     end
   end
 

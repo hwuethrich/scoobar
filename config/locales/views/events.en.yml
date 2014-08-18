@@ -1,0 +1,7 @@
+en:
+  events:
+    events_header:
+      title: Events
+    panels:
+      overview:
+        no_events: There are no events planned for this date.
