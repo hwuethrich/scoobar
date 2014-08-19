@@ -9,7 +9,7 @@ $(document).on 'page:change', ->
       start_time: event.start.toJSON()
       end_time:   event.end.toJSON()
 
-    $.ajax "/events/#{event.id}.json",
+    $.ajax "/events/#{event.id}",
       type: 'PATCH'
       dataType: 'json'
       data: { event: data }
@@ -21,14 +21,15 @@ $(document).on 'page:change', ->
       right: 'agendaDay,agendaWeek,month'
 
     defaultView: 'agendaWeek'
+    eventLimit: true
 
     editable: true
-    eventLimit: true
-    selectable: true
+    selectable: false
 
+    # Agenda options
+    slotEventOverlap: true
     slotDuration: '00:30:00'
     snapDuration: '00:15:00'
-
     minTime: '06:00'
     maxTime: '20:00'
 
@@ -37,20 +38,3 @@ $(document).on 'page:change', ->
 
     eventDrop: eventUpdate
     eventResize: eventUpdate
-
-    select: (start, end)->
-      form = $('#event-quick-form')
-
-      form.find('#event_start_time').data("DateTimePicker").setDate start
-
-      duration = (end - start) / (60 * 1000)
-      form.find('#event_duration').val duration
-
-      form.find('#event_name').focus()
-
-  quick_form = $('#event-quick-form form')
-  quick_form.on 'ajax:success', ->
-    container.fullCalendar 'refetchEvents'
-    quick_form[0].reset()
-    quick_form.find('#event_name').blur()
-    container.fullCalendar 'unselect'

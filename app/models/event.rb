@@ -4,8 +4,8 @@ class Event < ActiveRecord::Base
 
   scope :chronological, -> { order :start_time, :end_time }
 
-  scope :before, ->(time) { where { start_time <= time }}
-  scope :after,  ->(time) { where { end_time >= time }}
+  scope :before, ->(time) { where { start_time < time }}
+  scope :after,  ->(time) { where { end_time > time }}
   scope :for_date, ->(date) { after(date.beginning_of_day).before(date.end_of_day) }
   scope :for_yesterday, -> { for_date(Date.yesterday) }
   scope :for_today, -> { for_date(Date.today) }
@@ -22,6 +22,10 @@ class Event < ActiveRecord::Base
 
   def duration=(min)
     self.end_time = start_time + min.to_i.minutes if start_time.present?
+  end
+
+  def current?
+    start_time <= DateTime.now && DateTime.now <= end_time
   end
 
 end

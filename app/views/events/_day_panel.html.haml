@@ -1,9 +1,5 @@
 .panel.panel-default
-  .panel-heading.btn-faded-zone
-    .pull-right
-      - unless date.past?
-        = link_to new_event_path(event: { start_time: date }) do
-          %i.fa.fa-plus-square
+  .panel-heading
     %h4.panel-title
       = l date, format: :short
       %small
@@ -19,11 +15,10 @@
   - events_for_date = events.for_date(date)
   - if events_for_date.to_a.empty?
     .panel-body
-      %p.text-muted.text-center
+      .text-placeholder
         = t('.no_events')
-      - unless date.past?
-        = link_to new_event_path(event: { start_time: date }), class: 'btn btn-success btn-block' do
-          %i.fa.fa-plus-circle
-          = t('.create_event')
+      = link_to new_event_path(event: { start_time: date }), class: 'btn btn-success btn-block' do
+        %i.fa.fa-plus-circle
+        = t('.create_event')
   - else
     = render 'table', events: events_for_date

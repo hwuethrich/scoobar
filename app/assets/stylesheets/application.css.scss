@@ -40,6 +40,7 @@ body { font-weight: 200; }
 // Navbar
 body {
   margin: 70px 0;
+  // background-image: image-url('bg.png');
 }
 
 .page-header { margin-top: 20px; }
@@ -64,10 +65,33 @@ body {
   margin-bottom: 10px;
 }
 
+// Table
 tr.table-divider > th {
-  background-color: #EBEBEB !important;
+  background-color: white !important;
   color: #808080;
   font-size: 85%;
+  // font-weight: 400;
+  // border-top: 4px solid #D5D5D5 !important;
+}
+
+table.table {
+  background-color: white;
+}
+
+.text-placeholder {
+  color: $gray-light;
+  text-align: center;
+  margin: 15px 15px 20px 15px;
+}
+
+// Events
+.events-table .event-code {
+  font-size: 1.5432em;
+  vertical-align: middle;
+  text-align: center;
   font-weight: 400;
-  border-bottom: 4px solid #D5D5D5 !important
+}
+
+.events-table .event-details {
+  width: 100%;
 }
