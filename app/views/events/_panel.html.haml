@@ -1,0 +1,28 @@
+.panel.panel{class: event.current? ? 'panel-info' : 'panel-default'}
+  .panel-heading
+    .pull-right
+      .label.label-info<
+        SW
+    = link_to ('#event-panel-%d' % event.id), data: { toggle: 'collapse', parent: collapse_parent } do
+      = event.name
+      %span.caret
+    %br
+    %small.text-muted
+      %i.fa.fa-map-marker
+      BL
+      = ' | '
+      %i.fa.fa-anchor
+      B1
+      = ' | '
+      %i.fa.fa-mail-reply
+      = l event.end_time, format: '%H:%M'
+      = ' | '
+      %i.fa.fa-user
+      - capacity = 5 + rand(5)
+      - booked = capacity - rand(5)
+      = '%d/%d' % [booked, capacity]
+  .panel-collapse.collapse{:id => 'event-panel-%d' % event.id}
+    .panel-body
+      %p= event.description
+    .panel-footer
+      Blah blah

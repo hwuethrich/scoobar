@@ -13,8 +13,13 @@
 #= require jquery
 #= require jquery_ujs
 #= require turbolinks
-#= require bootstrap-sprockets
 #= require moment
+#= require moment/de
+#= require moment/fr
+#= require i18n
+#= require i18n/translations
+#= require locale
+#= require bootstrap-sprockets
 #= require bootstrap-datetimepicker
 #= require fullcalendar
 #= require_tree .

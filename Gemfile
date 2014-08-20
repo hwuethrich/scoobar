@@ -81,3 +81,5 @@ gem 'bootstrap3-datetimepicker-rails', '~> 3.1.1'
 
 # Puma
 gem 'puma'
+
+gem 'i18n-js'

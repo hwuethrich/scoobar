@@ -10,11 +10,14 @@
           %i.fa.fa-angle-left.fa-fw
 
     .col-xs-4.text-center
-      - unless current_day.today?
-        .btn-group
-          = link_to url_for(date: Date.today), class: 'btn btn-default' do
-            %i.fa.fa-bullseye
-            Today
+      .btn-group
+        = link_to url_for(date: Date.today), class: 'btn btn-default', disabled: current_day.today? do
+          %i.fa.fa-calendar
+
+        = button_tag class: 'btn btn-default date-switcher' do
+          = hidden_field_tag :switcher_date, l(current_day, format: '%D'), data: { 'date-format' => 'MM/DD/YY' }
+          = l current_day, format: :long
+          %span.caret
 
     .col-xs-4.text-right
       .btn-group
@@ -23,9 +26,9 @@
         = link_to url_for(date: current_day + 1.week), class: 'btn btn-default' do
           %i.fa.fa-angle-double-right.fa-fw
 .row
-  .col-sm-4
-    = render 'day_panel', date: current_day - 1.day
-  .col-sm-4
-    = render 'day_panel', date: current_day
-  .col-sm-4
-    = render 'day_panel', date: current_day + 1.day
+  .col-sm-6
+    %h4.page-header= t :morning
+    = render 'list', events: events.starts_in_morning_of(current_day), id: 'event-slot-morning'
+  .col-sm-6
+    %h4.page-header.text-right= t :afternoon
+    = render 'list', events: events.starts_in_afternoon_of(current_day), id: 'event-slot-afternoon'

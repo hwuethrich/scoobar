@@ -4,12 +4,16 @@ class Event < ActiveRecord::Base
 
   scope :chronological, -> { order :start_time, :end_time }
 
-  scope :before, ->(time) { where { start_time < time }}
-  scope :after,  ->(time) { where { end_time > time }}
-  scope :for_date, ->(date) { after(date.beginning_of_day).before(date.end_of_day) }
-  scope :for_yesterday, -> { for_date(Date.yesterday) }
-  scope :for_today, -> { for_date(Date.today) }
-  scope :for_tomorrow, -> { for_date(Date.tomorrow) }
+  scope :starts_before, ->(time) { where { start_time < time }}
+  scope :starts_after,  ->(time) { where { start_time >= time }}
+  scope :ends_before,   ->(time) { where { end_time <= time }}
+  scope :ends_after,    ->(time) { where { end_time > time }}
+
+  scope :intersects, ->(t1, t2) { ends_after(t1).starts_before(t2) }
+
+  scope :starts_between, ->(t1, t2) { starts_after(t1).starts_before(t2) }
+  scope :starts_in_morning_of, ->(date) { starts_between(date.beginning_of_day, date.midday) }
+  scope :starts_in_afternoon_of, ->(date) { starts_between(date.midday, date.end_of_day) }
 
   validates :start_time, date: true, presence: true
   validates :duration, presence: true, numericality: { greater_than: 0 }
@@ -25,7 +29,11 @@ class Event < ActiveRecord::Base
   end
 
   def current?
-    start_time <= DateTime.now && DateTime.now <= end_time
+    start_time <= DateTime.current && DateTime.current <= end_time
+  end
+
+  def past?
+    end_time.past?
   end
 
 end
