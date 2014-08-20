@@ -27,7 +27,7 @@ $(document).on 'page:change', ->
     selectable: false
 
     # Agenda options
-    slotEventOverlap: true
+    slotEventOverlap: false
     slotDuration: '00:30:00'
     snapDuration: '00:15:00'
     minTime: '06:00'
