@@ -5,6 +5,7 @@ class EventsController < ApplicationController
   respond_to :html, :json
 
   expose(:events) { Event.chronological }
+  expose(:events_in_range) { events_in_range }
   expose(:event, attributes: :event_params)
 
   expose(:current_day) { current_day }
@@ -47,6 +48,12 @@ class EventsController < ApplicationController
 
   def event_params
     params.require(:event).permit(:name, :start_time, :end_time, :duration, :description)
+  end
+
+  def events_in_range
+    start_time = params.fetch(:start, DateTime.current).to_datetime
+    end_time   = params.fetch(:end,   DateTime.current).to_datetime
+    events.intersects start_time, end_time
   end
 
   def event_default_start_time

@@ -1,4 +1,4 @@
-json.array! events do |event|
+json.array! events_in_range do |event|
   json.id    event.id
   json.title event.name
   json.start event.start_time

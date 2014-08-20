@@ -6,8 +6,8 @@ class Event < ActiveRecord::Base
 
   scope :starts_before, ->(time) { where { start_time < time }}
   scope :starts_after,  ->(time) { where { start_time >= time }}
-  scope :ends_before,   ->(time) { where { end_time >= time }}
-  scope :ends_after,    ->(time) { where { end_time < time }}
+  scope :ends_before,   ->(time) { where { end_time <= time }}
+  scope :ends_after,    ->(time) { where { end_time > time }}
 
   scope :intersects, ->(t1, t2) { ends_after(t1).starts_before(t2) }
 
