@@ -4,14 +4,17 @@
   .form-inputs
     .row
       .col-xs-12.col-sm-6
-        = f.input :name
-      .col-xs-6.col-sm-3
+        = f.association :trip, collection: Trip.alphabetical
+      .col-xs-8.col-sm-4
         = f.input :start_time
-      .col-xs-6.col-sm-3
+      .col-xs-4.col-sm-2
         = f.input :duration, as: :numeric
     .row
-      .col-sm-12
+      .col-sm-6
+        = f.input :name
+      .col-sm-6
         = f.input :description
 
   %p.form-actions
     = f.button :submit
+    = link_to t(:back), :back, class: 'btn btn-default'

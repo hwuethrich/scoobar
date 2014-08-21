@@ -83,3 +83,9 @@ gem 'bootstrap3-datetimepicker-rails', '~> 3.1.1'
 gem 'puma'
 
 gem 'i18n-js'
+
+gem 'pry-rails', group: :development
+
+gem 'rspec-rails', '~> 3.0.0', group: :testing
+
+# gem 'bootstrap-colorpicker-rails'

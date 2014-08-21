@@ -7,7 +7,7 @@
 
     count.times do |i|
       print '.'
-      model.create! block.call
+      model.create! block.call(i)
     end
 
     puts ' DONE'
@@ -50,14 +50,37 @@
 
   desc 'Generate fake events'
   task :events do
+    trips = [] + Trip.all
+
     generate Event do
       start_time = (-10 + rand(20)).days.from_now.to_date + 8.hours + (rand(4) * 2).hours
 
+      trip = trips.sample
+
       {
-        name:          Faker::Company.catch_phrase,
+        name:          trip ? nil : Faker::Company.catch_phrase,
         start_time:    start_time,
         duration:      30 + 15 * rand(6),
-        description:   Faker::Lorem.paragraphs(rand(2)).join("\n\n")
+        description:   Faker::Lorem.paragraphs(rand(2)).join("\n\n"),
+        trip:          trips.sample
+      }
+    end
+  end
+
+  desc 'Generate fake trips'
+  task :trips do
+
+    COLORS = ['#428bca', '#5cb85c', '#5bc0de', '#f0ad4e', '#d9534f']
+
+    def random_color
+      COLORS.sample
+    end
+
+    generate Trip do |i|
+      {
+        code: 'T%0d' % (i+1),
+        name: 'Trip %0d' % (i+1),
+        color: random_color
       }
     end
   end

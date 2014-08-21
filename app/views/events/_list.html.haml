@@ -1,7 +1,11 @@
 .event-list
-  .panel-group{:id => id}
-    - events.group_by(&:start_time).each do |start_time, events_by_time|
-      %h5
-        %i.fa.fa-clock-o
-        = l start_time, format: '%H:%M'
-      = render partial: 'panel', collection: events_by_time, as: :event, locals: { collapse_parent: '#%s' % id }
+  - if events.any?
+    .panel-group{:id => id}
+      - events.group_by(&:start_time).each do |start_time, events_by_time|
+        %h5
+          %i.fa.fa-clock-o
+          = l start_time, format: '%H:%M'
+        = render partial: 'panel', collection: events_by_time, as: :event, locals: { collapse_parent: '#%s' % id }
+  - else
+    .text-placeholder
+      No events planned for this time.

@@ -1,0 +1,18 @@
+= simple_form_for(trip) do |f|
+  = f.error_notification
+
+  .form-inputs
+    .row
+      .col-sm-2
+        = f.input :code, maxlength: true
+      .col-sm-2
+        = f.input :color, as: :color_picker
+      .col-sm-8
+        = f.input :name
+    .row
+      .col-sm-4
+        = f.input :duration, min_max: true
+
+  %p.form-actions
+    = f.button :submit
+    = link_to t(:back), :back, class: 'btn btn-default'

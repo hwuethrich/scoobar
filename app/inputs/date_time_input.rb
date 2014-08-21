@@ -1,5 +1,4 @@
 class DateTimeInput < SimpleForm::Inputs::StringInput
-
   def input(wrapper_options = nil)
     format = input_html_options.delete('format') { :default }
 

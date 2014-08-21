@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140817034930) do
+ActiveRecord::Schema.define(version: 20140820081457) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20140817034930) do
     t.integer  "gender",               null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "email"
+    t.string   "email",                null: false
     t.string   "phone_number"
     t.string   "address1"
     t.string   "address2"
@@ -45,9 +45,20 @@ ActiveRecord::Schema.define(version: 20140817034930) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "trip_id"
   end
 
   add_index "events", ["end_time"], name: "index_events_on_end_time", using: :btree
   add_index "events", ["start_time"], name: "index_events_on_start_time", using: :btree
+  add_index "events", ["trip_id"], name: "index_events_on_trip_id", using: :btree
+
+  create_table "trips", force: true do |t|
+    t.string   "code",       null: false
+    t.string   "name",       null: false
+    t.integer  "duration"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "color"
+  end
 
 end

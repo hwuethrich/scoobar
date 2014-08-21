@@ -1,7 +1,7 @@
 json.array! events_in_range do |event|
   json.id    event.id
-  json.title event.name
+  json.title [event.trip_code, event.name].compact.join(' | ')
   json.start event.start_time
   json.end   event.end_time
-  json.color '#428bca'
+  json.color event.color
 end

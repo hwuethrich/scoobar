@@ -12,7 +12,7 @@ class EventsController < ApplicationController
 
   def new
     event.attributes = event_params if params[:event]
-    event.start_time ||= DateTime.now.change(min: 0)
+    event.start_time ||= event_default_start_time
     event.duration   ||= 60
   end
 
@@ -47,7 +47,7 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:name, :start_time, :end_time, :duration, :description)
+    params.require(:event).permit(:name, :start_time, :end_time, :duration, :description, :trip_id)
   end
 
   def events_in_range

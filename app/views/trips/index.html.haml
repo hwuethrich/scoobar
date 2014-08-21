@@ -1,0 +1,28 @@
+.page-header
+  .pull-right
+    = link_to new_trip_path, class: 'btn btn-success' do
+      %i.fa.fa-plus-circle
+      = t '.add_trip'
+
+  %h2
+    %i.fa.fa-compass
+    = t '.title'
+
+%table.table.table-striped
+  %tbody
+    - trips.each do |trip|
+      %tr
+        %td.text-right
+          - if trip.code.present?
+            .label.label-default{ :style => 'background-color: %s;' % trip.color }<
+              = trip.code
+        %td(style='width:100%;')
+          = link_to edit_trip_path(trip) do
+            = trip.name
+        %td
+          = trip.duration
+        %td
+
+          = link_to 'Destroy', trip, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br

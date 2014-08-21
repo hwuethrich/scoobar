@@ -2,6 +2,10 @@ class Event < ActiveRecord::Base
 
   include TruncateSeconds
 
+  DEFAULT_COLOR = '#999'
+
+  belongs_to :trip
+
   scope :chronological, -> { order :start_time, :end_time }
 
   scope :starts_before, ->(time) { where { start_time < time }}
@@ -20,6 +24,12 @@ class Event < ActiveRecord::Base
 
   truncate_seconds_from :start_time, :end_time
 
+  delegate :code, to: :trip, prefix: true, allow_nil: true
+
+  def name
+    name? ? super : trip.try(:name)
+  end
+
   def duration
     ((end_time - start_time) / 60).to_i if start_time.present? && end_time.present?
   end
@@ -34,6 +44,10 @@ class Event < ActiveRecord::Base
 
   def past?
     end_time.past?
+  end
+
+  def color
+    trip.try(:color) || DEFAULT_COLOR
   end
 
 end

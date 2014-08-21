@@ -21,5 +21,6 @@
 #= require locale
 #= require bootstrap-sprockets
 #= require bootstrap-datetimepicker
+#= require bootstrap-colorpicker
 #= require fullcalendar
 #= require_tree .

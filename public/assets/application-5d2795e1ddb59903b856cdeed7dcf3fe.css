@@ -13,6 +13,11 @@
 
  */
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800);
+/* line 21, /Users/hannes/Projects/scubar/app/assets/stylesheets/application.css.scss */
+body {
+  font-weight: 200;
+}
+
 /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
 /* line 9, /Users/hannes/.rbenv/versions/2.1.0-rc1/lib/ruby/gems/2.1.0/gems/bootstrap-sass-3.2.0.1/assets/stylesheets/bootstrap/_normalize.scss */
 html {
@@ -11810,6 +11815,16 @@ be a descendant of the grid when it is being dragged.
   color: white;
 }
 
+/* line 14, /Users/hannes/Projects/scubar/app/assets/stylesheets/fullcalendar-theme.css.scss */
+.fc .fc-content {
+  padding: 2px;
+}
+
+/* line 18, /Users/hannes/Projects/scubar/app/assets/stylesheets/fullcalendar-theme.css.scss */
+.fc .fc-view-container {
+  background-color: white;
+}
+
 /* line 4, /Users/hannes/Projects/scubar/app/assets/stylesheets/utils.css.scss */
 .reset-box-sizing,
 .reset-box-sizing *,
@@ -11819,50 +11834,71 @@ be a descendant of the grid when it is being dragged.
   box-sizing: content-box;
 }
 
-/* line 40, /Users/hannes/Projects/scubar/app/assets/stylesheets/application.css.scss */
+/* line 41, /Users/hannes/Projects/scubar/app/assets/stylesheets/application.css.scss */
 body {
   margin: 70px 0;
 }
 
-/* line 44, /Users/hannes/Projects/scubar/app/assets/stylesheets/application.css.scss */
+/* line 46, /Users/hannes/Projects/scubar/app/assets/stylesheets/application.css.scss */
 .page-header {
   margin-top: 20px;
 }
 
-/* line 47, /Users/hannes/Projects/scubar/app/assets/stylesheets/application.css.scss */
+/* line 49, /Users/hannes/Projects/scubar/app/assets/stylesheets/application.css.scss */
 #customer-header {
   margin-bottom: 1em;
 }
 
-/* line 51, /Users/hannes/Projects/scubar/app/assets/stylesheets/application.css.scss */
+/* line 53, /Users/hannes/Projects/scubar/app/assets/stylesheets/application.css.scss */
 #customer-header th {
   width: 140px;
   color: #777777;
 }
 
-/* line 57, /Users/hannes/Projects/scubar/app/assets/stylesheets/application.css.scss */
+/* line 59, /Users/hannes/Projects/scubar/app/assets/stylesheets/application.css.scss */
 #customer-form .tab-pane {
   margin-top: 1em;
 }
 
-/* line 61, /Users/hannes/Projects/scubar/app/assets/stylesheets/application.css.scss */
+/* line 63, /Users/hannes/Projects/scubar/app/assets/stylesheets/application.css.scss */
 #quick-links .btn {
   padding: 30px 10px;
   margin-bottom: 10px;
 }
 
-/* line 67, /Users/hannes/Projects/scubar/app/assets/stylesheets/application.css.scss */
-.btn-faded-zone .btn-faded {
-  opacity: 0.2;
-  filter: alpha(opacity=20);
-}
-/* line 68, /Users/hannes/Projects/scubar/app/assets/stylesheets/application.css.scss */
-.btn-faded-zone:hover .btn-faded {
-  opacity: 1;
-  filter: alpha(opacity=100);
+/* line 69, /Users/hannes/Projects/scubar/app/assets/stylesheets/application.css.scss */
+tr.table-divider > th {
+  background-color: white !important;
+  color: #808080;
+  font-size: 85%;
 }
 
-/* line 71, /Users/hannes/Projects/scubar/app/assets/stylesheets/application.css.scss */
-.panel-heading {
-  padding-right: 8px;
+/* line 77, /Users/hannes/Projects/scubar/app/assets/stylesheets/application.css.scss */
+table.table {
+  background-color: white;
+}
+
+/* line 81, /Users/hannes/Projects/scubar/app/assets/stylesheets/application.css.scss */
+.text-placeholder {
+  color: #777777;
+  text-align: center;
+  margin: 15px 15px 20px 15px;
+}
+
+/* line 88, /Users/hannes/Projects/scubar/app/assets/stylesheets/application.css.scss */
+.events-table .event-code {
+  font-size: 1.5432em;
+  vertical-align: middle;
+  text-align: center;
+  font-weight: 400;
+}
+
+/* line 95, /Users/hannes/Projects/scubar/app/assets/stylesheets/application.css.scss */
+.events-table .event-details {
+  width: 100%;
+}
+
+/* line 100, /Users/hannes/Projects/scubar/app/assets/stylesheets/application.css.scss */
+a:hover {
+  text-decoration: none;
 }

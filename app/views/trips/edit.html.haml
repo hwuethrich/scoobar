@@ -1,0 +1,10 @@
+.page-header
+  %h2
+    %span.label.label-default{ :style => 'background-color: %s;' % trip.color }<
+      = trip.code
+    = trip.name
+    %small
+      %i.fa.fa-pencil
+      = t '.title'
+
+= render 'form'

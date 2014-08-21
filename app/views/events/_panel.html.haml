@@ -1,16 +1,14 @@
 .panel.panel{class: event.current? ? 'panel-info' : 'panel-default'}
   .panel-heading
     .pull-right
-      .label.label-info<
-        SW
+      - if event.trip_code.present?
+        .label.label-info{ :style => 'background-color: %s;' % event.color }<
+          = event.trip_code
     = link_to ('#event-panel-%d' % event.id), data: { toggle: 'collapse', parent: collapse_parent } do
       = event.name
       %span.caret
     %br
     %small.text-muted
-      %i.fa.fa-map-marker
-      BL
-      = ' | '
       %i.fa.fa-anchor
       B1
       = ' | '
@@ -21,8 +19,13 @@
       - capacity = 5 + rand(5)
       - booked = capacity - rand(5)
       = '%d/%d' % [booked, capacity]
+      = ' | '
+      %i.fa.fa-star
+      LIZ
   .panel-collapse.collapse{:id => 'event-panel-%d' % event.id}
     .panel-body
       %p= event.description
     .panel-footer
-      Blah blah
+      = link_to [:edit, event], class: 'btn btn-default btn-sm' do
+        %i.fa.fa-pencil
+        Edit
