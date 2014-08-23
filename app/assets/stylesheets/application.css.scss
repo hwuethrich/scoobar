@@ -77,14 +77,23 @@ tr.table-divider > th {
   // border-top: 4px solid #D5D5D5 !important;
 }
 
-table.table {
-  background-color: white;
+table .thumbnail-column {
+  width: 60px;
 }
+
+// Placeholder
 
 .text-placeholder {
   color: $gray-light;
   text-align: center;
   margin: 15px 15px 20px 15px;
+}
+
+.panel-placeholder {
+  color: $gray-light;
+  border: 2px dashed $gray-lighter;
+  text-align: center;
+  box-shadow: none;
 }
 
 // Events

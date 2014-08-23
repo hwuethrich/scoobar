@@ -9,27 +9,7 @@
     %i.fa.fa-users
     = t '.title'
 
-%form
-  .form-group
-    = text_field_tag :query, '', class: 'form-control input-lg', placeholder: 'Search customer'
-
-
-%table.table.table-striped
-  %tr
-    %th Name
-    %th Date of birth
-    %th Registered at
-    %th
-
-  - customers.each do |customer|
-    %tr
-      %td= customer.full_name
-      %td= customer.date_of_birth
-      %td= customer.created_at
-      %td
-        = link_to 'Show', customer
-        = link_to 'Edit', edit_customer_path(customer)
-        = link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' }
-
-.pull-right
-  = paginate customers
+#customers-search
+  = render 'search'
+#customers-results
+  = render 'results'

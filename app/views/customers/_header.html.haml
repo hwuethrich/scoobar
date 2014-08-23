@@ -16,7 +16,7 @@
 
   .row
     .col-xs-6.col-xs-offset-3.col-sm-4.col-sm-offset-0.col-md-2
-      %p= image_tag 'portrait.jpg', class: 'img-thumbnail img-responsive'
+      %p= image_tag customer.portrait_url, class: 'img-thumbnail img-responsive'
 
     .col-xs-12.col-sm-8.col-md-5
       %table.table
@@ -49,7 +49,7 @@
         %tbody
           %tr
             %th E-Mail
-            %td= customer.email
+            %td= link_to customer.email, 'mailto:%s' % customer.email
           %tr
             %th Phone
             %td= customer.phone_number

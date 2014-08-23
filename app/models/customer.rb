@@ -6,18 +6,28 @@ class Customer < ActiveRecord::Base
   validates :email, presence: true, format: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
   validates :date_of_birth, presence: true, date: { on_or_before: -> { Date.today } }
 
-
   validates :certification_date, :last_dive_on, date: { before_or_equal_to: Proc.new { Date.today }}, allow_nil: true
   validates :number_of_dives, numericality: { greater_than_or_equal_to: 0 }, allow_nil: true
 
   scope :alphabetical, -> { order :last_name, :first_name }
+  scope :search, ->(query) { where { (first_name =~ ('%s%' % query)) | (last_name =~ ('%s%' % query))} }
 
   def full_name
     [first_name, last_name].join ' '
   end
 
   def age
-    Date.today.year - date_of_birth.year if date_of_birth.present?
+    now = Time.now.utc.to_date
+    dob = self.date_of_birth
+    now.year - dob.year - ((now.month > dob.month || (now.month == dob.month && now.day >= dob.day)) ? 0 : 1)
+  end
+
+  def portrait_url
+    if first_name == 'Hannes'
+      'portrait.jpg'
+    else
+      'portraits/%d.jpg' % (rand(17)+1)
+    end
   end
 
 end

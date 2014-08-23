@@ -2,8 +2,23 @@ class CustomersController < ApplicationController
 
   active_navbar_item :customers
 
-  expose(:customers) { Customer.alphabetical.page params[:page] }
+  expose(:customers) do
+    customers = Customer.alphabetical
+    customers = customers.search(search_query) if search_query.present?
+    customers.page params[:page]
+  end
+
   expose(:customer, attributes: :customer_params)
+
+  expose(:search_query) { params[:search] }
+
+  def index
+    if request.xhr?
+      render partial: 'results'
+    else
+      render :index
+    end
+  end
 
   def create
     if customer.save

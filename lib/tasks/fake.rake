@@ -13,6 +13,10 @@
     puts ' DONE'
   end
 
+  def random_certification_name
+    ['PADI OW', 'PADI AOW', 'PADI RD'].sample
+  end
+
   desc 'Generate fake customers'
   task :customers do
 
@@ -43,7 +47,13 @@
         city:          Faker::Address.city,
         state:         Faker::Address.state,
         post_code:     Faker::Address.postcode,
-        country:       countries[Faker::Config.locale]
+        country:       countries[Faker::Config.locale],
+
+        # Certification
+        certification_name: random_certification_name,
+        certification_date: rand(300).days.ago,
+        last_dive_on:       rand(300).days.ago,
+        number_of_dives:    rand(100),
       }
     end
   end

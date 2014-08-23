@@ -1,0 +1,44 @@
+.customers-results
+  - if customers.any?
+    .pager
+      .btn-group.pull-left
+        = link_to url_for(params.merge(page: 1)), class: 'btn btn-default', disabled: customers.first_page? do
+          %i.fa.fa-angle-double-left.fa-fw
+        = link_to url_for(params.merge(page: customers.prev_page)), class: 'btn btn-default', disabled: customers.first_page? do
+          %i.fa.fa-angle-left.fa-fw
+
+      .btn-group.pull-right
+        = link_to url_for(params.merge(page: customers.next_page)), class: 'btn btn-default', disabled: customers.last_page? do
+          %i.fa.fa-angle-right.fa-fw
+        = link_to url_for(params.merge(page: customers.total_pages)), class: 'btn btn-default', disabled: customers.last_page? do
+          %i.fa.fa-angle-double-right.fa-fw
+
+      %h5.text-muted= page_entries_info customers
+
+    .row
+      - customers.each do |customer|
+        .col-xs-12.col-sm-6.col-md-4.col-lg-3
+          .panel.panel-default
+            .panel-heading
+              .media
+                = link_to customer, class: 'pull-left' do
+                  = image_tag customer.portrait_url, class: 'media-object', width: '42px'
+                = link_to customer.full_name, customer
+                %br
+                %small.text-muted
+                  = customer.certification_name
+                  = ' | '
+                  = '%d dives' % (customer.number_of_dives || 0)
+
+            -# %table.table
+            -#   %tr
+            -#     %th Last dive
+            -#     %td= l customer.last_dive_on
+            -#   %tr
+            -#     %th # dives
+            -#     %td= customer.number_of_dives
+
+  - else
+    .panel.panel-placeholder
+      .panel-body
+        No customers found
