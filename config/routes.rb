@@ -4,9 +4,14 @@ Rails.application.routes.draw do
 
   resources :events do
     get 'calendar', on: :collection
+    resources :bookings, module: :events
   end
 
   resources :customers
+
+  namespace :autocomplete do
+    resources :customers, only: [:index, :show]
+  end
 
   root 'home#index'
 

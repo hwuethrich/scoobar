@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Event:
+  = @booking.event
+%p
+  %b Customer:
+  = @booking.customer
+
+= link_to 'Edit', edit_booking_path(@booking)
+\|
+= link_to 'Back', [event, :bookings]

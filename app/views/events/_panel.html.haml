@@ -1,6 +1,10 @@
 .panel.panel{class: event.current? ? 'panel-info' : 'panel-default'}
   .panel-heading
     .pull-right
+      - if event.fully_booked?
+        .label.label-danger<
+          FULL
+
       - if event.trip_code.present?
         .label.label-info{ :style => 'background-color: %s;' % event.color }<
           = event.trip_code
@@ -16,15 +20,20 @@
       = l event.end_time, format: '%H:%M'
       = ' | '
       %i.fa.fa-user
-      - capacity = 5 + rand(5)
-      - booked = capacity - rand(5)
-      = '%d/%d' % [booked, capacity]
+      = '%d/%d' % [event.number_of_bookings, event.capacity]
       = ' | '
       %i.fa.fa-star
       LIZ
   .panel-collapse.collapse{:id => 'event-panel-%d' % event.id}
     .panel-body
-      %p= event.description
+      .row
+        .col-sm-6
+          %table.table
+            - event.bookings.each do |booking|
+              - customer = booking.customer
+              %tr
+                %td= link_to customer.full_name, [event, booking]
+
     .panel-footer
       = link_to [:edit, event], class: 'btn btn-default btn-sm' do
         %i.fa.fa-pencil

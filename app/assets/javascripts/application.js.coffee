@@ -23,4 +23,5 @@
 #= require bootstrap-datetimepicker
 #= require bootstrap-colorpicker
 #= require fullcalendar
+#= require select2
 #= require_tree .

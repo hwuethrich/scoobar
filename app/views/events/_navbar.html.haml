@@ -1,0 +1,9 @@
+%ul#event-nav.nav.nav-tabs
+  %li{:class => (current_nav == :edit ? 'active' : '')}
+    = link_to [:edit, event] do
+      %i.fa.fa-pencil
+      Edit
+
+  %li{:class => (current_nav == :bookings ? 'active' : '')}
+    = link_to [event, :bookings] do
+      Bookings

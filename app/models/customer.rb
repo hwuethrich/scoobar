@@ -26,8 +26,12 @@ class Customer < ActiveRecord::Base
     if first_name == 'Hannes'
       'portrait.jpg'
     else
-      'portraits/%d.jpg' % (rand(17)+1)
+      'portraits/%d.jpg' % ((id % 17) + 1)
     end
+  end
+
+  def to_s
+    full_name
   end
 
 end

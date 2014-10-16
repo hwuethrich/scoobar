@@ -1,0 +1,6 @@
+.page-header
+  %h2
+    = event.name
+    %small= l event.start_time, format: :short
+
+= render 'events/navbar', current_nav: current_nav

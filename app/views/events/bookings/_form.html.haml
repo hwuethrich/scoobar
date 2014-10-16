@@ -1,0 +1,8 @@
+= simple_form_for([event, booking]) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.association :customer, as: :customer
+
+  %p.form-actions
+    = f.button :submit

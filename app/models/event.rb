@@ -4,7 +4,14 @@ class Event < ActiveRecord::Base
 
   DEFAULT_COLOR = '#999'
 
+  # ASSOCIATIONS
+
   belongs_to :trip
+
+  has_many :bookings
+  has_many :customers, through: :bookings
+
+  # SCOPES
 
   scope :chronological, -> { order :start_time, :end_time }
 
@@ -19,12 +26,18 @@ class Event < ActiveRecord::Base
   scope :starts_in_morning_of, ->(date) { starts_between(date.beginning_of_day, date.midday) }
   scope :starts_in_afternoon_of, ->(date) { starts_between(date.midday, date.end_of_day) }
 
+  # VALIDATIONS
+
   validates :start_time, date: true, presence: true
   validates :duration, presence: true, numericality: { greater_than: 0 }
 
-  truncate_seconds_from :start_time, :end_time
+  # DELEGATES
 
   delegate :code, to: :trip, prefix: true, allow_nil: true
+
+  # MISC
+
+  truncate_seconds_from :start_time, :end_time
 
   def name
     name? ? super : trip.try(:name)
@@ -48,6 +61,22 @@ class Event < ActiveRecord::Base
 
   def color
     trip.try(:color) || DEFAULT_COLOR
+  end
+
+  def capacity
+    6
+  end
+
+  def number_of_bookings
+    bookings.count
+  end
+
+  def fully_booked?
+    number_of_bookings >= capacity
+  end
+
+  def to_s
+    '%s - %s' % [I18n.l(start_time, format: :short), name]
   end
 
 end

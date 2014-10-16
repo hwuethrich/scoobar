@@ -4,7 +4,7 @@ class EventsController < ApplicationController
 
   respond_to :html, :json
 
-  expose(:events) { Event.chronological }
+  expose(:events) { Event.chronological.includes :trip }
   expose(:events_in_range) { events_in_range }
   expose(:event, attributes: :event_params)
 

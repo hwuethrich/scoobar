@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140820081457) do
+ActiveRecord::Schema.define(version: 20140823012233) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookings", force: true do |t|
+    t.integer  "event_id",    null: false
+    t.integer  "customer_id", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "bookings", ["customer_id"], name: "index_bookings_on_customer_id", using: :btree
+  add_index "bookings", ["event_id", "customer_id"], name: "index_bookings_on_event_id_and_customer_id", unique: true, using: :btree
+  add_index "bookings", ["event_id"], name: "index_bookings_on_event_id", using: :btree
 
   create_table "customers", force: true do |t|
     t.string   "first_name",           null: false
@@ -60,5 +71,10 @@ ActiveRecord::Schema.define(version: 20140820081457) do
     t.datetime "updated_at"
     t.string   "color"
   end
+
+  add_foreign_key "bookings", "customers", name: "bookings_customer_id_fk"
+  add_foreign_key "bookings", "events", name: "bookings_event_id_fk"
+
+  add_foreign_key "events", "trips", name: "events_trip_id_fk"
 
 end

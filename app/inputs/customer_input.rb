@@ -1,0 +1,3 @@
+class CustomerInput < AutocompleteInput
+
+end
