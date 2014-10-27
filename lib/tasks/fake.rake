@@ -18,7 +18,7 @@
   end
 
   desc 'Generate fake customers'
-  task :customers do
+  task :customers => :environment do
 
     countries = {
       'de'    => 'Germany',
@@ -59,7 +59,7 @@
   end
 
   desc 'Generate fake events'
-  task :events do
+  task :events => :environment do
     trips = [] + Trip.all
 
     generate Event do
@@ -78,7 +78,7 @@
   end
 
   desc 'Generate fake trips'
-  task :trips do
+  task :trips => :environment do
 
     COLORS = ['#428bca', '#5cb85c', '#5bc0de', '#f0ad4e', '#d9534f']
 
