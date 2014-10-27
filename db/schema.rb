@@ -72,7 +72,7 @@ ActiveRecord::Schema.define(version: 20140823012233) do
     t.string   "color"
   end
 
-  add_foreign_key "bookings", "customers", name: "bookings_customer_id_fk"
-  add_foreign_key "bookings", "events", name: "bookings_event_id_fk"
-  add_foreign_key "events", "trips", name: "events_trip_id_fk"
+  add_foreign_key "bookings", "customers"
+  add_foreign_key "bookings", "events"
+  add_foreign_key "events", "trips"
 end
