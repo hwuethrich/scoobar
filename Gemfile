@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+ruby '2.1.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0.beta2'
@@ -103,3 +104,6 @@ gem 'pry-rails', group: :development
 gem 'responders', '~> 2.0.1'
 
 gem 'select2-rails'
+
+# Heroku/Dokku deployments
+gem 'rails_12factor', group: :production
