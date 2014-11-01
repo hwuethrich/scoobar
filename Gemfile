@@ -3,9 +3,9 @@ source 'https://rubygems.org'
 ruby '2.1.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.0.beta2'
+gem 'rails', '4.2.0.beta3'
 
-gem 'arel', git: 'https://github.com/rails/arel.git'
+gem 'arel', '6.0.0.beta2'
 
 # Use postgresql as the database for Active Record
 gem 'pg'
@@ -15,6 +15,7 @@ gem 'sass-rails', '~> 5.0.0.beta1'
 
 # Twitter Bootstrap
 gem 'bootstrap-sass', '~> 3.2.0'
+gem 'bootswatch-rails'
 
 # CSS vendor prefixes
 gem 'autoprefixer-rails'
@@ -87,6 +88,7 @@ gem 'kaminari'
 
 gem 'squeel'
 
+gem 'fullcalendar-rails'
 gem 'momentjs-rails', '>= 2.8.1'
 gem 'bootstrap3-datetimepicker-rails', '~> 3.1.1'
 

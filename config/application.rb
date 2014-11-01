@@ -27,14 +27,26 @@ module Scoobar
     # config.i18n.available_locales = [:en, :de, :fr]
     config.i18n.default_locale = :en
 
+    # Do not swallow errors in after_commit/after_rollback callbacks.
+    config.active_record.raise_in_transactional_callbacks = true
+
+    # Generator configuration
     config.generators do |g|
+
+      # Use rspec for testing
       g.test_framework :rspec, fixture: false
       g.integration_tool :rspec
       g.performance_tool :rspec
 
-      g.assets          false
-      g.jbuilder        false
-      g.helper          false
+      # Skip assets
+      g.assets false
+
+      # Skip jbuilder
+      g.jbuilder false
+
+      # Skip helpers
+      g.helper false
     end
+
   end
 end
