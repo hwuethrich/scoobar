@@ -28,7 +28,7 @@
 .row
   .col-sm-6
     %h4.page-header= t :morning
-    = render 'list', events: events.starts_in_morning_of(current_day), id: 'event-slot-morning'
+    = render 'list', events: events_in_morning, id: 'event-slot-morning'
   .col-sm-6
     %h4.page-header.text-right= t :afternoon
-    = render 'list', events: events.starts_in_afternoon_of(current_day), id: 'event-slot-afternoon'
+    = render 'list', events: events_in_afternoon, id: 'event-slot-afternoon'

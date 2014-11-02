@@ -4,9 +4,10 @@ class EventsController < ApplicationController
 
   respond_to :html, :json
 
-  expose(:events) { Event.chronological.includes :trip }
-  expose(:events_in_range) { events_in_range }
   expose(:event, attributes: :event_params)
+  expose(:events) { Event.chronological.includes(:trip).intersects(current_start_time, current_end_time) }
+  expose(:events_in_morning)   { events.select(&:starts_in_morning?)   }
+  expose(:events_in_afternoon) { events.select(&:starts_in_afternoon?) }
 
   expose(:current_day) { current_day }
 
@@ -46,14 +47,16 @@ class EventsController < ApplicationController
     Date.today
   end
 
-  def event_params
-    params.require(:event).permit(:name, :start_time, :end_time, :duration, :description, :trip_id)
+  def current_start_time
+    params.fetch(:start, current_day.beginning_of_day).to_datetime
   end
 
-  def events_in_range
-    start_time = params.fetch(:start, DateTime.current).to_datetime
-    end_time   = params.fetch(:end,   DateTime.current).to_datetime
-    events.intersects start_time, end_time
+  def current_end_time
+    params.fetch(:end, current_day.end_of_day).to_datetime
+  end
+
+  def event_params
+    params.require(:event).permit(:name, :start_time, :end_time, :duration, :description, :trip_id)
   end
 
   def event_default_start_time
