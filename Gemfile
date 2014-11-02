@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby '2.1.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.0.beta3'
+gem 'rails', '4.2.0.beta4'
 
 gem 'arel', '6.0.0.beta2'
 
@@ -12,10 +12,6 @@ gem 'pg'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0.0.beta1'
-
-# Twitter Bootstrap
-gem 'bootstrap-sass', '~> 3.2.0'
-gem 'bootswatch-rails'
 
 # CSS vendor prefixes
 gem 'autoprefixer-rails'
@@ -27,7 +23,7 @@ gem 'autoprefixer-rails'
 gem 'uglifier', '>= 1.3.0'
 
 # Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
+gem 'coffee-rails', '~> 4.1.0'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
@@ -65,10 +61,15 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  # Use rspec for testing
+  gem 'rspec-rails', '~> 3.1.0', group: :testing
+
+  # Silence assets in console log
+  gem 'quiet_assets', group: :development
 end
 
-# Silence assets in console log
-gem 'quiet_assets', group: :development
+
 
 # Use HAML
 gem 'haml-rails'
@@ -88,10 +89,6 @@ gem 'kaminari'
 
 gem 'squeel'
 
-gem 'fullcalendar-rails'
-gem 'momentjs-rails', '>= 2.8.1'
-gem 'bootstrap3-datetimepicker-rails', '~> 3.1.1'
-
 # Puma
 gem 'puma'
 
@@ -99,13 +96,27 @@ gem 'i18n-js'
 
 gem 'pry-rails', group: :development
 
-# gem 'rspec-rails', '~> 3.0.0', group: :testing
+
 
 # gem 'bootstrap-colorpicker-rails'
 
 gem 'responders', '~> 2.0.1'
 
+# Twitter Bootstrap
+gem 'bootstrap-sass', '~> 3.3.0'
+
+# Bootstrap Themes
+gem 'bootswatch-rails'
+
+# Select input replacement
 gem 'select2-rails'
+
+# FullCalendar
+gem 'fullcalendar-rails'
+gem 'momentjs-rails', '>= 2.8.1'
+
+# Date/Time picker for bootstrap
+gem 'bootstrap3-datetimepicker-rails', '~> 3.1.1'
 
 # Heroku/Dokku deployments
 gem 'rails_12factor', group: :production
