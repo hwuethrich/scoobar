@@ -1,13 +1,15 @@
 $(document).on 'ready page:change', ->
-  $('input[type=datetime]').datetimepicker
+  $('input[type=datetime]').prop('type','text').datetimepicker
     useSeconds: false
     sideBySide: false
-    icons:
-        time: "fa fa-clock-o"
-        date: "fa fa-calendar"
-        up: "fa fa-arrow-up"
-        down: "fa fa-arrow-down"
+
+  $('input[type=date]').prop('type','text').datetimepicker
+    pickTime: false
 
   $('input.datetime').on 'dp.change', (event)->
     hidden = $(event.target).next 'input[type=hidden]'
     hidden.val event.date.format 'YYYY-MM-DDTHH:mm'
+
+  $('input.date').on 'dp.change', (event)->
+    hidden = $(event.target).next 'input[type=hidden]'
+    hidden.val event.date.format 'YYYY-MM-DD'

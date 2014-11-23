@@ -8,12 +8,9 @@ RSpec.describe Customer do
 
     it 'cannot have a birthday in the future' do
       subject.date_of_birth = Date.tomorrow
-      expect(subject.valid?).to be_false
+      expect(subject.valid?).to eq(false)
     end
 
-  end
-
-  describe 'Scopes:' do
   end
 
   describe '#age' do

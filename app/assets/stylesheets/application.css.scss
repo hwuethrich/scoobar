@@ -21,7 +21,7 @@
 // body { font-weight: 200; }
 
 // Bootswatch
-@import "bootswatch/sandstone/variables";
+// @import "bootswatch/sandstone/variables";
 
 // Bootstrap
 @import "bootstrap-sprockets";
@@ -31,7 +31,7 @@
 body { padding-top: 60px; }
 
 // And finally bootswatch style itself
-@import "bootswatch/sandstone/bootswatch";
+// @import "bootswatch/sandstone/bootswatch";
 
 // Bootstrap Datepicker
 @import "bootstrap-datetimepicker";

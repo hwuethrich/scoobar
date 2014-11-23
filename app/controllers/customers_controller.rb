@@ -12,14 +12,6 @@ class CustomersController < ApplicationController
 
   expose(:search_query) { params[:search] }
 
-  def index
-    if request.xhr?
-      render partial: 'results'
-    else
-      render :index
-    end
-  end
-
   def create
     if customer.save
       redirect_to customer, notice: 'Customer created'

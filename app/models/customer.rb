@@ -22,14 +22,6 @@ class Customer < ActiveRecord::Base
     now.year - dob.year - ((now.month > dob.month || (now.month == dob.month && now.day >= dob.day)) ? 0 : 1)
   end
 
-  def portrait_url
-    if first_name == 'Hannes'
-      'portrait.jpg'
-    else
-      'portraits/%d.jpg' % ((id % 17) + 1)
-    end
-  end
-
   def to_s
     full_name
   end

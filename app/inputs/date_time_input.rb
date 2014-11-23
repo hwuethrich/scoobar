@@ -1,6 +1,6 @@
 class DateTimeInput < SimpleForm::Inputs::StringInput
   def input(wrapper_options = nil)
-    format = input_html_options.delete('format') { :default }
+    # format = input_html_options.delete('format') { :default }
 
     # Hidden field options
     hidden_html_options = input_html_options.dup
@@ -8,8 +8,8 @@ class DateTimeInput < SimpleForm::Inputs::StringInput
 
     # Text field options
     value = object.send @attribute_name if object
-    input_html_options[:value] = I18n.localize(value, format: '%m/%d/%Y %I:%M %p') if value
-    input_html_options['data-date-format'] = 'MM/DD/YYYY hh:mm A'
+    input_html_options[:value] = I18n.localize(value, format: value_format) if value
+    input_html_options['data-date-format'] = js_format
 
     # Render fields
     text_field   = super
@@ -17,4 +17,21 @@ class DateTimeInput < SimpleForm::Inputs::StringInput
 
     "#{text_field}\n#{hidden_field}\n".html_safe
   end
+
+  private
+
+  def value_format
+    case input_type
+    when :date     then '%m/%d/%Y'
+    when :datetime then '%m/%d/%Y %I:%M %p'
+    end
+  end
+
+  def js_format
+    case input_type
+    when :date     then 'MM/DD/YYYY'
+    when :datetime then 'MM/DD/YYYY hh:mm A'
+    end
+  end
+
 end
