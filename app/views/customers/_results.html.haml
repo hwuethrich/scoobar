@@ -13,19 +13,21 @@
                   = customer.first_name
 
       .pager
-        .btn-group.pull-left
-          = link_to url_for(params.merge(page: 1)), class: 'btn btn-default', disabled: customers.first_page? do
-            %i.fa.fa-angle-double-left.fa-fw
-          = link_to url_for(params.merge(page: customers.prev_page)), class: 'btn btn-default', disabled: customers.first_page? do
-            %i.fa.fa-angle-left.fa-fw
+        = if customers.total_pages > 1
+          .btn-group.pull-left
+            = link_to url_for(params.merge(page: 1)), class: 'btn btn-default', disabled: customers.first_page? do
+              %i.fa.fa-angle-double-left.fa-fw
+            = link_to url_for(params.merge(page: customers.prev_page)), class: 'btn btn-default', disabled: customers.first_page? do
+              %i.fa.fa-angle-left.fa-fw
 
-        .btn-group.pull-right
-          = link_to url_for(params.merge(page: customers.next_page)), class: 'btn btn-default', disabled: customers.last_page? do
-            %i.fa.fa-angle-right.fa-fw
-          = link_to url_for(params.merge(page: customers.total_pages)), class: 'btn btn-default', disabled: customers.last_page? do
-            %i.fa.fa-angle-double-right.fa-fw
+          .btn-group.pull-right
+            = link_to url_for(params.merge(page: customers.next_page)), class: 'btn btn-default', disabled: customers.last_page? do
+              %i.fa.fa-angle-right.fa-fw
+            = link_to url_for(params.merge(page: customers.total_pages)), class: 'btn btn-default', disabled: customers.last_page? do
+              %i.fa.fa-angle-double-right.fa-fw
 
     - else search_query.present?
-      .panel.panel-placeholder
-        .panel-body
-          No customers found
+      .alert.alert-info
+        %i.fa.fa-warning
+        No customers found for
+        %strong= search_query
