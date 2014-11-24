@@ -15,7 +15,7 @@
 
 
   .row
-    .col-xs-12.col-sm-8.col-md-5
+    .col-xs-12.col-sm-6
       %table.table
         %tbody
           %tr
@@ -35,13 +35,10 @@
               - else
                 %span.text-muted -
           %tr
-            %th Hotel
-            %td Mama's Chalet
-          %tr
             %th Room #
             %td 104
 
-    .col-xs-12.col-sm-8.col-md-5
+    .col-xs-12.col-sm-6
       %table.table
         %tbody
           %tr
@@ -58,4 +55,5 @@
               = '%s %s' % [customer.post_code, customer.city]
               %br
               = customer.country
+
 = render 'navbar'

@@ -17,11 +17,11 @@
 // @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800);
 
 // Variables
-//$font-family-sans-serif: 'Open Sans', sans-serif;
+// $font-family-sans-serif: 'Open Sans', sans-serif;
 // body { font-weight: 200; }
 
 // Bootswatch
-// @import "bootswatch/sandstone/variables";
+@import "bootswatch/sandstone/variables";
 
 // Bootstrap
 @import "bootstrap-sprockets";
@@ -31,7 +31,7 @@
 body { padding-top: 60px; }
 
 // And finally bootswatch style itself
-// @import "bootswatch/sandstone/bootswatch";
+@import "bootswatch/sandstone/bootswatch";
 
 // Bootstrap Datepicker
 @import "bootstrap-datetimepicker";
@@ -63,6 +63,10 @@ body { padding-top: 60px; }
 #customer-header th {
   width: 140px;
   color: $gray-light;
+}
+
+#customer-nav {
+  margin-bottom: 1em;
 }
 
 #customer-form {
