@@ -8,7 +8,9 @@ Rails.application.routes.draw do
     resources :bookings, module: :events
   end
 
-  resources :customers
+  resources :customers do
+    resources :bookings, module: :customers
+  end
 
   namespace :autocomplete do
     resources :customers, only: [:index, :show]

@@ -25,10 +25,11 @@
           %i.fa.fa-angle-right.fa-fw
         = link_to url_for(date: current_day + 1.week), class: 'btn btn-default' do
           %i.fa.fa-angle-double-right.fa-fw
+
+%hr
+
 .row
   .col-sm-6
-    %h4.page-header= t :morning
     = render 'list', events: events_in_morning, id: 'event-slot-morning'
   .col-sm-6
-    %h4.page-header.text-right= t :afternoon
     = render 'list', events: events_in_afternoon, id: 'event-slot-afternoon'

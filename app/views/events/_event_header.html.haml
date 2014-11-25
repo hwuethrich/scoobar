@@ -1,14 +1,12 @@
 .page-header
   .pull-right
     = link_to events_path(date: event.start_time.to_date), class: 'btn btn-default' do
-      %i.fa.fa-calendar
+      %i.fa.fa-list
       Events on
       = l(event.start_time.to_date, format: :short)
 
   %h2
-    - if event.trip_code.present?
-      .label.label-info{ :style => 'background-color: %s;' % event.color }<
-        = event.trip_code
+    %i.fa.fa-calendar
     = event.name
     %small
       = l event.start_time, format: :short

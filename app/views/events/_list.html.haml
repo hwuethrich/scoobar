@@ -1,11 +1,9 @@
 .event-list
-  - if events.any?
+  = collection_placeholder events, message: 'No events planned for this time.' do
     .panel-group{:id => id}
       - events.group_by(&:start_time).each do |start_time, events_by_time|
         %h5
           %i.fa.fa-clock-o
           = l start_time, format: '%H:%M'
         = render partial: 'panel', collection: events_by_time, as: :event, locals: { collapse_parent: '#%s' % id }
-  - else
-    = render 'common/placeholder' do
-      No events planned for this time.
+

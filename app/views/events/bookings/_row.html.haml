@@ -1,0 +1,9 @@
+%tr
+  %td
+    %i.fa.fa-user
+    = booking.customer
+    %small.text-muted= booking.customer.certification_name
+
+    .pull-right
+      = link_to 'Edit', [:edit, event, booking]
+      = link_to 'Destroy', [event, booking], :method => :delete, :data => { :confirm => 'Are you sure?' }

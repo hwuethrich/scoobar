@@ -1,7 +1,6 @@
 module Events
   class CalendarController < ApplicationController
 
-
     active_navbar_item :events
 
     expose(:events) { Event.chronological.includes(:trip).intersects(current_start_time, current_end_time) }

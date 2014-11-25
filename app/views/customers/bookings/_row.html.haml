@@ -1,0 +1,13 @@
+- event = booking.event
+- trip = booking.trip
+
+%tr
+  %td{:style => 'width: 150px'}
+    %i.fa.fa-calendar
+    = l event.start_time, format: :short
+  %td
+    - trip = booking.trip
+    - if trip.code.present?
+      .label.label-default{ :style => 'background-color: %s;' % trip.color }<
+        = trip.code
+    = trip.name
