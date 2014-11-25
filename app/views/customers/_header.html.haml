@@ -13,47 +13,4 @@
 
     %h2= customer.full_name
 
-
-  .row
-    .col-xs-12.col-sm-6
-      %table.table
-        %tbody
-          %tr
-            %th Date of birth
-            %td
-              - if customer.date_of_birth.present?
-                =l customer.date_of_birth
-                %span.text-muted= '(%d)' % customer.age
-              - else
-                %span.text-muted -
-          %tr
-            %th Gender
-            %td
-              - if customer.gender.present?
-                %i.fa{class: 'fa-%s' % customer.gender }
-                = customer.gender
-              - else
-                %span.text-muted -
-          %tr
-            %th Room #
-            %td 104
-
-    .col-xs-12.col-sm-6
-      %table.table
-        %tbody
-          %tr
-            %th E-Mail
-            %td= link_to customer.email, 'mailto:%s' % customer.email
-          %tr
-            %th Phone
-            %td= customer.phone_number
-          %tr
-            %th Address
-            %td
-              = customer.address1
-              %br
-              = '%s %s' % [customer.post_code, customer.city]
-              %br
-              = customer.country
-
 = render 'customers/navbar', current_nav: current_nav

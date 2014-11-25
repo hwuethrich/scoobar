@@ -15,7 +15,7 @@ class Customer < ActiveRecord::Base
   has_many :bookings
 
   def full_name
-    [first_name, last_name].join ' '
+    [last_name, first_name].join ', '
   end
 
   def age

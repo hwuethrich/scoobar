@@ -1,3 +1,16 @@
 = collection_placeholder bookings, message: 'This customer has no bookings yet' do
   %table.table.table-striped
-    = render partial: 'row', collection: bookings, as: :booking
+    %tbody
+      = render partial: 'row', collection: bookings, as: :booking
+    %tfooter
+      %tr
+        %td
+          %strong Total
+        %td
+          - total_events = bookings.size
+          %strong= total_events
+          = 'event'.pluralize(total_events)
+        %td
+          - nightdives = bookings.joins{event}.where{event.nightdive == true}.size
+          %strong= nightdives
+          = 'nightdive'.pluralize(nightdives)

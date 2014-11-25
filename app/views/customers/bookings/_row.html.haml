@@ -11,3 +11,8 @@
       .label.label-default{ :style => 'background-color: %s;' % trip.color }<
         = trip.code
     = trip.name
+  %td
+    - if event.nightdive?
+      %small.text-muted<
+        %i.fa.fa-moon-o
+        nightdive

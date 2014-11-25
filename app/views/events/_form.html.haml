@@ -3,16 +3,18 @@
 
   .form-inputs
     .row
-      .col-xs-12.col-sm-6
+      .col-xs-12.col-sm-4
         = f.association :trip, collection: Trip.alphabetical
-      .col-xs-8.col-sm-4
+      .col-sm-6
+        = f.input :name
+      .col-sm-2
+        = f.input :nightdive, as: :select, include_blank: false
+    .row
+      .col-xs-8.col-sm-2
         = f.input :start_time
       .col-xs-4.col-sm-2
         = f.input :duration, as: :numeric
-    .row
-      .col-sm-6
-        = f.input :name
-      .col-sm-6
+      .col-sm-8
         = f.input :description
 
   %p.form-actions

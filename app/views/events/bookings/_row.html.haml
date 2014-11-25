@@ -1,7 +1,7 @@
 %tr
   %td
     %i.fa.fa-user
-    = booking.customer
+    = link_to booking.customer.full_name, booking.customer
     %small.text-muted= booking.customer.certification_name
 
     .pull-right

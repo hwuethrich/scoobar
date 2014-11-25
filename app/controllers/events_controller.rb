@@ -18,20 +18,17 @@ class EventsController < ApplicationController
   end
 
   def create
-    respond_to do |format|
-      if event.save
-        format.html { redirect_to event, notice: 'Event created' }
-        format.json { render :event }
-      else
-        render :new
-      end
+    if event.save
+      redirect_to [:edit, event], notice: 'Event created'
+    else
+      render :new
     end
   end
 
   def update
     respond_to do |format|
       if event.save
-        format.html { redirect_to event, notice: 'Event updated' }
+        format.html { redirect_to [:edit, event], notice: 'Event updated' }
         format.json { render json: event }
       else
         render :edit
@@ -56,7 +53,7 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:name, :start_time, :end_time, :duration, :description, :trip_id)
+    params.require(:event).permit(:name, :start_time, :end_time, :duration, :description, :trip_id, :nightdive)
   end
 
   def event_default_start_time

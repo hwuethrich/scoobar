@@ -23,6 +23,10 @@
       = ' | '
       %i.fa.fa-star
       LIZ
+      - if event.nightdive?
+        = ' | '
+        %i.fa.fa-moon-o
+        Nightdive
   .panel-collapse.collapse{:id => 'event-panel-%d' % event.id}
     .panel-body
 

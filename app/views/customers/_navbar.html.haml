@@ -2,7 +2,7 @@
 
 %ul#customer-nav.nav.nav-tabs
   %li{:class => (current_nav == :overview ? 'active' : '')}
-    = link_to 'Overview', '#'
+    = link_to 'Overview', customer
 
   %li{:class => (current_nav == :bookings ? 'active' : '')}
     = link_to 'Bookings', [customer, :bookings]

@@ -7,6 +7,8 @@ class Booking < ActiveRecord::Base
 
   delegate :trip, to: :event
 
+  scope :chronological, -> { joins{event}.merge(Event.chronological) }
+
   def date
     event.start_time.to_date
   end

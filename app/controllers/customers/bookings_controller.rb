@@ -4,7 +4,7 @@ module Customers
     active_navbar_item :customers
 
     expose(:customer)
-    expose(:bookings) { customer.bookings.includes{event.trip} }
+    expose(:bookings) { customer.bookings.includes{event.trip}.chronological }
 
   end
 end
