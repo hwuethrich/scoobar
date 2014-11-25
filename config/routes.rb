@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   resources :trips
+  resources :boats
 
   get 'events/calendar', to: 'events/calendar#show', as: 'events_calendar'
 

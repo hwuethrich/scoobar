@@ -1,0 +1,8 @@
+en:
+  boats:
+    index:
+      title: Boats
+    edit:
+      title: Edit
+    new:
+      title: Add boat

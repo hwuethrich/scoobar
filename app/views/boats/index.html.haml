@@ -1,0 +1,26 @@
+.page-header
+  .pull-right
+    = link_to new_boat_path, class: 'btn btn-success' do
+      %i.fa.fa-plus-circle
+      = t '.add_boat'
+
+  %h2
+    %i.fa.fa-anchor
+    = t '.title'
+
+%table.table.table-striped
+  %tbody
+    - boats.each do |boat|
+      %tr
+        %td.text-right
+          - if boat.code.present?
+            .label.label-default<
+              = boat.code
+        %td(style='width:100%;')
+          = link_to edit_boat_path(boat) do
+            = boat.name
+        %td
+
+          = link_to 'Destroy', boat, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
