@@ -2,7 +2,7 @@
   = f.error_notification
 
   .form-inputs
-    = f.association :customer, as: :customer
+    = f.association :customer, as: :customer, readonly: booking.persisted?
 
   %p.form-actions
     = f.button :submit

@@ -7,6 +7,5 @@
           = l start_time, format: '%H:%M'
         = render partial: 'panel', collection: events_by_time, as: :event, locals: { collapse_parent: '#%s' % id }
   - else
-    .panel.panel-placeholder
-      .panel-body
-        No events planned for this time.
+    = render 'common/placeholder' do
+      No events planned for this time.

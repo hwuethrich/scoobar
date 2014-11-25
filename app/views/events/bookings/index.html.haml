@@ -1,24 +1,20 @@
 %p= render 'events/event_header', current_nav: :bookings
 
 .row
-  .col-sm-6
-    %h4.page-header Existing bookings
-
-    - if bookings.any?
+  .col-sm-8
+    = collection_placeholder bookings, message: 'No bookings for this event yet' do
       %table.table.table-striped
         - bookings.each do |booking|
           %tr
             %td
+              %i.fa.fa-user
               = booking.customer
-            %td
-              = link_to 'Show', [event, booking]
-              = link_to 'Edit', [:edit, event, booking]
-              = link_to 'Destroy', [event, booking], :method => :delete, :data => { :confirm => 'Are you sure?' }
-    - else
-      .panel.panel-placeholder
-        .panel-body
-          No bookings for this event yet
+              %small.text-muted= booking.customer.certification_name
 
-  .col-sm-6
-    %h4.page-header Add booking
-    = render 'form'
+              .pull-right
+                = link_to 'Edit', [:edit, event, booking]
+                = link_to 'Destroy', [event, booking], :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+  .col-sm-4
+    .well
+      = render 'form'

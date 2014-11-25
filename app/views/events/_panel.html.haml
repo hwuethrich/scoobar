@@ -25,19 +25,23 @@
       LIZ
   .panel-collapse.collapse{:id => 'event-panel-%d' % event.id}
     .panel-body
-      %table.table.table-bordered
-        %tbody
-          - event.bookings.each do |booking|
-            - customer = booking.customer
-            %tr
-              %td= link_to customer.full_name, [event, booking]
+
+      = collection_placeholder event.bookings, message: 'No bookings for this event' do
+        %table.table.table-bordered
+          %tbody
+            - event.bookings.each do |booking|
+              - customer = booking.customer
+              %tr
+                %td
+                  %i.fa.fa-user
+                  = link_to customer.full_name, [event, booking]
+                  %small.text-muted= customer.certification_name
 
     .panel-footer
+      = link_to [:edit, event], class: 'btn btn-default btn-sm' do
+        %i.fa.fa-pencil
+        Details
 
       = link_to [event, :bookings], class: 'btn btn-default btn-sm' do
         %i.fa.fa-plus
         Add Booking
-
-      = link_to [:edit, event], class: 'btn btn-default btn-sm' do
-        %i.fa.fa-pencil
-        Details
