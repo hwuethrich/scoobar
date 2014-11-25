@@ -91,7 +91,7 @@ gem 'faker'
 
 gem 'kaminari'
 
-gem 'squeel'
+gem 'squeel', '~> 1.2.1'
 
 # Puma
 gem 'puma'

@@ -12,6 +12,8 @@ class Customer < ActiveRecord::Base
   scope :alphabetical, -> { order :last_name, :first_name }
   scope :search, ->(query) { where { (first_name =~ ('%s%' % query)) | (last_name =~ ('%s%' % query))} }
 
+  has_many :bookings
+
   def full_name
     [first_name, last_name].join ' '
   end

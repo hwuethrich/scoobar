@@ -4,4 +4,11 @@ class Booking < ActiveRecord::Base
 
   validates :event, presence: true
   validates :customer, presence: true
+
+  delegate :trip, to: :event
+
+  def date
+    event.start_time.to_date
+  end
+
 end
