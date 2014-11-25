@@ -27,7 +27,8 @@
               %i.fa.fa-angle-double-right.fa-fw
 
     - else search_query.present?
-      .alert.alert-info
-        %i.fa.fa-warning
-        No customers found for
-        %strong= search_query
+      .panel.panel-placeholder
+        .panel-body
+          %i.fa.fa-warning
+          No customers found for
+          %strong= search_query

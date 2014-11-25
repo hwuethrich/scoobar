@@ -22,11 +22,11 @@ module TimeRange
   end
 
   def starts_in_morning?
-    (0..11).includes start_time.hours
+    (0..11).include? start_time.hour
   end
 
   def starts_in_afternoon?
-    (12..23).includes start_time.hours
+    (12..23).include? start_time.hour
   end
 
 end

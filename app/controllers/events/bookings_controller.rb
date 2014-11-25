@@ -23,6 +23,11 @@ module Events
       end
     end
 
+    def destroy
+      booking.destroy
+      redirect_to [event, :bookings], notice: 'Booking was successfully deleted.'
+    end
+
     private
 
     def booking_params

@@ -1,6 +1,5 @@
 formatCustomerItem = (customer)->
   """
-  <img src="#{customer.portrait_url}" width="20px"></img>
   #{customer.full_name}
   """
 

@@ -1,19 +1,24 @@
 %p= render 'events/event_header', current_nav: :bookings
 
-%table.table.table-striped
-  %tr
-    %th Customer
-    %th
+.row
+  .col-sm-6
+    %h4.page-header Existing bookings
 
-  - bookings.each do |booking|
-    %tr
-      %td
-        = booking.customer
-      %td
-        = link_to 'Show', [event, booking]
-        = link_to 'Edit', [:edit, event, booking]
-        = link_to 'Destroy', [event, booking], :method => :delete, :data => { :confirm => 'Are you sure?' }
+    - if bookings.any?
+      %table.table.table-striped
+        - bookings.each do |booking|
+          %tr
+            %td
+              = booking.customer
+            %td
+              = link_to 'Show', [event, booking]
+              = link_to 'Edit', [:edit, event, booking]
+              = link_to 'Destroy', [event, booking], :method => :delete, :data => { :confirm => 'Are you sure?' }
+    - else
+      .panel.panel-placeholder
+        .panel-body
+          No bookings for this event yet
 
-%br
-
-= link_to 'New Booking', [:new, event, :booking], class: 'btn btn-default'
+  .col-sm-6
+    %h4.page-header Add booking
+    = render 'form'

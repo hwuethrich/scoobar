@@ -1,6 +1,13 @@
 .page-header
-  %h2
-    = event.name
-    %small= l event.start_time, format: :short
+  .pull-right
+    = link_to l(event.start_time, format: :short), events_path(date: event.start_time.to_date)
 
-= render 'events/navbar', current_nav: current_nav
+  %h2
+    - if event.trip_code.present?
+      .label.label-info{ :style => 'background-color: %s;' % event.color }<
+        = event.trip_code
+    = event.name
+    %small
+      = link_to l(event.start_time, format: :short), events_path(date: event.start_time.to_date)
+
+= render 'events/navbar', current_nav: defined?(current_nav) ? current_nav : nil

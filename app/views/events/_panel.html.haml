@@ -4,7 +4,6 @@
       - if event.fully_booked?
         .label.label-danger<
           FULL
-
       - if event.trip_code.present?
         .label.label-info{ :style => 'background-color: %s;' % event.color }<
           = event.trip_code
@@ -26,15 +25,19 @@
       LIZ
   .panel-collapse.collapse{:id => 'event-panel-%d' % event.id}
     .panel-body
-      .row
-        .col-sm-6
-          %table.table
-            - event.bookings.each do |booking|
-              - customer = booking.customer
-              %tr
-                %td= link_to customer.full_name, [event, booking]
+      %table.table.table-bordered
+        %tbody
+          - event.bookings.each do |booking|
+            - customer = booking.customer
+            %tr
+              %td= link_to customer.full_name, [event, booking]
 
     .panel-footer
+
+      = link_to [event, :bookings], class: 'btn btn-default btn-sm' do
+        %i.fa.fa-plus
+        Add Booking
+
       = link_to [:edit, event], class: 'btn btn-default btn-sm' do
         %i.fa.fa-pencil
-        Edit
+        Details

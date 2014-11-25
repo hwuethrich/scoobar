@@ -1,13 +1,14 @@
 class EventsController < ApplicationController
 
   active_navbar_item :events
-
   respond_to :html, :json
 
+
   expose(:event, attributes: :event_params)
-  expose(:events) { Event.chronological.includes(:trip).intersects(current_start_time, current_end_time) }
-  expose(:events_in_morning)   { events.select(&:starts_in_morning?)   }
-  expose(:events_in_afternoon) { events.select(&:starts_in_afternoon?) }
+  expose(:events) { Event.chronological.includes(:trip) }
+  expose(:events_on_current_day) { events.intersects(current_start_time, current_end_time) }
+  expose(:events_in_morning)   { events_on_current_day.select(&:starts_in_morning?)   }
+  expose(:events_in_afternoon) { events_on_current_day.select(&:starts_in_afternoon?) }
 
   expose(:current_day) { current_day }
 
@@ -48,11 +49,11 @@ class EventsController < ApplicationController
   end
 
   def current_start_time
-    params.fetch(:start, current_day.beginning_of_day).to_datetime
+    current_day.beginning_of_day
   end
 
   def current_end_time
-    params.fetch(:end, current_day.end_of_day).to_datetime
+    current_day.end_of_day
   end
 
   def event_params

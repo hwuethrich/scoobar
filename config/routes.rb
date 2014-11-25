@@ -2,8 +2,9 @@ Rails.application.routes.draw do
 
   resources :trips
 
+  get 'events/calendar', to: 'events/calendar#show', as: 'events_calendar'
+
   resources :events do
-    get 'calendar', on: :collection
     resources :bookings, module: :events
   end
 
