@@ -7,10 +7,14 @@
         %td
           %strong Total
         %td
-          - total_events = bookings.size
-          %strong= total_events
-          = 'event'.pluralize(total_events)
+          - total_dives = bookings.size
+          %strong= total_dives
+          = 'dive'.pluralize(total_dives)
         %td
-          - nightdives = bookings.joins{event}.where{event.nightdive == true}.size
-          %strong= nightdives
-          = 'nightdive'.pluralize(nightdives)
+          - night_dives = bookings.joins{event}.merge(Event.night_dives).size
+          %strong= night_dives
+          = 'night dive'.pluralize(night_dives)
+        %td
+          - boat_dives = bookings.joins{event}.merge(Event.boat_dives).size
+          %strong= boat_dives
+          = 'boat dive'.pluralize(boat_dives)

@@ -13,7 +13,10 @@
     %br
     %small.text-muted
       %i.fa.fa-anchor
-      B1
+      - if event.boat_dive?
+        = event.boat_code
+      - else
+        &mdash;
       = ' | '
       %i.fa.fa-mail-reply
       = l event.end_time, format: '%H:%M'
@@ -23,7 +26,7 @@
       = ' | '
       %i.fa.fa-star
       LIZ
-      - if event.nightdive?
+      - if event.night_dive?
         = ' | '
         %i.fa.fa-moon-o
         Nightdive

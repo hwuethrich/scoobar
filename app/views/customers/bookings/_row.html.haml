@@ -12,7 +12,12 @@
         = trip.code
     = trip.name
   %td
-    - if event.nightdive?
+    - if event.night_dive?
       %small.text-muted<
         %i.fa.fa-moon-o
-        nightdive
+        night dive
+  %td
+    - if event.boat_dive?
+      %small.text-muted<
+        %i.fa.fa-anchor
+        boat dive

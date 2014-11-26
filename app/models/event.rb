@@ -7,6 +7,7 @@ class Event < ActiveRecord::Base
   # ASSOCIATIONS
 
   belongs_to :trip
+  belongs_to :boat
 
   has_many :bookings, counter_cache: true
   has_many :customers, through: :bookings
@@ -18,6 +19,8 @@ class Event < ActiveRecord::Base
   scope :starts_before, ->(time) { where { start_time < time }}
   scope :ends_after, ->(time) { where { end_time > time }}
   scope :intersects, ->(t1, t2) { ends_after(t1).starts_before(t2) }
+  scope :boat_dives, -> { where { boat_id != nil }}
+  scope :night_dives, -> { where { night_dive == true }}
 
   # VALIDATIONS
 
@@ -27,6 +30,7 @@ class Event < ActiveRecord::Base
   # DELEGATES
 
   delegate :code, to: :trip, prefix: true, allow_nil: true
+  delegate :code, to: :boat, prefix: true, allow_nil: true
 
   def name
     name? ? super : trip.try(:name)
@@ -46,6 +50,10 @@ class Event < ActiveRecord::Base
 
   def fully_booked?
     number_of_bookings >= capacity
+  end
+
+  def boat_dive?
+    boat.present?
   end
 
   def to_s

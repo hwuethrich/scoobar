@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141125155927) do
+ActiveRecord::Schema.define(version: 20141125162904) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,7 +65,9 @@ ActiveRecord::Schema.define(version: 20141125155927) do
     t.datetime "updated_at"
     t.integer  "trip_id"
     t.integer  "bookings_count", default: 0,     null: false
-    t.boolean  "nightdive",      default: false, null: false
+    t.integer  "trips_id"
+    t.boolean  "night_dive",     default: false, null: false
+    t.integer  "boat_id"
   end
 
   add_index "events", ["end_time"], name: "index_events_on_end_time", using: :btree
@@ -83,5 +85,7 @@ ActiveRecord::Schema.define(version: 20141125155927) do
 
   add_foreign_key "bookings", "customers"
   add_foreign_key "bookings", "events"
+  add_foreign_key "events", "boats"
+  add_foreign_key "events", "trips"
   add_foreign_key "events", "trips"
 end

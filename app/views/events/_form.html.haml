@@ -8,13 +8,15 @@
       .col-sm-6
         = f.input :name
       .col-sm-2
-        = f.input :nightdive, as: :select, include_blank: false
+        = f.input :night_dive, as: :select, include_blank: false
     .row
       .col-xs-8.col-sm-2
         = f.input :start_time
       .col-xs-4.col-sm-2
         = f.input :duration, as: :numeric
-      .col-sm-8
+      .col-xs-4.col-sm-2
+        = f.association :boat, collection: Boat.alphabetical
+      .col-sm-6
         = f.input :description
 
   %p.form-actions
