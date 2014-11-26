@@ -5,7 +5,9 @@
     .row
       .col-sm-2
         = f.input :code, maxlength: true
-      .col-sm-10
+      .col-sm-2
+        = f.input :capacity, as: :numeric
+      .col-sm-8
         = f.input :name
 
   %p.form-actions

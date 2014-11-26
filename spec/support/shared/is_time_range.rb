@@ -16,12 +16,14 @@ RSpec.shared_examples "is time range" do
     end
 
     it 'is nil if #start_time is undefined' do
+      subject.start_time = nil
       subject.end_time = DateTime.now
       expect(subject.duration).to be_nil
     end
 
     it 'is nil if #end_time is undefined' do
       subject.start_time = DateTime.now
+      subject.end_time = nil
       expect(subject.duration).to be_nil
     end
   end

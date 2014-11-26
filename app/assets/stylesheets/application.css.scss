@@ -88,6 +88,19 @@ tr.table-divider > th {
   // border-top: 4px solid #D5D5D5 !important;
 }
 
+table .maximize-column {
+  width: 100%;
+}
+
+table .actions-column {
+  text-align: right;
+}
+
+table .label-column {
+  width: 60px;
+  text-align: right;
+}
+
 table .thumbnail-column {
   width: 60px;
 }

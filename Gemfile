@@ -67,12 +67,15 @@ group :development, :test do
 
   # Silence assets in console log
   gem 'quiet_assets'
+
+  gem 'factory_girl_rails'
 end
 
 group :test do
   gem 'capybara'
   gem 'poltergeist'
   gem 'database_cleaner'
+  gem 'shoulda-matchers', require: false
 end
 
 # Use HAML

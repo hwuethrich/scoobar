@@ -16,6 +16,8 @@
         = f.input :duration, as: :numeric
       .col-xs-4.col-sm-2
         = f.association :boat, as: :boat
+      .col-xs-4.col-sm-2
+        = f.input :capacity, as: :numeric, placeholder: event.boat_capacity.to_s
       .col-sm-6
         = f.input :description
 

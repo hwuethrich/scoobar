@@ -22,7 +22,10 @@
       = l event.end_time, format: '%H:%M'
       = ' | '
       %i.fa.fa-user
-      = '%d/%d' % [event.number_of_bookings, event.capacity]
+      - if event.limited_capacity?
+        = '%d/%d' % [event.number_of_bookings, event.capacity]
+      - else
+        = event.number_of_bookings
       = ' | '
       %i.fa.fa-star
       LIZ
@@ -34,7 +37,7 @@
     .panel-body
 
       = collection_placeholder event.bookings, message: 'No bookings for this event' do
-        %table.table.table-bordered
+        %table.table.table-condensed
           %tbody
             - event.bookings.each do |booking|
               - customer = booking.customer

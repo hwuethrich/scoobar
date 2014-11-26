@@ -4,6 +4,7 @@ class Booking < ActiveRecord::Base
 
   validates :event, presence: true
   validates :customer, presence: true
+  validates :customer_id, uniqueness: { scope: :event_id }
 
   delegate :trip, to: :event
 

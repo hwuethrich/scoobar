@@ -1,0 +1,8 @@
+en:
+  trips:
+    index:
+      title: Trips
+    edit:
+      title: Edit
+    new:
+      title: Add trip

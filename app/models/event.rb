@@ -26,14 +26,15 @@ class Event < ActiveRecord::Base
 
   validates :start_time, date: true, presence: true
   validates :duration, presence: true, numericality: { greater_than: 0 }
+  validates :capacity, numericality: { greater_than: 0, allow_nil: true }
 
   # DELEGATES
 
   delegate :code, to: :trip, prefix: true, allow_nil: true
-  delegate :code, to: :boat, prefix: true, allow_nil: true
+  delegate :code, :capacity, to: :boat, prefix: true, allow_nil: true
 
   def name
-    name? ? super : trip.try(:name)
+    name? ? name : trip.try(:name)
   end
 
   def color
@@ -41,15 +42,19 @@ class Event < ActiveRecord::Base
   end
 
   def capacity
-    6
+    super || boat_capacity
   end
 
   def number_of_bookings
     bookings.size
   end
 
+  def limited_capacity?
+    capacity.present?
+  end
+
   def fully_booked?
-    number_of_bookings >= capacity
+    limited_capacity? && number_of_bookings >= capacity
   end
 
   def boat_dive?

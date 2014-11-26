@@ -12,17 +12,18 @@
   %tbody
     - trips.each do |trip|
       %tr
-        %td.text-right
+        %td.label-column
           - if trip.code.present?
             .label.label-default{ :style => 'background-color: %s;' % trip.color }<
               = trip.code
-        %td(style='width:100%;')
+        %td
           = link_to edit_trip_path(trip) do
             = trip.name
-        %td
+        %td.text-muted
+          %i.fa.fa-clock-o
           = trip.duration
-        %td
-
+          min
+        %td.actions-column
           = link_to 'Destroy', trip, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
