@@ -1,6 +1,6 @@
 formatBoatItem = (boat)->
   """
-  <strong>#{boat.code}</strong> #{boat.name}
+  <span class="label label-primary">#{boat.code}</span> #{boat.name}
   """
 
 $(document).on 'page:change', ->
