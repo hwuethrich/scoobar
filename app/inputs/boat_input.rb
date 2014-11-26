@@ -1,0 +1,2 @@
+class BoatInput < AutocompleteInput
+end

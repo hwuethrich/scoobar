@@ -1,2 +1,1 @@
-json.id           customer.id
-json.full_name    customer.full_name
+json.extract! customer, :id, :full_name, :first_name, :last_name

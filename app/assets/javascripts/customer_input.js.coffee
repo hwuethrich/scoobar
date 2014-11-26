@@ -1,10 +1,10 @@
 formatCustomerItem = (customer)->
   """
-  #{customer.full_name}
+  <strong>#{customer.last_name}</strong> #{customer.first_name}
   """
 
 $(document).on 'page:change', ->
-  $('input.autocomplete').select2
+  $('input[type=customer].autocomplete').select2
     minimumInputLength: 1
 
     initSelection: (element, callback)->

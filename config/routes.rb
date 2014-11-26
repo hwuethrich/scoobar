@@ -15,6 +15,8 @@ Rails.application.routes.draw do
 
   namespace :autocomplete do
     resources :customers, only: [:index, :show]
+    resources :trips,     only: [:index, :show]
+    resources :boats,     only: [:index, :show]
   end
 
   root 'home#index'
