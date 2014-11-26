@@ -5,5 +5,6 @@ class Boat < ActiveRecord::Base
 
   validates :code, presence: true, length: { maximum: 3 }, uniqueness: true
   validates :name, presence: true
+  validates :capacity, numericality: { greater_than: 0, allow_nil: true }
 
 end

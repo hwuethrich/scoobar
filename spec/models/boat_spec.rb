@@ -2,13 +2,19 @@ require 'rails_helper'
 
 RSpec.describe Boat, type: :model do
 
-  describe 'Validations:' do
+  describe 'Attributes:' do
 
-    subject { Boat.new code: 'A', name: 'Boat 1' }
+    subject { build(:boat) }
 
-    it 'must have a unique code' do
-      Boat.create code: 'A', name: 'Boat 2'
-      expect(subject).not_to be_valid
+    describe '#code' do
+      it { should validate_presence_of(:code) }
+      it { should validate_uniqueness_of(:code) }
+      it { should ensure_length_of(:code).is_at_most(3) }
+    end
+
+    describe '#capacity' do
+      it { should validate_numericality_of(:capacity).is_greater_than(0) }
+      it { should_not validate_presence_of(:capacity) }
     end
 
   end
@@ -17,14 +23,26 @@ RSpec.describe Boat, type: :model do
 
     describe '#alphabetical' do
       before(:each) do
-        Boat.create code: '1', name: 'C'
-        Boat.create code: '2', name: 'A'
-        Boat.create code: '3', name: 'B'
+        ['C', 'A', 'B'].each { |name| create(:boat, name: name) }
       end
 
       it 'should order boats by name' do
-        codes = Boat.alphabetical.map(&:name)
-        expect(codes).to eq(['A', 'B', 'C'])
+        names = Boat.alphabetical.map(&:name)
+        expect(names).to eq(['A', 'B', 'C'])
+      end
+    end
+
+    describe '#search' do
+      before(:each) do
+        create(:boat, code: 'AB', name: 'BB')
+        create(:boat, code: 'BA', name: 'BB')
+        create(:boat, code: 'C1', name: 'XX')
+        create(:boat, code: 'XX', name: 'XX')
+      end
+
+      it 'finds boats by name or code (case-insensitive)' do
+        codes = Boat.search('b').map(&:code)
+        expect(codes).to match_array(['AB', 'BA'])
       end
     end
 
