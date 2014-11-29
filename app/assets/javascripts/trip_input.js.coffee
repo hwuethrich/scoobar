@@ -1,6 +1,9 @@
 formatTripItem = (trip)->
   """
-  <span class="label label-default" style="background-color: #{trip.color};">#{trip.code}</span> #{trip.name}
+  <div class="pull-right" style="margin-top: -1px">
+    <span class="label label-default" style="background-color: #{trip.color};">#{trip.code}</span>
+  </div>
+  <i class="fa fa-compass" /> #{trip.name}
   """
 
 $(document).on 'page:change', ->

@@ -1,6 +1,10 @@
 formatBoatItem = (boat)->
   """
-  <span class="label label-primary">#{boat.code}</span> #{boat.name}
+  <div class="pull-right" style="margin-top: -1px">
+    <span class="label label-primary">#{boat.code}</span>
+  </div>
+  <i class="fa fa-anchor" />
+  #{boat.name}
   """
 
 $(document).on 'page:change', ->
