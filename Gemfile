@@ -3,7 +3,9 @@ source 'https://rubygems.org'
 ruby '2.1.4'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.0.rc1'
+gem 'rails', '4.2.0.beta4'
+
+gem 'arel', '6.0.0.beta2'
 
 # Use postgresql as the database for Active Record
 gem 'pg'
@@ -71,6 +73,7 @@ end
 
 group :test do
   gem 'capybara'
+  gem 'capybara-screenshot'
   gem 'poltergeist'
   gem 'database_cleaner'
   gem 'shoulda-matchers', require: false
@@ -92,7 +95,7 @@ gem 'faker'
 
 gem 'kaminari'
 
-gem 'squeel', '~> 1.2.1'
+gem 'squeel', '= 1.2.1'
 
 # Puma
 gem 'puma'
