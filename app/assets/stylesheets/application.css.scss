@@ -21,17 +21,17 @@
 // body { font-weight: 200; }
 
 // Bootswatch
-// @import "bootswatch/sandstone/variables";
+// @import "bootswatch/yeti/variables";
 
 // Bootstrap
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
 // Bootstrap body padding for fixed navbar
-body { padding-top: 60px; }
+body { padding-top: 50px; }
 
 // And finally bootswatch style itself
-// @import "bootswatch/sandstone/bootswatch";
+// @import "bootswatch/yeti/bootswatch";
 
 // Bootstrap Datepicker
 @import "bootstrap-datetimepicker";
