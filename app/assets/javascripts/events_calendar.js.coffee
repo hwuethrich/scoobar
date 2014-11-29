@@ -34,7 +34,7 @@ $(document).on 'page:change', ->
     maxTime: '20:00'
 
     events:
-        url: '/events/calendar.json'
+      url: '/events/calendar.json'
 
     eventDrop: eventUpdate
     eventResize: eventUpdate
