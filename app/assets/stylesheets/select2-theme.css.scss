@@ -1,0 +1,22 @@
+.select2-container .select2-choice {
+  line-height: 32px;
+  height: 32px;
+  background: none;
+  background-image: none;
+}
+
+.select2-container .select2-choice .select2-arrow b {
+  background: transparent;
+  background-position-y: 4px;
+}
+
+.select2-container .select2-choice .select2-arrow {
+  background: none;
+  background-image: none;
+  border-left: none;
+}
+
+.select2-dropdown-open.select2-drop-above .select2-choice,
+.select2-dropdown-open.select2-drop-above .select2-choices {
+  background-image: none;
+}
