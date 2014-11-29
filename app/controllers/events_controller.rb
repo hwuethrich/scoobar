@@ -53,7 +53,7 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:name, :start_time, :end_time, :duration, :description, :trip_id, :night_dive, :boat_id)
+    params.require(:event).permit(:name, :start_time, :end_time, :duration, :description, :trip_id, :night_dive, :boat_id, :capacity)
   end
 
   def event_default_start_time
