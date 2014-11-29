@@ -12,7 +12,7 @@
   %tbody
     - boats.each do |boat|
       %tr
-        %td.text-right(style='width:30px')
+        %td.label-column
           - if boat.code.present?
             .label.label-primary<
               = boat.code
@@ -24,7 +24,7 @@
             %i.fa.fa-user
             = boat.capacity
             pax
-        %td
+        %td.actions-column
           = link_to 'Destroy', boat, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
