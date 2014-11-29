@@ -11,6 +11,9 @@
           %i.fa.fa-ban
           Delete
 
-    %h2= customer.full_name
+    %h2
+      %i.fa.fa-user
+      %strong= customer.last_name
+      = customer.first_name
 
 = render 'customers/navbar', current_nav: current_nav
