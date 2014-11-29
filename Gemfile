@@ -3,9 +3,7 @@ source 'https://rubygems.org'
 ruby '2.1.4'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.0.beta4'
-
-gem 'arel', '6.0.0.beta2'
+gem 'rails', '4.2.0.rc1'
 
 # Use postgresql as the database for Active Record
 gem 'pg'
@@ -57,7 +55,7 @@ group :development, :test do
   gem 'byebug'
 
   # Access an IRB console on exceptions page and /console in development
-  gem 'web-console', '~> 2.0.0.beta2'
+  gem 'web-console', '~> 2.0.0'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
@@ -82,7 +80,7 @@ end
 gem 'haml-rails'
 
 # Use simple forms
-gem 'simple_form', '~> 3.1.0.rc2'
+gem 'simple_form', '~> 3.1.0'
 
 gem 'decent_exposure'
 
