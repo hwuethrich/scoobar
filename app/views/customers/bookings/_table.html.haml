@@ -18,3 +18,4 @@
           - boat_dives = bookings.joins{event}.merge(Event.boat_dives).size
           %strong= boat_dives
           = 'boat dive'.pluralize(boat_dives)
+        %td
