@@ -33,11 +33,10 @@ RSpec.feature 'Customer registration', type: :feature do
                     gender: 'male',
                     email: 'test@example.com'
 
-    visit root_url
+    visit root_path
 
     # Search
     fill_in 'Search customer', with: "Han\n"
-
 
   end
 
