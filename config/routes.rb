@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   resources :customers do
     resources :bookings, module: :customers
+    resource :logbook, module: :customers
   end
 
   namespace :autocomplete do

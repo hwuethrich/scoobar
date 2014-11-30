@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature 'Customer registration', type: :feature do
+RSpec.feature 'Customer registration:', type: :feature do
 
   scenario 'Register a new customer', js: true do
     visit root_path

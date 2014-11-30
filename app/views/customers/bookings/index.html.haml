@@ -1,3 +1,8 @@
 = render 'customers/header', current_nav: :bookings
 
+%p.pull-right
+  = link_to [customer, :logbook], class: 'btn btn-default' do
+    %i.fa.fa-book
+    Logbook
+
 = render 'table', bookings: bookings
