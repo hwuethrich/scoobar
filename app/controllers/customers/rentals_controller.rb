@@ -23,6 +23,12 @@ module Customers
       respond_with rental, location: [customer, :rentals]
     end
 
+    def return
+      rental.returned_at DateTime.current
+      rental.save
+      respond_with rental, location: [customer, :rentals]
+    end
+
     def destroy
       rental.destroy
       redirect_to [customer, :rentals], notice: 'Rental was successfully deleted.'
@@ -31,7 +37,7 @@ module Customers
     private
 
     def rental_params
-      params.require(:rental).permit(:equipment_id, :start_time, :end_time)
+      params.fetch(:rental, {}).permit(:equipment_id, :start_time, :end_time)
     end
 
   end

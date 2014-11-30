@@ -11,7 +11,9 @@ Rails.application.routes.draw do
 
   resources :customers do
     resources :bookings, module: :customers
-    resources :rentals, module: :customers
+    resources :rentals, module: :customers do
+      post :return, on: :member
+    end
   end
 
   namespace :equipment do

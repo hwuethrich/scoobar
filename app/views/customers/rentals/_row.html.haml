@@ -8,10 +8,12 @@
   %td
     = l rental.start_time, format: :short
   %td
-    - if rental.terminated?
+    - if rental.returned?
       = l rental.end_time, format: :short
   %td.text-muted
-    - if rental.terminated?
+    - if rental.returned?
       = distance_of_time_in_words rental.start_time, rental.end_time
   %td.actions-column
+    - unless rental.returned?
+      = link_to 'Return', [:return, customer, rental], method: :post
     = link_to 'Delete', [customer, rental], method: :delete, confirm: 'Are you sure?'

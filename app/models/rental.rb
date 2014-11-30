@@ -14,8 +14,11 @@ class Rental < ActiveRecord::Base
   validates :equipment, presence: true
   validates :start_time, presence: true
 
-  def terminated?
+  def returned?
     end_time.present?
   end
 
+  def returned_at(time = nil)
+    self.end_time = time
+  end
 end

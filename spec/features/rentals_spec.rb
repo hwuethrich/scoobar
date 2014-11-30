@@ -50,4 +50,15 @@ RSpec.feature 'Rentals:', type: :feature do
     expect(page.current_path).to eq(customer_rentals_path(customer))
   end
 
+  scenario 'Mark equipment as returned' do
+    Timecop.freeze
+    rental = create(:rental, customer: customer, start_time: 10.days.ago)
+
+    visit customer_rentals_path(customer)
+    within('.table-rentals') { click_on 'Return' }
+
+    rental.reload
+    expect(rental.end_time).to eq DateTime.current
+  end
+
 end

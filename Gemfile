@@ -77,6 +77,7 @@ group :test do
   gem 'poltergeist'
   gem 'database_cleaner'
   gem 'shoulda-matchers', require: false
+  gem 'timecop'
 end
 
 # Use HAML
