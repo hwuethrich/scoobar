@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141130024316) do
+ActiveRecord::Schema.define(version: 20141130052659) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,16 @@ ActiveRecord::Schema.define(version: 20141130024316) do
     t.integer  "number_of_dives"
   end
 
+  create_table "equipment", force: true do |t|
+    t.integer  "category_id", null: false
+    t.string   "name",        null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.text     "comment"
+  end
+
+  add_index "equipment", ["category_id"], name: "index_equipment_on_category_id", using: :btree
+
   create_table "equipment_categories", force: true do |t|
     t.string   "name",       null: false
     t.datetime "created_at", null: false
@@ -93,6 +103,7 @@ ActiveRecord::Schema.define(version: 20141130024316) do
 
   add_foreign_key "bookings", "customers"
   add_foreign_key "bookings", "events"
+  add_foreign_key "equipment", "equipment_categories", column: "category_id"
   add_foreign_key "events", "boats"
   add_foreign_key "events", "trips"
   add_foreign_key "events", "trips"

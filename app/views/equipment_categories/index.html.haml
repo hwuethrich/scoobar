@@ -1,8 +1,0 @@
-.page-header
-  .pull-right
-    = link_to 'Add category', [:new, :equipment_category], class: 'btn btn-success'
-
-  %h1= t '.title'
-
-= collection_placeholder equipment_categories, message: 'No equipment categories yet' do
-  = render 'table'

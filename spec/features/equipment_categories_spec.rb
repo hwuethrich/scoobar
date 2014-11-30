@@ -2,23 +2,24 @@ require 'rails_helper'
 
 RSpec.feature 'Equipment categories:', type: :feature do
 
-  scenario 'Add equipment category' do
+  scenario 'Add category' do
     visit root_path
-    click_on 'Equipment categories'
+    click_on 'Equipment'
+    click_on 'Categories'
 
     expect(page).to have_content('No equipment categories yet')
 
-    click_on 'Add category'
+    click_on 'Add Category'
 
     fill_in 'Name', with: 'BCD'
-    click_on 'Create Equipment category'
+    click_on 'Create Category'
 
-    expect(EquipmentCategory.count).to eq(1)
+    expect(Equipment::Category.count).to eq(1)
     expect(page).to have_content 'BCD'
-    expect(page.current_path).to eq('/equipment_categories')
+    expect(page.current_path).to eq('/equipment/categories')
   end
 
-  scenario 'Edit equipment_categories' do
+  scenario 'Edit categories' do
     category = create(:equipment_category, name: 'BCC')
 
     visit equipment_categories_path
@@ -27,7 +28,7 @@ RSpec.feature 'Equipment categories:', type: :feature do
     end
 
     fill_in 'Name', with: 'BCD'
-    click_on 'Update Equipment category'
+    click_on 'Update Category'
 
     within('table.equipment-categories') do
       expect(page).to have_content 'BCD'

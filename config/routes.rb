@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :equipment_categories
-
   resources :trips
   resources :boats
 
@@ -14,6 +12,12 @@ Rails.application.routes.draw do
   resources :customers do
     resources :bookings, module: :customers
   end
+
+  namespace :equipment do
+    resources :categories
+  end
+
+  resources :equipment
 
   namespace :autocomplete do
     resources :customers, only: [:index, :show]

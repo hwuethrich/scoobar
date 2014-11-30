@@ -1,0 +1,6 @@
+%tr[category]
+  %td
+    = link_to category.name, [:edit, category]
+  %td.actions-column
+    = link_to 'Edit', [:edit, category]
+    = link_to 'Destroy', category, :method => :delete, :data => { :confirm => 'Are you sure?' }

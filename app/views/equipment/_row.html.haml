@@ -1,0 +1,8 @@
+%tr[equipment]
+  %td
+    = equipment.category.name
+  %td
+    = link_to equipment.name, [:edit, equipment]
+  %td.actions-column
+    = link_to 'Edit', [:edit, equipment]
+    = link_to 'Destroy', equipment, :method => :delete, :data => { :confirm => 'Are you sure?' }

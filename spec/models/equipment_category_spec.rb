@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe EquipmentCategory, type: :model do
+RSpec.describe Equipment::Category, type: :model do
 
   describe 'Attributes:' do
 
@@ -20,7 +20,7 @@ RSpec.describe EquipmentCategory, type: :model do
       end
 
       it 'should order equipment categories by name' do
-        names = EquipmentCategory.alphabetical.map(&:name)
+        names = Equipment::Category.alphabetical.map(&:name)
         expect(names).to eq(['A', 'B', 'C'])
       end
     end

@@ -1,0 +1,12 @@
+en:
+  equipment:
+    categories:
+
+      index:
+        title: 'Equipment Categories'
+
+      new:
+        title: 'Add Categories'
+
+      edit:
+        title: 'Edit Category'

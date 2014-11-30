@@ -1,0 +1,11 @@
+en:
+  equipment:
+
+    index:
+      title: 'Equipment'
+
+    new:
+      title: 'Add Equipment'
+
+    edit:
+      title: 'Edit Equipment'
