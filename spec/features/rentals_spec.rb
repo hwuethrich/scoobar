@@ -58,7 +58,7 @@ RSpec.feature 'Rentals:', type: :feature do
     within('.table-rentals') { click_on 'Return' }
 
     rental.reload
-    expect(rental.end_time).to eq DateTime.current
+    expect(rental.end_time.to_s).to eq Time.zone.now.to_s
   end
 
 end
