@@ -1,0 +1,9 @@
+= simple_form_for equipment_category do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name
+
+  %p.form-actions
+    = f.button :submit
+    = link_to 'Back', :back, class: 'btn btn-default'

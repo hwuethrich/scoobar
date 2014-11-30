@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :equipment_categories
+
   resources :trips
   resources :boats
 
