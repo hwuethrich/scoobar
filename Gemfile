@@ -87,7 +87,7 @@ gem 'simple_form', '~> 3.1.0'
 
 gem 'decent_exposure'
 
-gem 'date_validator'
+gem 'validates_timeliness', '~> 3.0'
 
 gem 'rails-i18n', '~> 4.0.0'
 

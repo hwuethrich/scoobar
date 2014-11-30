@@ -5,5 +5,13 @@
     = equipment.category.name
     = link_to [:edit, customer, rental] do
       = equipment.name
+  %td
+    = l rental.start_time, format: :short
+  %td
+    - if rental.terminated?
+      = l rental.end_time, format: :short
+  %td.text-muted
+    - if rental.terminated?
+      = distance_of_time_in_words rental.start_time, rental.end_time
   %td.actions-column
     = link_to 'Delete', [customer, rental], method: :delete, confirm: 'Are you sure?'

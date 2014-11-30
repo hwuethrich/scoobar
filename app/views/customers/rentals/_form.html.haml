@@ -2,7 +2,13 @@
   = f.error_notification
 
   .form-inputs
-    = f.association :equipment, collection: Equipment::Category.all, as: :grouped_select, group_method: :equipment
+    .row
+      .col-md-6
+        = f.association :equipment, collection: Equipment::Category.all, as: :grouped_select, group_method: :equipment
+      .col-md-3
+        = f.input :start_time
+      .col-md-3
+        = f.input :end_time
 
   %p.form-actions
     = f.button :submit

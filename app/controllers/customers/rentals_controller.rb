@@ -9,6 +9,10 @@ module Customers
     expose(:rentals) { customer.rentals }
     expose(:rental, attributes: :rental_params)
 
+    def new
+      rental.start_time ||= DateTime.now
+    end
+
     def create
       rental.save
       respond_with rental, location: [customer, :rentals]
@@ -27,7 +31,7 @@ module Customers
     private
 
     def rental_params
-      params.require(:rental).permit(:equipment_id)
+      params.require(:rental).permit(:equipment_id, :start_time, :end_time)
     end
 
   end
