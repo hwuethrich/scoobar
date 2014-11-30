@@ -1,0 +1,9 @@
+= simple_form_for [customer, rental] do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.association :equipment, collection: Equipment::Category.all, as: :grouped_select, group_method: :equipment
+
+  %p.form-actions
+    = f.button :submit
+    = link_to t(:back), :back, class: 'btn btn-default'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141130052659) do
+ActiveRecord::Schema.define(version: 20141130070433) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -82,7 +82,6 @@ ActiveRecord::Schema.define(version: 20141130052659) do
     t.datetime "updated_at"
     t.integer  "trip_id"
     t.integer  "bookings_count", default: 0,     null: false
-    t.integer  "trips_id"
     t.boolean  "night_dive",     default: false, null: false
     t.integer  "boat_id"
     t.integer  "capacity"
@@ -91,6 +90,16 @@ ActiveRecord::Schema.define(version: 20141130052659) do
   add_index "events", ["end_time"], name: "index_events_on_end_time", using: :btree
   add_index "events", ["start_time"], name: "index_events_on_start_time", using: :btree
   add_index "events", ["trip_id"], name: "index_events_on_trip_id", using: :btree
+
+  create_table "rentals", force: true do |t|
+    t.integer  "customer_id",  null: false
+    t.integer  "equipment_id", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "rentals", ["customer_id"], name: "index_rentals_on_customer_id", using: :btree
+  add_index "rentals", ["equipment_id"], name: "index_rentals_on_equipment_id", using: :btree
 
   create_table "trips", force: true do |t|
     t.string   "code",       null: false
@@ -106,5 +115,6 @@ ActiveRecord::Schema.define(version: 20141130052659) do
   add_foreign_key "equipment", "equipment_categories", column: "category_id"
   add_foreign_key "events", "boats"
   add_foreign_key "events", "trips"
-  add_foreign_key "events", "trips"
+  add_foreign_key "rentals", "customers"
+  add_foreign_key "rentals", "equipment"
 end

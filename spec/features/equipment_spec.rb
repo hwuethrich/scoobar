@@ -18,7 +18,11 @@ RSpec.feature 'Equipment:', type: :feature do
 
     click_on 'Create Equipment'
 
-    expect(Equipment.count).to eq(1)
+    equipment = Equipment.last
+    expect(equipment.name).to eq('Mares Rover #1234')
+    expect(equipment.comment).to eq('Missing D-ring')
+
+    expect(Equipment.all).to eq [equipment]
     expect(page).to have_content 'Mares Rover #1234'
     expect(page.current_path).to eq('/equipment')
   end
@@ -27,7 +31,7 @@ RSpec.feature 'Equipment:', type: :feature do
     equipment = create(:equipment, name: 'Mares #1234')
 
     visit equipment_index_path
-    within('table.equipment') do
+    within('.table-equipment') do
       click_on 'Mares #1234'
     end
 
@@ -35,7 +39,7 @@ RSpec.feature 'Equipment:', type: :feature do
     fill_in 'Comment', with: 'Fixed'
     click_on 'Update Equipment'
 
-    within('table.equipment') do
+    within('.table-equipment') do
       expect(page).to have_content 'Mares #12345'
     end
   end

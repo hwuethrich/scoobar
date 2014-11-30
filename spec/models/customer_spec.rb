@@ -28,4 +28,24 @@ RSpec.describe Customer do
 
   end
 
+  describe 'Methods:' do
+    describe '#destroy' do
+
+      let(:customer) { create(:customer) }
+
+      it 'deletes all rentals' do
+        create_list(:rental, 10, customer: customer)
+        expect { customer.destroy }.not_to raise_error
+        expect(Rental.count).to be_zero
+      end
+
+      it 'deletes all bookings' do
+        create_list(:booking, 10, customer: customer)
+        expect { customer.destroy }.not_to raise_error
+        expect(Booking.count).to be_zero
+      end
+
+    end
+  end
+
 end

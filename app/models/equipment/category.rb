@@ -1,11 +1,15 @@
 class Equipment::Category < ActiveRecord::Base
 
- # SCOPES
+  # ASSOCIATIONS
 
- scope :alphabetical, -> { order :name }
+  has_many :equipment
 
- # VALIDATIONS
+  # SCOPES
 
- validates :name, uniqueness: true, presence: true
+  scope :alphabetical, -> { order :name }
+
+  # VALIDATIONS
+
+  validates :name, uniqueness: true, presence: true
 
 end
