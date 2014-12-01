@@ -1,6 +1,8 @@
 .btn-group
-  = link_to [:edit, model], class: 'btn btn-default btn-xs' do
-    = icon :pencil, 'Edit'
-  = link_to model, class: 'btn btn-xs btn-default text-muted', method: :delete, data: { confirm: 'Are you sure?' } do
-    = icon :trash, 'Delete'
+  - if actions.include? :edit
+    = link_to [:edit, model], class: 'btn btn-default btn-xs' do
+      = icon :pencil, 'Edit'
+  - if actions.include? :delete
+    = link_to model, class: 'btn btn-xs btn-default text-muted', method: :delete, data: { confirm: 'Are you sure?' } do
+      = icon :trash, 'Delete'
 

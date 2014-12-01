@@ -8,23 +8,4 @@
     %i.fa.fa-anchor
     = t '.title'
 
-%table.table.table-striped
-  %tbody
-    - boats.each do |boat|
-      %tr
-        %td.label-column
-          - if boat.code.present?
-            .label.label-primary<
-              = boat.code
-        %td
-          = link_to edit_boat_path(boat) do
-            = boat.name
-        %td.text-muted
-          - if boat.capacity.present?
-            %i.fa.fa-user
-            = boat.capacity
-            pax
-        %td.actions-column
-          = link_to 'Destroy', boat, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
+= render 'table'
