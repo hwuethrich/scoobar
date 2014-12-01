@@ -32,3 +32,8 @@
           = link_to :boats do
             %i.fa.fa-anchor
             = t '.boats'
+
+        %li{class: navbar_item_state(:equipment)}
+          = link_to [:equipment, :index] do
+            %i.fa.fa-cog
+            = t '.equipment'

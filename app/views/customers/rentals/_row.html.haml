@@ -1,0 +1,27 @@
+- equipment = rental.equipment
+
+%tr[rental]
+  %td
+    = equipment.category.name
+    = link_to [:edit, customer, rental] do
+      = equipment.name
+  %td
+    = icon :calendar
+    = l rental.start_time, format: :short
+    = ' - '
+    - if rental.returned?
+      = icon :calendar
+      = l rental.end_time, format: :short
+      %small.text-muted
+        = icon 'clock-o'
+        = distance_of_time_in_words rental.start_time, rental.end_time
+    - else
+      = link_to [:return, customer, rental], method: :post, class: 'btn btn-default btn-xs' do
+        = icon :share
+        Return now
+
+      %small.text-muted
+        = icon 'clock-o'
+        = distance_of_time_in_words rental.start_time, Time.zone.now
+  %td.actions-column
+    = action_links_for [customer, rental], :delete

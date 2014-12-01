@@ -1,0 +1,10 @@
+%tr[equipment]
+  %td
+    = link_to equipment.name, [:edit, equipment]
+  %td
+    - equipment.rentals.current.includes{customer}.each do |rental|
+      = icon :user
+      = link_to rental.customer, [rental.customer, :rentals]
+
+  %td.actions-column
+    = action_links_for equipment, :delete

@@ -12,12 +12,13 @@ gem 'pg'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0.0.beta1'
+gem 'sass', '~> 3.2.15'
 
 # CSS vendor prefixes
 gem 'autoprefixer-rails'
 
 # Font Awesome
-# gem 'font-awesome-rails'
+gem 'font-awesome-sass', '~> 4.2.0'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -77,6 +78,8 @@ group :test do
   gem 'poltergeist'
   gem 'database_cleaner'
   gem 'shoulda-matchers', require: false
+  gem 'timecop'
+  gem 'codeclimate-test-reporter', require: false
 end
 
 # Use HAML
@@ -87,7 +90,7 @@ gem 'simple_form', '~> 3.1.0'
 
 gem 'decent_exposure'
 
-gem 'date_validator'
+gem 'validates_timeliness', '~> 3.0'
 
 gem 'rails-i18n', '~> 4.0.0'
 

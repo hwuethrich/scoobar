@@ -11,7 +11,16 @@ Rails.application.routes.draw do
 
   resources :customers do
     resources :bookings, module: :customers
+    resources :rentals, module: :customers do
+      post :return, on: :member
+    end
   end
+
+  namespace :equipment do
+    resources :categories
+  end
+
+  resources :equipment
 
   namespace :autocomplete do
     resources :customers, only: [:index, :show]

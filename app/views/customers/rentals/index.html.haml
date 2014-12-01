@@ -1,0 +1,7 @@
+= render 'customers/header', current_nav: :rentals
+
+= collection_placeholder rentals, message: 'No equipment rented by this customer' do
+  = render 'table', rentals: rentals
+
+= link_to [:new, customer, :rental], class: 'btn btn-default' do
+  Rent Equipment

@@ -14,7 +14,7 @@ module TimeRange
   end
 
   def current?
-    start_time <= DateTime.current && DateTime.current <= end_time
+    start_time <= DateTime.current && ( end_time.nil? || DateTime.current <= end_time )
   end
 
   def past?
@@ -27,6 +27,29 @@ module TimeRange
 
   def starts_in_afternoon?
     (12..23).include? start_time.hour
+  end
+
+  module Scopes
+    extend ActiveSupport::Concern
+
+    included do
+      include TimeRange
+      scope :chronological, -> { order :start_time, :end_time }
+      scope :starts_before, ->(time) { where { (start_time < time) | (start_time == nil) }}
+      scope :ends_after, ->(time) { where { (end_time > time) | (end_time == nil) }}
+      scope :intersects, ->(t1, t2) { ends_after(t1).starts_before(t2) }
+      scope :current, ->(t=DateTime.now) { ends_after(t).starts_before(t) }
+    end
+  end
+
+  module Validations
+    extend ActiveSupport::Concern
+
+    included do
+      include TimeRange
+      validates :start_time, timeliness: { type: :datetime }
+      validates :end_time, timeliness: { after: :start_time, type: :datetime }, allow_nil: true
+    end
   end
 
 end

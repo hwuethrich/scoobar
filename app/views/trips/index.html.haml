@@ -8,22 +8,4 @@
     %i.fa.fa-compass
     = t '.title'
 
-%table.table.table-striped
-  %tbody
-    - trips.each do |trip|
-      %tr
-        %td.label-column
-          - if trip.code.present?
-            .label.label-default{ :style => 'background-color: %s;' % trip.color }<
-              = trip.code
-        %td
-          = link_to edit_trip_path(trip) do
-            = trip.name
-        %td.text-muted
-          %i.fa.fa-clock-o
-          = trip.duration
-          min
-        %td.actions-column
-          = link_to 'Destroy', trip, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
+= render 'table'
