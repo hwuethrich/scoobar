@@ -78,6 +78,7 @@ group :test do
   gem 'database_cleaner'
   gem 'shoulda-matchers', require: false
   gem 'timecop'
+  gem 'codeclimate-test-reporter', require: false
 end
 
 # Use HAML
