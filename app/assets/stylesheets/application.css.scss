@@ -39,9 +39,6 @@ body { padding-top: 50px; }
 // Bootstrap Colorpicker
 @import "bootstrap-colorpicker";
 
-// Font Awesome
-@import "font-awesome/font-awesome";
-
 // Fullcalendar
 @import "fullcalendar";
 @import "fullcalendar-theme";
@@ -50,6 +47,10 @@ body { padding-top: 50px; }
 @import "select2";
 @import "select2-bootstrap";
 @import "select2-theme";
+
+// Font Awesome
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
 // Utils
 @import "utils";
@@ -143,4 +144,8 @@ table .thumbnail-column {
 // Links
 a:hover {
   text-decoration: none;
+}
+
+.nav-equipment {
+  margin-bottom: 1em;
 }

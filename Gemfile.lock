@@ -91,6 +91,8 @@ GEM
       railties (>= 3.0.0)
     faker (1.4.3)
       i18n (~> 0.5)
+    font-awesome-sass (4.2.2)
+      sass (~> 3.2)
     fullcalendar-rails (2.2.2.0)
       jquery-rails (>= 3.1.1, < 5.0.0)
       momentjs-rails (~> 2.8, >= 2.8.3)
@@ -207,7 +209,7 @@ GEM
       rspec-mocks (~> 3.1.0)
       rspec-support (~> 3.1.0)
     rspec-support (3.1.2)
-    sass (3.4.9)
+    sass (3.2.19)
     sass-rails (5.0.0.beta1)
       railties (>= 4.0.0, < 5.0)
       sass (~> 3.2)
@@ -284,6 +286,7 @@ DEPENDENCIES
   decent_exposure
   factory_girl_rails
   faker
+  font-awesome-sass (~> 4.2.0)
   fullcalendar-rails
   haml-rails
   i18n-js
@@ -302,6 +305,7 @@ DEPENDENCIES
   rails_12factor
   responders (~> 2.0.1)
   rspec-rails (~> 3.1.0)
+  sass (~> 3.2.15)
   sass-rails (~> 5.0.0.beta1)
   sdoc (~> 0.4.0)
   select2-rails

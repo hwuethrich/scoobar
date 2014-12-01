@@ -12,12 +12,13 @@ gem 'pg'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0.0.beta1'
+gem 'sass', '~> 3.2.15'
 
 # CSS vendor prefixes
 gem 'autoprefixer-rails'
 
 # Font Awesome
-# gem 'font-awesome-rails'
+gem 'font-awesome-sass', '~> 4.2.0'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
