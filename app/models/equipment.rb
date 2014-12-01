@@ -3,6 +3,11 @@ class Equipment < ActiveRecord::Base
   # ASSOCIATIONS
 
   belongs_to :category
+  has_many :rentals, dependent: :destroy
+
+  # SCOPES
+
+  scope :alphabetical, -> { order :name }
 
   # VALIDATIONS
 

@@ -7,7 +7,12 @@ class EquipmentController < ApplicationController
   expose(:equipments) { Equipment.all }
   expose(:equipment, ancestor: :equipments, attributes: :equipment_params)
 
-  expose(:categories) { Equipment::Category.alphabetical.includes{equipment} }
+  expose(:categories) do
+    Equipment::Category.alphabetical.
+      includes{equipment}.
+      references(:all).
+      merge(Equipment.alphabetical)
+  end
 
   def new
     respond_with equipment
