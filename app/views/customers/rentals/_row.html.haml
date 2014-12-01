@@ -6,14 +6,22 @@
     = link_to [:edit, customer, rental] do
       = equipment.name
   %td
+    = icon :calendar
     = l rental.start_time, format: :short
-  %td
+    = ' - '
     - if rental.returned?
+      = icon :calendar
       = l rental.end_time, format: :short
-  %td.text-muted
-    - if rental.returned?
-      = distance_of_time_in_words rental.start_time, rental.end_time
+      %small.text-muted
+        = icon 'clock-o'
+        = distance_of_time_in_words rental.start_time, rental.end_time
+    - else
+      = link_to [:return, customer, rental], method: :post, class: 'btn btn-default btn-xs' do
+        = icon :share
+        Return now
+
+      %small.text-muted
+        = icon 'clock-o'
+        = distance_of_time_in_words rental.start_time, Time.zone.now
   %td.actions-column
-    - unless rental.returned?
-      = link_to 'Return', [:return, customer, rental], method: :post
-    = link_to 'Delete', [customer, rental], method: :delete, confirm: 'Are you sure?'
+    = action_links_for [customer, rental], :delete

@@ -31,7 +31,7 @@ class EventsController < ApplicationController
         format.html { redirect_to [:edit, event], notice: 'Event updated' }
         format.json { render json: event }
       else
-        render :edit
+        format.html { render :edit }
       end
     end
   end
