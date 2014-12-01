@@ -6,8 +6,8 @@ $(document).on 'page:change', ->
     url = "/events/#{event.id}"
 
     data =
-      start_time: event.start.toJSON()
-      end_time:   event.end.toJSON()
+      start_time: event.start.toISOString()
+      end_time:   event.end.toISOString()
 
     $.ajax "/events/#{event.id}",
       type: 'PATCH'
