@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Statistics::Events, type: :model do
 
-  subject { Statistics::Events.new events: events, range: range }
+  subject { Statistics::Events.new range: range }
   let(:range) { nil }
 
   before(:each) do
