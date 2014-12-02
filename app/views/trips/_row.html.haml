@@ -3,7 +3,7 @@
     - if trip.code.present?
       .label.label-default{ :style => 'background-color: %s;' % trip.color }<
         = trip.code
-  %td
+  %td.col-xs-4
     = link_to edit_trip_path(trip) do
       = trip.name
   %td.text-muted

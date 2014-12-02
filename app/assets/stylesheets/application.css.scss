@@ -21,7 +21,7 @@
 // body { font-weight: 200; }
 
 // Bootswatch
-// @import "bootswatch/yeti/variables";
+// @import "bootswatch/lumen/variables";
 
 // Bootstrap
 @import "bootstrap-sprockets";
@@ -31,7 +31,7 @@
 body { padding-top: 50px; }
 
 // And finally bootswatch style itself
-// @import "bootswatch/yeti/bootswatch";
+// @import "bootswatch/lumen/bootswatch";
 
 // Bootstrap Datepicker
 @import "bootstrap-datetimepicker";
@@ -90,17 +90,18 @@ tr.table-divider > th {
   // border-top: 4px solid #D5D5D5 !important;
 }
 
-table .maximize-column {
+.table .maximize-column {
   width: 100%;
 }
 
-table .actions-column {
+.table .actions-column {
   text-align: right;
 }
 
-table .label-column {
-  width: 60px;
+.table .label-column {
+  width: 40px;
   text-align: right;
+  padding-right: 0;
 }
 
 table .thumbnail-column {
@@ -148,4 +149,9 @@ a:hover {
 
 .nav-equipment {
   margin-bottom: 1em;
+}
+
+.form-actions {
+  border-top: 2px solid $gray-lighter;
+  padding-top: 15px;
 }

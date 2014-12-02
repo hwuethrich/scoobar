@@ -23,8 +23,6 @@
     #customer-certification.tab-pane.fade
       = render 'customers/form/certification', form: form
 
-  %hr
-
-  %p.form-actions
+  .form-actions
     = form.button :submit, class: 'btn btn-success'
     = link_to t(:back), :back, class: 'btn btn-default'
