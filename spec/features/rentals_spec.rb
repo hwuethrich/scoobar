@@ -44,7 +44,7 @@ RSpec.feature 'Rentals:', type: :feature do
     rental = create(:rental, customer: customer)
 
     visit customer_rentals_path(customer)
-    within('.table-rentals') { click_on 'Delete' }
+    within('.table-rentals') { first('.btn-delete').click }
 
     expect(Rental.count).to be_zero
     expect(page.current_path).to eq(customer_rentals_path(customer))

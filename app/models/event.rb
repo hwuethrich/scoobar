@@ -21,7 +21,7 @@ class Event < ActiveRecord::Base
   # VALIDATIONS
 
   validates :start_time, presence: true
-  validates :capacity, numericality: { greater_than: 0, allow_nil: true }
+  validates :capacity, numericality: { greater_than: 0 }, allow_nil: true
 
   # DELEGATES
 

@@ -37,3 +37,8 @@
           = link_to [:equipment, :index] do
             %i.fa.fa-cog
             = t '.equipment'
+
+        %li{class: navbar_item_state(:statistics)}
+          = link_to :statistics do
+            = icon 'bar-chart'
+            = t '.statistics'

@@ -63,7 +63,7 @@
     trips = [] + Trip.all
 
     generate Event do
-      start_time = (-10 + rand(20)).days.from_now.to_date + 8.hours + (rand(4) * 2).hours
+      start_time = (-300 + rand(310)).days.from_now.to_date + 8.hours + (rand(4) * 2).hours
 
       trip = trips.sample
 
