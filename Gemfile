@@ -20,6 +20,11 @@ gem 'autoprefixer-rails'
 # Font Awesome
 gem 'font-awesome-sass', '~> 4.2.0'
 
+# Charts
+gem 'groupdate', github: 'ankane/groupdate'
+gem 'chartkick', github: 'ankane/chartkick'
+gem 'highcharts-rails', '~> 4.0.0'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
@@ -98,7 +103,7 @@ gem 'faker'
 
 gem 'kaminari'
 
-gem 'squeel', '= 1.2.1'
+gem 'squeel', '>= 1.2.1'
 
 # Puma
 gem 'puma'

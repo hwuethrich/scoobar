@@ -1,0 +1,31 @@
+.page-header
+  .pull-right
+    .btn-group
+      = link_to url_for(year: year-1), class: 'btn btn-default' do
+        = icon 'angle-left'
+        = year - 1
+      = link_to url_for(year: year+1), class: 'btn btn-default' do
+        = year + 1
+        = icon 'angle-right'
+
+  %h1
+    = icon 'bar-chart'
+    Statistics
+    %small.text-muted= year
+
+.row
+  .col-md-4
+    %h4
+      = icon :calendar
+      Events by month
+    = column_chart events_count_by_month
+  .col-md-4
+    %h4
+      = icon :calendar
+      Rentals by month
+    = column_chart rentals_count_by_month
+  .col-md-4
+    %h4
+      = icon :calendar
+      Bookings by month
+    = column_chart bookings_count_by_month
