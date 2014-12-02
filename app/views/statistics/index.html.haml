@@ -14,18 +14,36 @@
     %small.text-muted= year
 
 .row
-  .col-md-4
-    %h4
-      = icon :calendar
-      Events by month
-    = column_chart events_count_by_month
-  .col-md-4
-    %h4
-      = icon :calendar
-      Rentals by month
-    = column_chart rentals_count_by_month
-  .col-md-4
-    %h4
-      = icon :calendar
-      Bookings by month
-    = column_chart bookings_count_by_month
+  .col-sm-6
+    .panel.panel-default
+      .panel-heading
+        = icon :calendar
+        Events
+      .panel-body
+        %h4
+        = column_chart events_count_by_month, height: '200px'
+  .col-sm-6
+    .panel.panel-default
+      .panel-heading
+        = icon :gear
+        Rentals
+      .panel-body
+        %h4
+        = column_chart rentals_count_by_month, height: '200px'
+.row
+  .col-sm-6
+    .panel.panel-default
+      .panel-heading
+        = icon :calendar
+        Bookings
+      .panel-body
+        %h4
+        = column_chart bookings_count_by_month, height: '200px'
+  .col-sm-6
+    .panel.panel-default
+      .panel-heading
+        = icon :user
+        Customers
+      .panel-body
+        %h4
+        = column_chart customers_count_by_month, height: '200px'

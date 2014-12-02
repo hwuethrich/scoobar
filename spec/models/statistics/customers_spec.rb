@@ -1,13 +1,13 @@
 require 'rails_helper'
 
-RSpec.describe Statistics::Bookings, type: :model do
+RSpec.describe Statistics::Customers, type: :model do
 
-  subject { Statistics::Bookings.new range: range }
+  subject { Statistics::Customers.new range: range }
   let(:range) { nil }
 
   before(:each) do
 
-    customers = create_list :customer, 2
+    customers = create_list :customer, 3
 
     start_times = [
       DateTime.new(2013, 01, 01, 16, 00), # 0: Jan 2013
@@ -23,18 +23,19 @@ RSpec.describe Statistics::Bookings, type: :model do
 
     create :booking, customer: customers[0], event: events[0]
     create :booking, customer: customers[0], event: events[1] # Jan 2014 + 1
-    create :booking, customer: customers[0], event: events[2] # Jan 2014 + 1
+    create :booking, customer: customers[0], event: events[2] # Jan 2014 + 0
     create :booking, customer: customers[1], event: events[1] # Jan 2014 + 1
+    create :booking, customer: customers[2], event: events[2] # Jan 2014 + 1
     create :booking, customer: customers[1], event: events[3] # Feb 2014 + 1
     create :booking, customer: customers[1], event: events[4]
   end
 
   describe '#count_by_month' do
-    context 'for bookings in a given year' do
+    context 'for uniq customers in a given year' do
 
       let(:range) { Date.new(2014, 1, 1)..Date.new(2014, 12, 31) }
 
-      it 'counts number of events per month' do
+      it 'counts number of customers per month' do
         stats = subject.count_by_month
 
         expect(stats['Jan']).to eq 3
