@@ -44,7 +44,7 @@
               %tr
                 %td
                   %i.fa.fa-user
-                  = link_to customer.full_name, [event, booking]
+                  = link_to customer.full_name, [customer, :bookings]
                   %small.text-muted= customer.certification_name
 
     .panel-footer
