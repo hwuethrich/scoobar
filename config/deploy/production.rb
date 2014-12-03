@@ -15,7 +15,7 @@
 # server list. The second argument is a, or duck-types, Hash and is
 # used to set extended properties on the server.
 
-server ENV['SERVER'], user: 'deploy', roles: :all
+server ENV['SERVER'], user: 'deploy', roles: [:app, :db, :web]
 
 # Custom SSH Options
 # ==================
