@@ -58,6 +58,7 @@ gem 'rails-html-sanitizer', '~> 1.0'
 # Use Capistrano for deployment
 group :development do
   gem 'capistrano-rails', require: false
+  gem 'capistrano-passenger', require: false
   gem 'capistrano-safe-deploy-to', require: false
 end
 
