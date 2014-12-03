@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.1.4'
+ruby '2.1.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0.beta4'
@@ -56,7 +56,10 @@ gem 'rails-html-sanitizer', '~> 1.0'
 # gem 'unicorn'
 
 # Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+group :development do
+  gem 'capistrano-rails', require: false
+  gem 'capistrano-safe-deploy-to', require: false
+end
 
 group :development, :test do
   # Call 'debugger' anywhere in the code to stop execution and get a debugger console

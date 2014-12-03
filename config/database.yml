@@ -80,6 +80,4 @@ test:
 #
 production:
   <<: *default
-  database: scubar_development
-  # username: scubar
-  # password: <%= ENV['SCUBAR_DATABASE_PASSWORD'] %>
+  url: <%= Rails.application.secrets.database_url %>
