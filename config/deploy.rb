@@ -5,7 +5,7 @@ set :application, 'scoobar'
 set :repo_url, 'https://github.com/hwuethrich/scoobar.git'
 
 # Default branch is :master
-# ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
+set :branch, ENV['REVISION'] || ENV['BRANCH_NAME'] || 'master'
 
 # Default deploy_to directory is /var/www/my_app_name
 # set :deploy_to, '/var/www/my_app_name'
