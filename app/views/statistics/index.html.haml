@@ -14,13 +14,37 @@
     %small.text-muted= year
 
 .row
+  .col-sm-3
+    .well.text-center
+      .text-muted
+        = icon :user, 'Customers'
+      %h1= customer_statistics.count
+
+  .col-sm-3
+    .well.text-center
+      .text-muted
+        = icon :calendar, 'Bookings'
+      %h1= rental_statistics.count
+
+  .col-sm-3
+    .well.text-center
+      .text-muted
+        = icon :calendar, 'Events'
+      %h1= rental_statistics.count
+
+  .col-sm-3
+    .well.text-center
+      .text-muted
+        = icon :cog, 'Rentals'
+      %h1= rental_statistics.count
+
+.row
   .col-sm-6
     .panel.panel-default
       .panel-heading
         = icon :calendar
         Events
       .panel-body
-        %h4
         = column_chart events_count_by_month, height: '200px'
   .col-sm-6
     .panel.panel-default
@@ -28,7 +52,6 @@
         = icon :gear
         Rentals
       .panel-body
-        %h4
         = column_chart rentals_count_by_month, height: '200px'
 .row
   .col-sm-6
@@ -37,7 +60,6 @@
         = icon :calendar
         Bookings
       .panel-body
-        %h4
         = column_chart bookings_count_by_month, height: '200px'
   .col-sm-6
     .panel.panel-default
@@ -45,5 +67,4 @@
         = icon :user
         Customers
       .panel-body
-        %h4
         = column_chart customers_count_by_month, height: '200px'

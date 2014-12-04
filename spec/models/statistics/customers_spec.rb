@@ -30,10 +30,19 @@ RSpec.describe Statistics::Customers, type: :model do
     create :booking, customer: customers[1], event: events[4]
   end
 
-  describe '#count_by_month' do
-    context 'for uniq customers in a given year' do
+  context 'for customers in a given year' do
 
-      let(:range) { Date.new(2014, 1, 1)..Date.new(2014, 12, 31) }
+    let(:range) { Date.new(2014, 1, 1)..Date.new(2014, 12, 31) }
+
+    describe '#count' do
+
+      it 'counts the total customers' do
+        expect(subject.count).to eq(3)
+      end
+
+    end
+
+    describe '#count_by_month' do
 
       it 'counts number of customers per month' do
         stats = subject.count_by_month

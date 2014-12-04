@@ -9,6 +9,10 @@ module Statistics
       @range = range
     end
 
+    def count
+      rentals.where(start_time: range).count
+    end
+
     def count_by_month
       stats = rentals.group_by_month(:start_time, format: '%b', range: range)
       stats.magic.send :series, stats.size.relation, 0

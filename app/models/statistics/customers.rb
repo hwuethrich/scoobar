@@ -9,6 +9,13 @@ module Statistics
       @range = range
     end
 
+    def count
+      customers.joins{bookings.event}.
+        distinct{bookings.customer_id}.
+        where{bookings.events.start_time.in my{range}}.
+        count
+    end
+
     def count_by_month
       stats = customers.joins{bookings.event}.distinct{bookings.customer_id}.group_by_month(:start_time, format: '%b', range: range)
       stats.magic.send :series, stats.size.relation, 0
