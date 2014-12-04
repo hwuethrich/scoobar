@@ -15,25 +15,25 @@
 
 .row
   .col-sm-3
-    .well.text-center
+    #customers-count.well.text-center
       .text-muted
         = icon :user, 'Customers'
       %h1= customer_statistics.count
 
   .col-sm-3
-    .well.text-center
+    #bookings-count.well.text-center
       .text-muted
         = icon 'check-square-o', 'Bookings'
       %h1= booking_statistics.count
 
   .col-sm-3
-    .well.text-center
+    #events-count.well.text-center
       .text-muted
         = icon :calendar, 'Events'
       %h1= event_statistics.count
 
   .col-sm-3
-    .well.text-center
+    #rentals-count.well.text-center
       .text-muted
         = icon :cog, 'Rentals'
       %h1= rental_statistics.count
