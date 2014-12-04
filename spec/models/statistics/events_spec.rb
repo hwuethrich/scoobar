@@ -22,10 +22,16 @@ RSpec.describe Statistics::Events, type: :model do
     end
   end
 
-  describe '#count_by_month' do
-    context 'for events in a given year' do
+  context 'for events in a given year' do
+    let(:range) { Date.new(2014, 1, 1)..Date.new(2014, 12, 31) }
 
-      let(:range) { Date.new(2014, 1, 1)..Date.new(2014, 12, 31) }
+    describe '#count' do
+      it 'counts the total events' do
+        expect(subject.count).to eq(4)
+      end
+    end
+
+    describe '#count_by_month' do
 
       it 'counts number of events per month' do
         stats = subject.count_by_month

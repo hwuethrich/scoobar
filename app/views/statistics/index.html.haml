@@ -23,14 +23,14 @@
   .col-sm-3
     .well.text-center
       .text-muted
-        = icon :calendar, 'Bookings'
-      %h1= rental_statistics.count
+        = icon 'check-square-o', 'Bookings'
+      %h1= booking_statistics.count
 
   .col-sm-3
     .well.text-center
       .text-muted
         = icon :calendar, 'Events'
-      %h1= rental_statistics.count
+      %h1= event_statistics.count
 
   .col-sm-3
     .well.text-center
