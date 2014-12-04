@@ -38,3 +38,7 @@ $(document).on 'page:change', ->
 
     eventDrop: eventUpdate
     eventResize: eventUpdate
+
+    eventRender: (event, element)->
+      element.bind 'dblclick', ->
+        window.location.href = "/events/#{event.id}/edit"
