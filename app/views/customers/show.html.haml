@@ -29,7 +29,9 @@
       %tbody
         %tr
           %th E-Mail
-          %td= link_to customer.email, 'mailto:%s' % customer.email
+          %td
+            - if customer.email.present?
+              = link_to(customer.email, 'mailto:%s' % customer.email)
         %tr
           %th Phone
           %td= customer.phone_number

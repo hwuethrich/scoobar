@@ -3,7 +3,7 @@ class Customer < ActiveRecord::Base
   enum gender: [ :male, :female ]
 
   validates :first_name, :last_name, :gender, presence: true
-  validates :email, presence: true, format: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
+  validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, allow_blank: true }
   validates :date_of_birth, presence: true, timeliness: { on_or_before: :today, type: :date }
 
   validates :certification_date, :last_dive_on, timeliness: { on_or_before: :today, type: :date }, allow_nil: true
