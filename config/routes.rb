@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   resources :events do
     resources :bookings, module: :events
+    resource :logbook, module: :events
   end
 
   resources :customers do

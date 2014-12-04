@@ -27,4 +27,21 @@ RSpec.describe Event, type: :model do
       end
     end
   end
+
+  describe '#logbook' do
+    context 'if no logbook exists' do
+      it 'returns a new logbook entry with the same date as the event' do
+        logbook = subject.logbook
+        expect(logbook.time_in).to eq(subject.start_time)
+      end
+    end
+
+    context 'if a logbook exists' do
+      it 'returns the existing logbook' do
+
+      end
+    end
+  end
+
+
 end
