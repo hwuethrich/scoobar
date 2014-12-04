@@ -15,28 +15,20 @@
 
 .row
   .col-sm-3
-    #customers-count.well.text-center
-      .text-muted
-        = icon :user, 'Customers'
-      %h1= customer_statistics.count
+    #customers-count
+      = counter customer_statistics.count, :user, 'Customers'
 
   .col-sm-3
-    #bookings-count.well.text-center
-      .text-muted
-        = icon 'check-square-o', 'Bookings'
-      %h1= booking_statistics.count
+    #bookings-count
+      = counter booking_statistics.count, 'check-square-o', 'Bookings'
 
   .col-sm-3
-    #events-count.well.text-center
-      .text-muted
-        = icon :calendar, 'Events'
-      %h1= event_statistics.count
+    #events-count
+      = counter event_statistics.count, :calendar, 'Events'
 
   .col-sm-3
-    #rentals-count.well.text-center
-      .text-muted
-        = icon :cog, 'Rentals'
-      %h1= rental_statistics.count
+    #rentals-count
+      = counter rental_statistics.count, :cog, 'Rentals'
 
 .row
   .col-sm-6
