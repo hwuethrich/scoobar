@@ -40,8 +40,7 @@
               - customer = booking.customer
               %tr
                 %td
-                  %i.fa.fa-user
-                  = link_to customer.full_name, [customer, :bookings]
+                  = link_to customer_name_with_icon(customer), [customer, :bookings]
                   %small.text-muted= customer.certification_name
 
     .panel-footer
