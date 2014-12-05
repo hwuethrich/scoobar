@@ -9,6 +9,7 @@ class Event < ActiveRecord::Base
 
   belongs_to :trip
   belongs_to :boat
+  has_one :logbook
 
   has_many :bookings, counter_cache: true
   has_many :customers, through: :bookings

@@ -25,6 +25,7 @@ class DateTimeInput < SimpleForm::Inputs::StringInput
     case input_type
     when :date     then '%m/%d/%Y'
     when :datetime then '%m/%d/%Y %I:%M %p'
+    when :time     then '%I:%M %p'
     end
   end
 
@@ -32,6 +33,7 @@ class DateTimeInput < SimpleForm::Inputs::StringInput
     case input_type
     when :date     then 'MM/DD/YYYY'
     when :datetime then 'MM/DD/YYYY hh:mm A'
+    when :time     then 'hh:mm A'
     end
   end
 

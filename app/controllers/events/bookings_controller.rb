@@ -8,24 +8,18 @@ module Events
     expose(:booking, attributes: :booking_params)
 
     def create
-      if booking.save
-        redirect_to [event, :bookings], notice: 'Booking created'
-      else
-        render :index
-      end
+      booking.save
+      respond_with booking, location: [event, :bookings]
     end
 
     def update
-      if booking.save
-        redirect_to [event, :bookings], notice: 'Booking updates'
-      else
-        render :edit
-      end
+      booking.save
+      respond_with booking, location: [event, :bookings]
     end
 
     def destroy
       booking.destroy
-      redirect_to [event, :bookings], notice: 'Booking was successfully deleted.'
+      respond_with booking, location: [event, :bookings]
     end
 
     private

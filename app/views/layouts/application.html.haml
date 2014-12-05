@@ -14,4 +14,7 @@
     = render 'layouts/navbar'
 
     .container
+
+      = render 'layouts/flash_messages', flash: flash
+
       = yield

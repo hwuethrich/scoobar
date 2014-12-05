@@ -18,22 +18,13 @@ class EventsController < ApplicationController
   end
 
   def create
-    if event.save
-      redirect_to [:edit, event], notice: 'Event created'
-    else
-      render :new
-    end
+    event.save
+    respond_with event, location: [:edit, event]
   end
 
   def update
-    respond_to do |format|
-      if event.save
-        format.html { redirect_to [:edit, event], notice: 'Event updated' }
-        format.json { render json: event }
-      else
-        format.html { render :edit }
-      end
-    end
+    event.save
+    respond_with event, location: [:edit, event]
   end
 
   private

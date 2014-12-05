@@ -75,6 +75,18 @@ ActiveRecord::Schema.define(version: 20141205014519) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "event_logbooks", force: true do |t|
+    t.integer  "event_id",   null: false
+    t.datetime "time_in",    null: false
+    t.integer  "dive_time",  null: false
+    t.float    "max_depth",  null: false
+    t.text     "comments"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "event_logbooks", ["event_id"], name: "index_event_logbooks_on_event_id", using: :btree
+
   create_table "events", force: true do |t|
     t.string   "name"
     t.datetime "start_time",                     null: false

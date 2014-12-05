@@ -13,19 +13,13 @@ class CustomersController < ApplicationController
   expose(:search_query) { params[:search] }
 
   def create
-    if customer.save
-      redirect_to customer, notice: 'Customer created'
-    else
-      render :new
-    end
+    customer.save
+    respond_with customer
   end
 
   def update
-    if customer.save
-      redirect_to customer, notice: 'Customer updated'
-    else
-      render :edit
-    end
+    customer.save
+    respond_with customer
   end
 
   private
