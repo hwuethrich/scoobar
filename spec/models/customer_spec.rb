@@ -7,7 +7,7 @@ RSpec.describe Customer do
   describe 'Attributes:' do
 
     describe '#email' do
-      it { should validate_presence_of(:email) }
+      it { should_not validate_presence_of(:email) }
       it { should_not allow_value('invalid', 'invalid@email').for(:email) }
       it { should allow_value('example@example.com', 'my-email@example.domain.co.uk').for(:email) }
     end

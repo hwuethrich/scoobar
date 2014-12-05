@@ -2,7 +2,10 @@ en:
   boats:
     index:
       title: Boats
+      add_boat: Add Boat
     edit:
-      title: Edit
+      subtitle: Edit Boat
     new:
-      title: Add boat
+      title: Add Boat
+    common:
+      list_boats: List Boats

@@ -1,11 +1,6 @@
-.page-header
-  .pull-right
-    = link_to new_trip_path, class: 'btn btn-success' do
-      %i.fa.fa-plus-circle
-      = t '.add_trip'
-
-  %h2
-    %i.fa.fa-compass
-    = t '.title'
+= page_header t('.title'), icon: :compass do
+  = link_to new_trip_path, class: 'btn btn-success' do
+    %i.fa.fa-plus-circle
+    = t '.add_trip'
 
 = render 'table'

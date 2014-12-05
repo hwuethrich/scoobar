@@ -1,3 +1,5 @@
-%h1.page-header New equipment_category
+= page_header t('.title'), icon: 'folder-open' do
+  = link_to icon('list', t('equipment.categories.common.list_categories')), :equipment_categories, class: 'btn btn-default'
+
 
 = render 'form'

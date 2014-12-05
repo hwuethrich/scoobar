@@ -13,6 +13,11 @@ RSpec.feature 'Customer registration', type: :feature do
     fill_in 'Date of birth', with: '1/1/1982'
     fill_in 'E-Mail', with: 'hw@5px.ch'
 
+    # Address
+    click_on 'Address'
+    fill_in 'Hotel name', with: 'Dolphin House'
+    fill_in 'Room number', with: 'P4'
+
     # Certification
     click_on 'Certification'
     fill_in 'Certification name', with: 'PADI Open Water'
@@ -24,20 +29,20 @@ RSpec.feature 'Customer registration', type: :feature do
     click_on 'Create Customer'
 
     expect(Customer.count).to eq(1)
+
+    expect(page).to have_content 'Dolphin House - Room P4'
   end
 
-  scenario 'Search customer' do
-    Customer.create first_name: 'Peter',
-                    last_name: 'Lustig',
-                    date_of_birth: 20.years.ago,
-                    gender: 'male',
-                    email: 'test@example.com'
+  scenario 'Search customer', js: true do
+    create :customer, first_name: 'Peter', last_name: 'Lustig'
 
     visit root_path
 
     # Search
-    fill_in 'Search customer', with: "Han\n"
+    fill_in 'Search customer', with: "Pet"
+    page.execute_script("$('#customers-search form').submit()")
 
+    expect(page).to have_content 'Lustig Peter'
   end
 
 end

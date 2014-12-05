@@ -28,7 +28,7 @@
 @import "bootstrap";
 
 // Bootstrap body padding for fixed navbar
-body { padding-top: 50px; }
+body { padding: 50px 0; }
 
 // And finally bootswatch style itself
 // @import "bootswatch/lumen/bootswatch";
@@ -54,6 +54,9 @@ body { padding-top: 50px; }
 
 // Utils
 @import "utils";
+
+// Tables
+@import "components/tables";
 
 // .page-header { margin-top: 20px; }
 

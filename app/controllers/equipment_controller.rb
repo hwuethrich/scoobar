@@ -14,26 +14,27 @@ class EquipmentController < ApplicationController
       merge(Equipment.alphabetical)
   end
 
-  def new
-    respond_with equipment
-  end
-
   def create
     equipment.save
-    respond_with equipment, location: [:equipment, :index]
+    respond_with_equipment
   end
 
   def update
     equipment.update equipment_params
-    respond_with equipment, location: [:equipment, :index]
+    respond_with_equipment
   end
 
   def destroy
     equipment.destroy
-    respond_with equipment
+    respond_with_equipment
   end
 
   private
+
+  def respond_with_equipment
+    anchor = 'nav-category-%d' % equipment.category_id
+    respond_with equipment, location: equipment_index_path(anchor: anchor)
+  end
 
   def equipment_params
     params.require(:equipment).permit(:name, :category_id, :comment)

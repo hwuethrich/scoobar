@@ -1,17 +1,11 @@
-.page-header
-  .pull-right
-    .btn-group
-      = link_to url_for(year: year-1), class: 'btn btn-default' do
-        = icon 'angle-left'
-        = year - 1
-      = link_to url_for(year: year+1), class: 'btn btn-default' do
-        = year + 1
-        = icon 'angle-right'
-
-  %h1
-    = icon 'bar-chart'
-    Statistics
-    %small.text-muted= year
+= page_header t('.title'), icon: 'bar-chart', subtitle: year do
+  .btn-group
+    = link_to url_for(year: year-1), class: 'btn btn-default' do
+      = icon 'angle-left'
+      = year - 1
+    = link_to url_for(year: year+1), class: 'btn btn-default' do
+      = year + 1
+      = icon 'angle-right'
 
 .row
   .col-sm-3

@@ -1,7 +1,4 @@
-%h1 Editing equipment_category
+= page_header category.name, subtitle: t('.subtitle'), icon: 'folder-open' do
+  = link_to icon('list', t('equipment.categories.common.list_categories')), :equipment_categories, class: 'btn btn-default'
 
 = render 'form'
-
-= link_to 'Show', @equipment_category
-\|
-= link_to 'Back', equipment_categories_path

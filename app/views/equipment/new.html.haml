@@ -1,4 +1,4 @@
-%h1.page-header
-  = t('.title')
+= page_header t('.title'), icon: 'gear' do
+  = link_to icon('list', t('equipment.common.list_equipment')), [:equipment, :index], class: 'btn btn-default'
 
 = render 'form'
