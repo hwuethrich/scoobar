@@ -26,18 +26,16 @@ RSpec.feature 'Customer registration', type: :feature do
     expect(Customer.count).to eq(1)
   end
 
-  scenario 'Search customer' do
-    Customer.create first_name: 'Peter',
-                    last_name: 'Lustig',
-                    date_of_birth: 20.years.ago,
-                    gender: 'male',
-                    email: 'test@example.com'
+  scenario 'Search customer', js: true do
+    create :customer, first_name: 'Peter', last_name: 'Lustig'
 
     visit root_path
 
     # Search
-    fill_in 'Search customer', with: "Han\n"
+    fill_in 'Search customer', with: "Pet"
+    page.execute_script("$('#customers-search form').submit()")
 
+    expect(page).to have_content 'Lustig Peter'
   end
 
 end
