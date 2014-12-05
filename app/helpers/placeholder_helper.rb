@@ -8,4 +8,11 @@ module PlaceholderHelper
     end
   end
 
+  def placeholder(string=nil)
+    if string.blank?
+      content_tag :span, '&ndash;'.html_safe, class: 'text-muted'
+    else
+      string
+    end
+  end
 end

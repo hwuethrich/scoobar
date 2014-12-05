@@ -1,0 +1,13 @@
+// Used for model attributes (key/value)
+.table.table-attributes {
+  th {
+    width: 40%;
+    color: $gray-light;
+    background-color: $gray-lighter;
+    text-align: right;
+
+    &::after { content: ':'; }
+  }
+
+  margin-bottom: 0;
+}
