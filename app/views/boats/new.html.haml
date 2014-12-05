@@ -1,6 +1,4 @@
-.page-header
-  %h2
-    %i.fa.fa-anchor
-    = t '.title'
+= page_header t('.title'), icon: 'anchor' do
+  = link_to icon(:list, t('boats.common.list_boats')), boats_path, class: 'btn btn-default'
 
 = render 'form'

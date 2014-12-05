@@ -50,4 +50,12 @@ module CustomerHelper
   def customer_last_dive_on(customer)
     placeholder date_with_distance_to_now(customer.last_dive_on)
   end
+
+  def customer_name_with_icon(customer)
+    capture_haml do
+      haml_concat icon(customer.gender)
+      haml_tag :strong, customer.last_name
+      haml_concat customer.first_name
+    end
+  end
 end

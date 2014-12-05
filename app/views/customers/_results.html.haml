@@ -8,12 +8,10 @@
           - customers.each do |customer|
             %tr
               %td
-                = link_to customer do
-                  %strong= customer.last_name
-                  = customer.first_name
+                = link_to customer_name_with_icon(customer), customer
 
       .pager
-        = if customers.total_pages > 1
+        - if customers.total_pages > 1
           .btn-group.pull-left
             = link_to url_for(params.merge(page: 1)), class: 'btn btn-default', disabled: customers.first_page? do
               %i.fa.fa-angle-double-left.fa-fw

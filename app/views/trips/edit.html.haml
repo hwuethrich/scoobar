@@ -1,10 +1,5 @@
-.page-header
-  %h2
-    %span.label.label-default{ :style => 'background-color: %s;' % trip.color }<
-      = trip.code
-    = trip.name
-    %small
-      %i.fa.fa-pencil
-      = t '.title'
+= page_header trip_code_and_name(trip), subtitle: icon(:pencil, t('.subtitle')) do
+  = link_to :trips, class: 'btn btn-default' do
+    = icon :list, t('trips.common.list_trips')
 
 = render 'form'

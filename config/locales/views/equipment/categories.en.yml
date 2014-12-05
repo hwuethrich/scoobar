@@ -4,9 +4,14 @@ en:
 
       index:
         title: 'Equipment Categories'
+        add_category: 'Add Category'
 
       new:
-        title: 'Add Categories'
+        title: 'Add Category'
 
       edit:
-        title: 'Edit Category'
+        subtitle: 'Edit Category'
+
+      common:
+        list_categories: 'List Categories'
+        manage_equipment: 'Manage Equipment'

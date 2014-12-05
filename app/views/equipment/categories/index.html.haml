@@ -1,13 +1,9 @@
-.page-header
-  .pull-right
-    = link_to [:equipment, :index], class: 'btn btn-default' do
-      %i.fa.fa-wrench
-      = 'Equipment'
-    = link_to 'Add Category', [:new, :equipment_category], class: 'btn btn-success'
+= page_header t('.title'), icon: 'folder-open' do
+  = link_to [:equipment, :index], class: 'btn btn-default' do
+    = icon 'gear', t('equipment.categories.common.manage_equipment')
 
-  %h1
-    %i.fa.fa-folder-open
-    = t '.title'
+  = link_to [:new, :equipment_category], class: 'btn btn-success' do
+    = icon 'plus-circle', t('.add_category')
 
 = collection_placeholder categories, message: 'No equipment categories yet' do
   = render 'table'

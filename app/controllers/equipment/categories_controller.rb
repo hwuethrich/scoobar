@@ -4,7 +4,7 @@ class Equipment::CategoriesController < ApplicationController
 
   respond_to :html
 
-  expose(:categories) { Equipment::Category.all }
+  expose(:categories) { Equipment::Category.alphabetical }
   expose(:category, attributes: :category_params)
 
   def new

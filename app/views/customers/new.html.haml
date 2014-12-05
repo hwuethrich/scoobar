@@ -1,11 +1,5 @@
-.page-header
-  .pull-right
-    = link_to :customers, class: 'btn btn-default' do
-      %i.fa.fa-list
-      = t '.customer_list'
-
-  %h2
-    %i.fa.fa-file-text
-    = t '.title'
+= page_header t('.title'), icon: 'user' do
+  = link_to :customers, class: 'btn btn-default' do
+    = icon :search, t('customers.common.search_customers')
 
 = render 'form'

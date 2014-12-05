@@ -1,10 +1,11 @@
 %tr[equipment]
-  %td
+  %td.col-xs-4
     = link_to equipment.name, [:edit, equipment]
   %td
-    - equipment.rentals.current.includes{customer}.each do |rental|
-      = icon :user
-      = link_to rental.customer, [rental.customer, :rentals]
+    - equipment.rentals.current.includes{customer}.each_with_index do |rental, i|
+      = ' &bull; '.html_safe unless i.zero?
+      = link_to [rental.customer, :rentals] do
+        = customer_name_with_icon(rental.customer)
 
   %td.actions-column
     = action_links_for equipment, :delete

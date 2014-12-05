@@ -1,13 +1,6 @@
-.page-header
-
-  .pull-right
-    = link_to new_customer_path, class: 'btn btn-success' do
-      %i.fa.fa-plus-circle
-      = t '.register_customer'
-
-  %h2
-    %i.fa.fa-users
-    = t '.title'
+= page_header t('.title'), icon: 'users' do
+  = link_to new_customer_path, class: 'btn btn-success' do
+    = icon 'plus-circle', t('.register_customer')
 
 #customers-search
   = render 'search'
