@@ -57,10 +57,6 @@ class Event < ActiveRecord::Base
     boat.present?
   end
 
-  def logbook
-    super || build_logbook(time_in: start_time)
-  end
-
   def to_s
     '%s - %s' % [I18n.l(start_time, format: :short), name]
   end

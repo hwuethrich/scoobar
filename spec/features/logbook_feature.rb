@@ -23,6 +23,7 @@ RSpec.feature 'Logbook:', type: :feature do
     expect(event.logbook.max_depth).to eq(12.5)
     expect(event.logbook.time_in).to eq(DateTime.parse('01/01/2014 11:00'))
     expect(event.logbook.dive_time).to eq(55)
+    expect(event.logbook.comments).to eq('Whaleshark!')
 
   end
 

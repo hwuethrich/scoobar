@@ -5,17 +5,31 @@ module Events
     respond_to :html
 
     expose(:event)
-    expose(:logbook) { event.logbook }
+    expose(:logbook) { event.logbook || event.build_logbook(time_in: event.start_time) }
 
     def create
-      logbook.update_attributes logbook_params
-      respond_with logbook, url: event_logbook_path(event)
+      save_and_respond_with_logbook
+    end
+
+    def update
+      save_and_respond_with_logbook
+    end
+
+    def destroy
+      logbook.destroy
+      respond_with logbook, location: [event, :logbook]
     end
 
     private
 
+    def save_and_respond_with_logbook
+      logbook.attributes = logbook_params
+      logbook.save
+      respond_with logbook, location: [event, :logbook]
+    end
+
     def logbook_params
-      params.require(:event_logbook).permit(:max_depth, :time_in, :dive_time, :comment)
+      params.require(:event_logbook).permit(:max_depth, :time_in, :dive_time, :comments)
     end
 
   end

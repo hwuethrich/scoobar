@@ -1,0 +1,6 @@
+- flash.each do |type, message|
+  .alert.alert-flash.alert-dismissible.fade.in{class: alert_class_for_flash(type), role: 'alert'}
+    %button.close{"data-dismiss" => "alert", :type => "button"}
+      %span{"aria-hidden" => "true"} &times;
+      %span.sr-only Close
+    = message

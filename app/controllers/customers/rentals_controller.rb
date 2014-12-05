@@ -31,7 +31,7 @@ module Customers
 
     def destroy
       rental.destroy
-      redirect_to [customer, :rentals], notice: 'Rental was successfully deleted.'
+      respond_with rental, location: [customer, :rentals]
     end
 
     private

@@ -16,3 +16,6 @@
 
   .form-actions
     = f.button :submit, class: 'btn btn-primary'
+    - if logbook.persisted?
+      = link_to [event, :logbook], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' do
+        = icon 'trash', 'Delete'
