@@ -30,7 +30,7 @@ class Event < ActiveRecord::Base
   delegate :code, :capacity, to: :boat, prefix: true, allow_nil: true
 
   def name
-    name? ? name : trip.try(:name)
+    name? ? super : trip.try(:name)
   end
 
   def color
