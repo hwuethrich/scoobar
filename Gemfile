@@ -138,3 +138,5 @@ gem 'bootstrap3-datetimepicker-rails', '~> 3.1.1'
 
 # Heroku/Dokku deployments
 gem 'rails_12factor', group: :production
+
+gem 'newrelic_rpm'
