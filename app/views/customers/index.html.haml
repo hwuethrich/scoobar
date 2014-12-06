@@ -5,5 +5,7 @@
 #customers-search
   = render 'search'
 
-#customers-results
+- if search_query.present?
   = render 'results'
+- else
+  = render 'recent'

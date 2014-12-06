@@ -11,6 +11,7 @@ class Customer < ActiveRecord::Base
 
   scope :alphabetical, -> { order :last_name, :first_name }
   scope :search, ->(query) { where { (first_name =~ ('%s%' % query)) | (last_name =~ ('%s%' % query))} }
+  scope :recent, ->(count=10) { order(:updated_at).limit(count) }
 
   has_many :bookings, dependent: :destroy
   has_many :rentals, dependent: :destroy

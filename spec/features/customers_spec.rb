@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature 'Customer registration', type: :feature do
+RSpec.feature 'Customers:', type: :feature do
 
   scenario 'Register a new customer', js: true do
     visit root_path
@@ -43,6 +43,20 @@ RSpec.feature 'Customer registration', type: :feature do
     page.execute_script("$('#customers-search form').submit()")
 
     expect(page).to have_content 'Lustig Peter'
+  end
+
+  scenario 'Show 10 recent customers by default' do
+
+    11.times do |n|
+      create :customer, first_name: 'Customer %02d' % (n+1), updated_at: n.hours.ago
+    end
+
+    visit customers_path
+
+    expect(page).to have_content 'Customer 02'
+    expect(page).to have_content 'Customer 11'
+    expect(page).not_to have_content 'Customer 01'
+
   end
 
 end

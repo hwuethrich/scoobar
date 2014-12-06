@@ -28,6 +28,28 @@ RSpec.describe Customer do
 
   end
 
+  describe 'Scopes:' do
+
+    describe '.recent' do
+
+      before(:each) do
+        11.times do |n|
+          create :customer, first_name: 'Customer %02d' % (n+1), updated_at: n.hours.ago
+        end
+      end
+
+      it 'shows the 10 recently updated customers' do
+        customers = Customer.recent
+
+        expect(customers.count).to eq 10
+        expect(customers[0].first_name).to eq 'Customer 11'
+        expect(customers[9].first_name).to eq 'Customer 02'
+      end
+
+    end
+
+  end
+
   describe 'Methods:' do
     describe '#destroy' do
 

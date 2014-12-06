@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature 'Event calendar:', type: :feature do
+RSpec.feature 'Event Calendar:', type: :feature do
 
   scenario 'Double-click on calendar event to edit event', js: true do
     event = create :event, start_time: Date.today.midday

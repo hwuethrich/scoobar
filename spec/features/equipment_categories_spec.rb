@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature 'Equipment categories:', type: :feature do
+RSpec.feature 'Equipment Categories:', type: :feature do
 
   scenario 'Add category' do
     visit root_path

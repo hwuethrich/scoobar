@@ -3,9 +3,15 @@ class CustomersController < ApplicationController
   active_navbar_item :customers
 
   expose(:customers) do
-    customers = Customer.alphabetical
-    customers = customers.search(search_query) if search_query.present?
-    customers.page params[:page]
+    if search_query.present?
+      Customer.
+        alphabetical.
+        search(search_query).
+        page params[:page]
+    else
+      Customer.
+        recent(10)
+    end
   end
 
   expose(:customer, attributes: :customer_params)
