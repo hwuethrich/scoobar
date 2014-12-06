@@ -2,6 +2,7 @@ class TripsController < ApplicationController
 
   active_navbar_item :trips
 
+  responders :flash, :http_cache, :collection
   respond_to :html
 
   expose(:trips) { Trip.alphabetical }

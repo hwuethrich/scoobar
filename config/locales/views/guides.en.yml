@@ -1,0 +1,11 @@
+en:
+  guides:
+    index:
+      title: Guides
+      add_guide: Add Guide
+    edit:
+      subtitle: Edit Guide
+    new:
+      title: Add Guide
+    common:
+      list_guides: List Guides
