@@ -20,7 +20,9 @@
         = f.input :capacity, as: :numeric, placeholder: event.boat_capacity.to_s
 
     .row
-      .col-sm-12
+      .col-sm-7
+        = f.association :guide
+      .col-sm-5
         = f.input :description
 
   .form-actions

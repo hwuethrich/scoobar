@@ -19,6 +19,7 @@ class Event < ActiveRecord::Base
 
   scope :boat_dives, -> { where { boat_id != nil }}
   scope :night_dives, -> { where { night_dive == true }}
+  scope :guided_dives, -> { where { guide_id != nil }}
 
   # VALIDATIONS
 
@@ -56,6 +57,10 @@ class Event < ActiveRecord::Base
 
   def boat_dive?
     boat.present?
+  end
+
+  def guided_dive?
+    guide.present?
   end
 
   def to_s
