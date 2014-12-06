@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature 'Customers:', type: :feature do
 
-  scenario 'Register a new customer', js: true do
+  scenario 'Register a new customer' do
     visit root_path
     click_on 'Register customer'
 
