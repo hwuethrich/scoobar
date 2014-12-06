@@ -24,9 +24,10 @@ Rails.application.routes.draw do
   resources :equipment
 
   namespace :autocomplete do
-    resources :customers, only: [:index, :show]
-    resources :trips,     only: [:index, :show]
-    resources :boats,     only: [:index, :show]
+    resources :customers,      only: [:index, :show]
+    resources :trips,          only: [:index, :show]
+    resources :boats,          only: [:index, :show]
+    resources :certifications, only: :index
   end
 
   resources :statistics, only: [:index]
