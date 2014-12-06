@@ -2,28 +2,24 @@ class TripsController < ApplicationController
 
   active_navbar_item :trips
 
+  respond_to :html
+
   expose(:trips) { Trip.alphabetical }
   expose(:trip, attributes: :trip_params)
 
   def create
-    if trip.save
-      redirect_to :trips, notice: 'Trip was successfully created.'
-    else
-      render :new
-    end
+    trip.save
+    respond_with trip
   end
 
   def update
-    if trip.save
-      redirect_to :trips, notice: 'Trip was successfully updated.'
-    else
-      render :edit
-    end
+    trip.save
+    respond_with trip
   end
 
   def destroy
     trip.destroy
-    redirect_to :trips, notice: 'Trip was successfully deleted.'
+    respond_with trip
   end
 
   private
