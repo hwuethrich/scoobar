@@ -17,15 +17,26 @@
         = event.boat_code
       - else
         &mdash;
+
       = ' | '
       %i.fa.fa-mail-reply
       = l event.end_time, format: '%H:%M'
+
       = ' | '
       %i.fa.fa-user
       - if event.limited_capacity?
         = '%d/%d' % [event.number_of_bookings, event.capacity]
       - else
         = event.number_of_bookings
+
+      = ' | '
+      - if event.guided_dive?
+        = icon :star
+        = event.guide.name
+      - else
+        = icon 'star-o'
+        non-guided
+
       - if event.night_dive?
         = ' | '
         %i.fa.fa-moon-o
