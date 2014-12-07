@@ -1,7 +1,7 @@
 = page_header t('.title'), icon: 'folder-open' do
   = link_to [:equipment, :index], class: 'btn btn-default' do
     = icon 'gear', t('equipment.categories.common.manage_equipment')
-
+  = ' '
   = link_to [:new, :equipment_category], class: 'btn btn-success' do
     = icon 'plus-circle', t('.add_category')
 
