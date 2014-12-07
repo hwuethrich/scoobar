@@ -1,6 +1,6 @@
 class GuidesController < ApplicationController
 
-  active_navbar_item :guides
+  active_navbar_item :admin
 
   responders :flash, :http_cache, :collection
 

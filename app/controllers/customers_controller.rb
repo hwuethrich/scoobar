@@ -18,6 +18,12 @@ class CustomersController < ApplicationController
 
   expose(:search_query) { params[:search] }
 
+  def index
+    if search_query.present? && customers.count == 1
+      redirect_to customers.first
+    end
+  end
+
   def create
     customer.save
     respond_with customer

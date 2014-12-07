@@ -2,9 +2,6 @@
   = link_to new_customer_path, class: 'btn btn-success' do
     = icon 'plus-circle', t('.register_customer')
 
-#customers-search
-  = render 'search'
-
 - if search_query.present?
   = render 'results'
 - else

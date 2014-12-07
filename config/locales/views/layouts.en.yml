@@ -1,4 +1,21 @@
 en:
   layouts:
     navbar:
-      equipment_categories: 'Equipment categories'
+      customers:
+        title: 'Customers'
+        recent: 'Recent Customers'
+        add: 'Add Customer'
+
+      events:
+        title: 'Events'
+        list: 'List Events'
+        calendar: 'Show Calendar'
+        add: 'Add Event'
+
+      admin:
+        title: 'Admin'
+        trips: 'Trips'
+        guides: 'Guides'
+        boats: 'Boats'
+        equipment: 'Equipment'
+        statistics: 'Statistics'

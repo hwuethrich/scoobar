@@ -33,16 +33,45 @@ RSpec.feature 'Customers:', type: :feature do
     expect(page).to have_content 'Dolphin House - Room P4'
   end
 
-  scenario 'Search customer', js: true do
-    create :customer, first_name: 'Peter', last_name: 'Lustig'
+  describe 'Searching customers:' do
 
-    visit root_path
+    let!(:customers) do
+      [
+        create(:customer, first_name: 'Peter', last_name: 'Lustig'),
+        create(:customer, first_name: 'Peter', last_name: 'Müller'),
+        create(:customer, first_name: 'Hans',  last_name: 'Meier')
+      ]
+    end
 
-    # Search
-    fill_in 'Search customer', with: "Pet"
-    page.execute_script("$('#customers-search form').submit()")
+    before(:each) do
+      visit root_path
 
-    expect(page).to have_content 'Lustig Peter'
+      # Search
+      fill_in 'Search Customer', with: search_term
+      find('#customer-search .btn-search').click
+    end
+
+    context 'When there are multiple hits' do
+      let(:search_term) { 'pet' }
+
+      scenario 'shows matching customers' do
+        expect(page).to have_content 'Displaying all 2 customers'
+        expect(page).to have_content 'Lustig Peter'
+        expect(page).to have_content 'Müller Peter'
+        expect(page).not_to have_content 'Meier Hans'
+      end
+    end
+
+    context 'When there is exactly one hits' do
+      let(:search_term) { 'müller'}
+
+      scenario 'shows matching customer' do
+        customer = customers[1]
+        expect(page).to have_content 'Müller Peter'
+        expect(page.current_path).to eq customer_path(customer)
+      end
+    end
+
   end
 
   scenario 'Show 10 recent customers by default' do

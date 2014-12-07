@@ -1,6 +1,6 @@
 class EquipmentController < ApplicationController
 
-  active_navbar_item :equipment
+  active_navbar_item :admin
 
   respond_to :html
 

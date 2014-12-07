@@ -1,6 +1,6 @@
 class TripsController < ApplicationController
 
-  active_navbar_item :trips
+  active_navbar_item :admin
 
   responders :flash, :http_cache, :collection
   respond_to :html

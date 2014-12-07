@@ -8,8 +8,7 @@ RSpec.feature 'Events:', type: :feature do
     guide = create :guide, name: 'John Doe'
 
     visit root_path
-    click_on 'Events'
-    click_on 'Create Event'
+    click_on 'Add Event'
 
     fill_in 'Trip', with: trip.id
     select 'John Doe', from: 'Guide'
@@ -21,34 +20,36 @@ RSpec.feature 'Events:', type: :feature do
     expect(event.trip).to eq trip
   end
 
-  scenario 'Delete event from panel in list' do
+  describe 'Deleting events:' do
+    scenario 'Delete event from panel in list' do
 
-    trip  = create :trip, code: 'ABC', name: 'My Trip'
-    event = create :event, trip: trip, start_time: Date.tomorrow.midday
+      trip  = create :trip, code: 'ABC', name: 'My Trip'
+      event = create :event, trip: trip, start_time: Date.tomorrow.midday
 
-    visit events_path(date: Date.tomorrow)
+      visit events_path(date: Date.tomorrow)
 
-    within('.panel-event') do
-      click_on 'Delete'
+      within('.panel-event') do
+        click_on 'Delete'
+      end
+
+      expect(Event.count).to be_zero
+      expect(page.current_url).to eq events_url(date: Date.tomorrow)
     end
 
-    expect(Event.count).to be_zero
-    expect(page.current_url).to eq events_url(date: Date.tomorrow)
-  end
+    scenario 'Delete event from event form' do
 
-  scenario 'Delete event from event form' do
+      trip  = create :trip, code: 'ABC', name: 'My Trip'
+      event = create :event, trip: trip, start_time: Date.tomorrow.midday
 
-    trip  = create :trip, code: 'ABC', name: 'My Trip'
-    event = create :event, trip: trip, start_time: Date.tomorrow.midday
+      visit edit_event_path(event)
 
-    visit edit_event_path(event)
+      within('.form-actions') do
+        click_on 'Delete'
+      end
 
-    within('.form-actions') do
-      click_on 'Delete'
+      expect(Event.count).to be_zero
+      expect(page.current_url).to eq events_url(date: Date.tomorrow)
     end
-
-    expect(Event.count).to be_zero
-    expect(page.current_url).to eq events_url(date: Date.tomorrow)
   end
 
   describe 'Calendar:' do
