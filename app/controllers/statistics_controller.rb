@@ -1,6 +1,6 @@
 class StatisticsController < ApplicationController
 
-  active_navbar_item :statistics
+  active_navbar_item :admin
 
   expose(:year) { params.fetch(:year, Date.today.year).to_i }
   expose(:range) { Date.new(year, 1, 1)..Date.new(year, 12, 31) }
