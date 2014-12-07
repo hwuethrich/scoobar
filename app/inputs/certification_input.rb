@@ -1,0 +1,2 @@
+class CertificationInput < AutocompleteInput
+end

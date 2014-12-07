@@ -18,22 +18,18 @@ class EventsController < ApplicationController
   end
 
   def create
-    if event.save
-      redirect_to [:edit, event], notice: 'Event created'
-    else
-      render :new
-    end
+    event.save
+    respond_with event, location: [:edit, event]
   end
 
   def update
-    respond_to do |format|
-      if event.save
-        format.html { redirect_to [:edit, event], notice: 'Event updated' }
-        format.json { render json: event }
-      else
-        render :edit
-      end
-    end
+    event.save
+    respond_with event, location: [:edit, event]
+  end
+
+  def destroy
+    event.destroy
+    respond_with event, location: events_path(date: event.start_time.to_date)
   end
 
   private
@@ -53,7 +49,7 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:name, :start_time, :end_time, :duration, :description, :trip_id, :night_dive, :boat_id, :capacity)
+    params.require(:event).permit(:name, :start_time, :end_time, :duration, :description, :trip_id, :night_dive, :boat_id, :capacity, :guide_id)
   end
 
   def event_default_start_time

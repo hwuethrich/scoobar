@@ -1,0 +1,15 @@
+%tr
+  %td.label-column
+    - if trip.code.present?
+      .label.label-default{ :style => 'background-color: %s;' % trip.color }<
+        = trip.code
+  %td.col-xs-4
+    = link_to edit_trip_path(trip) do
+      = trip.name
+  %td.text-muted
+    - if trip.duration.present?
+      %i.fa.fa-clock-o
+      = trip.duration
+      min
+  %td.actions-column
+    = action_links_for trip, :delete

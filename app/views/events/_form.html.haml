@@ -3,24 +3,33 @@
 
   .form-inputs
     .row
-      .col-xs-12.col-sm-4
+      .col-sm-7
         = f.association :trip, as: :trip
-      .col-sm-6
+      .col-sm-5
         = f.input :name
+    .row
+      .col-sm-3
+        = f.input :start_time
+      .col-sm-2
+        = f.input :duration, as: :numeric
       .col-sm-2
         = f.input :night_dive, as: :select, include_blank: false
-    .row
-      .col-xs-8.col-sm-2
-        = f.input :start_time
-      .col-xs-4.col-sm-2
-        = f.input :duration, as: :numeric
-      .col-xs-4.col-sm-2
+      .col-sm-3
         = f.association :boat, as: :boat
-      .col-xs-4.col-sm-2
+      .col-sm-2
         = f.input :capacity, as: :numeric, placeholder: event.boat_capacity.to_s
-      .col-sm-6
+
+    .row
+      .col-sm-7
+        = f.association :guide
+      .col-sm-5
         = f.input :description
 
-  %p.form-actions
-    = f.button :submit
+  .form-actions
+    = f.button :submit, class: 'btn btn-primary'
     = link_to t(:back), :back, class: 'btn btn-default'
+
+    - if event.persisted?
+      = link_to event, method: :delete, class: 'btn btn-danger pull-right' do
+        = icon 'trash'
+        Delete

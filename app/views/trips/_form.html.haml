@@ -13,6 +13,6 @@
       .col-sm-4
         = f.input :duration, min_max: true
 
-  %p.form-actions
-    = f.button :submit
+  .form-actions
+    = f.button :submit, class: 'btn btn-primary'
     = link_to t(:back), :back, class: 'btn btn-default'

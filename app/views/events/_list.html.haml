@@ -1,4 +1,7 @@
 .event-list
+  - if events.empty?
+    %h5= '&nbsp;'.html_safe
+
   = collection_placeholder events, message: 'No events planned for this time.' do
     .panel-group{:id => id}
       - events.group_by(&:start_time).each do |start_time, events_by_time|

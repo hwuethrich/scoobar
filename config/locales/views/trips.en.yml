@@ -2,7 +2,12 @@ en:
   trips:
     index:
       title: Trips
+
     edit:
-      title: Edit
+      subtitle: Edit Trip
+
     new:
-      title: Add trip
+      title: Add Trip
+
+    common:
+      list_trips: List Trips

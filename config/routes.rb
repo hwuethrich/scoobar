@@ -2,23 +2,37 @@ Rails.application.routes.draw do
 
   resources :trips
   resources :boats
+  resources :guides
 
   get 'events/calendar', to: 'events/calendar#show', as: 'events_calendar'
 
   resources :events do
     resources :bookings, module: :events
+    resource :logbook, module: :events
   end
 
   resources :customers do
-    resources :bookings, module: :customers
     resource :logbook, module: :customers
+    resources :bookings, module: :customers
+    resources :rentals, module: :customers do
+      post :return, on: :member
+    end
   end
 
-  namespace :autocomplete do
-    resources :customers, only: [:index, :show]
-    resources :trips,     only: [:index, :show]
-    resources :boats,     only: [:index, :show]
+  namespace :equipment do
+    resources :categories
   end
+
+  resources :equipment
+
+  namespace :autocomplete do
+    resources :customers,      only: [:index, :show]
+    resources :trips,          only: [:index, :show]
+    resources :boats,          only: [:index, :show]
+    resources :certifications, only: :index
+  end
+
+  resources :statistics, only: [:index]
 
   root 'home#index'
 

@@ -1,0 +1,17 @@
+en:
+  equipment:
+
+    index:
+      title: 'Equipment'
+      add_equipment: 'Add Equipment'
+
+    new:
+      title: 'Add Equipment'
+
+    edit:
+      title: 'Edit Equipment'
+
+    common:
+      list_equipment: 'List Equipment'
+      manage_categories: 'Manage Categories'
+

@@ -1,43 +1,71 @@
 = render 'header', current_nav: :overview
 
+%h5.page-header.text-muted
+  = icon :user
+  Personal
+
 .row
   .col-xs-12.col-sm-6
-    %table.table
+    %table.table.table-attributes
       %tbody
         %tr
           %th Date of birth
-          %td
-            - if customer.date_of_birth.present?
-              =l customer.date_of_birth
-              %span.text-muted= '(%d)' % customer.age
-            - else
-              %span.text-muted -
+          %td= customer_date_of_birth_with_age customer
         %tr
           %th Gender
-          %td
-            - if customer.gender.present?
-              %i.fa{class: 'fa-%s' % customer.gender }
-              = customer.gender
-            - else
-              %span.text-muted -
-        %tr
-          %th Room #
-          %td 104
+          %td= customer_gender customer
 
   .col-xs-12.col-sm-6
-    %table.table
+    %table.table.table-attributes
       %tbody
         %tr
           %th E-Mail
-          %td= link_to customer.email, 'mailto:%s' % customer.email
+          %td= customer_email customer
         %tr
           %th Phone
           %td= customer.phone_number
+
+%h5.page-header.text-muted
+  = icon :certificate
+  Certification
+
+.row
+  .col-sm-6
+    %table.table.table-attributes
+      %tbody
         %tr
-          %th Address
-          %td
-            = customer.address1
-            %br
-            = '%s %s' % [customer.post_code, customer.city]
-            %br
-            = customer.country
+          %th Name
+          %td= placeholder customer.certification_name
+        %tr
+          %th Number
+          %td= placeholder customer.certification_number
+        %tr
+          %th Certified on
+          %td= customer_certification_date customer
+  .col-sm-6
+    %table.table.table-attributes
+      %tbody
+        %tr
+          %th Number of dives
+          %td= customer.number_of_dives
+        %tr
+          %th Last dive on
+          %td= customer_last_dive_on customer
+
+%h5.page-header.text-muted
+  = icon :home
+  Address
+
+.row
+  .col-sm-6
+    %table.table.table-attributes
+      %tbody
+        %tr
+          %th Home
+          %td= customer_address customer
+  .col-sm-6
+    %table.table.table-attributes
+      %tbody
+        %tr
+          %th Hotel
+          %td= customer_hotel customer

@@ -6,10 +6,26 @@ $(document).on 'ready page:change', ->
   $('input[type=date]').prop('type','text').datetimepicker
     pickTime: false
 
-  $('input.datetime').on 'dp.change', (event)->
-    hidden = $(event.target).next 'input[type=hidden]'
-    hidden.val event.date.format 'YYYY-MM-DDTHH:mm'
+  $('input[type=time]').prop('type','text').datetimepicker
+    pickDate: false
 
-  $('input.date').on 'dp.change', (event)->
+  handleChange = (format)->
+    (event)->
+      hidden = $(event.target).next 'input[type=hidden]'
+      hidden.val event.date.format format
+
+  handleEmpty = (event)->
     hidden = $(event.target).next 'input[type=hidden]'
-    hidden.val event.date.format 'YYYY-MM-DD'
+    hidden.val '' if event.target.value == ''
+
+  $('input.datetime')
+    .on 'dp.change', handleChange('YYYY-MM-DDTHH:mm')
+    .on 'change', handleEmpty
+
+  $('input.date')
+    .on 'dp.change', handleChange('YYYY-MM-DD')
+    .on 'change', handleEmpty
+
+  $('input.time')
+    .on 'dp.change', handleChange('YYYY-MM-DDTHH:mm')
+    .on 'change', handleEmpty

@@ -1,0 +1,8 @@
+.btn-group
+  - if actions.include? :edit
+    = link_to [:edit, model].flatten, class: 'btn btn-default btn-xs' do
+      = icon :pencil, '', class: 'fa-fw'
+  - if actions.include? :delete
+    = link_to model, class: 'btn btn-default btn-xs btn-delete', method: :delete, data: { confirm: 'Are you sure?' }, alt: 'Delete' do
+      = icon :trash, '', class: 'fa-fw'
+

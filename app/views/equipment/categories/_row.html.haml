@@ -1,0 +1,5 @@
+%tr[category]
+  %td
+    = link_to category.name, [:edit, category]
+  %td.actions-column
+    = action_links_for category, :delete

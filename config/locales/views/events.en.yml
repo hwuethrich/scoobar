@@ -1,6 +1,10 @@
 en:
   events:
+    new:
+      title: Add Event
+
     events_header:
       title: Events
+
     day_panel:
       no_events: There are no events planned for this date.

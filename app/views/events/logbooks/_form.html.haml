@@ -1,0 +1,21 @@
+= simple_form_for logbook, url: event_logbook_path(event) do |f|
+  = f.error_notification
+
+  .form-inputs
+    .row
+      .col-sm-3
+        = f.input :time_in, as: :time
+      .col-sm-3
+        = f.input :dive_time, as: :numeric
+      .col-sm-3
+        = f.input :max_depth
+
+    .row
+      .col-sm-9
+        = f.input :comments
+
+  .form-actions
+    = f.button :submit, class: 'btn btn-primary'
+    - if logbook.persisted?
+      = link_to [event, :logbook], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' do
+        = icon 'trash', 'Delete'

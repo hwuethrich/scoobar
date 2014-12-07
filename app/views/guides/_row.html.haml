@@ -1,0 +1,6 @@
+%tr[guide]
+  %td
+    = link_to [:edit, guide] do
+      = guide.name
+  %td.actions-column
+    = action_links_for guide, :delete

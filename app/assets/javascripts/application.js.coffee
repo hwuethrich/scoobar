@@ -24,4 +24,6 @@
 #= require bootstrap-colorpicker
 #= require fullcalendar
 #= require select2
+#= require highcharts
+#= require chartkick
 #= require_tree .

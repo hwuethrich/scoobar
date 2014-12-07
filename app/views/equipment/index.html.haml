@@ -1,0 +1,20 @@
+= page_header t('.title'), icon: 'gear' do
+  = link_to :equipment_categories, class: 'btn btn-default' do
+    = icon 'folder-open', t('equipment.common.manage_categories')
+  = ' '
+  = link_to [:new, :equipment], class: 'btn btn-success' do
+    = icon 'plus-circle', t('.add_equipment')
+
+= collection_placeholder categories, message: 'No equipment categories yet' do
+  %ul.nav.nav-tabs.nav-equipment
+    - categories.each_with_index do |category, index|
+      %li{:class => index.zero? ? 'active' : ''}
+        = link_to '#nav-category-%d' % category.id, data: { toggle: 'tab' } do
+          %i.fa.fa-folder-open
+          = category.name
+
+  .tab-content
+    - categories.each_with_index do |category, index|
+      .tab-pane.fade.in{:id => 'nav-category-%d' % category.id, :class => index.zero? ? 'active' : ''}
+        = collection_placeholder category.equipment, message: 'No equipment yet' do
+          = render 'table', equipments: category.equipment

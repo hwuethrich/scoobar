@@ -1,0 +1,56 @@
+= page_header t('.title'), icon: 'bar-chart', subtitle: year do
+  .btn-group
+    = link_to url_for(year: year-1), class: 'btn btn-default' do
+      = icon 'angle-left'
+      = year - 1
+    = link_to url_for(year: year+1), class: 'btn btn-default' do
+      = year + 1
+      = icon 'angle-right'
+
+.row
+  .col-sm-3
+    #customers-count
+      = counter customer_statistics.count, :user, 'Customers'
+
+  .col-sm-3
+    #bookings-count
+      = counter booking_statistics.count, 'check-square-o', 'Bookings'
+
+  .col-sm-3
+    #events-count
+      = counter event_statistics.count, :calendar, 'Events'
+
+  .col-sm-3
+    #rentals-count
+      = counter rental_statistics.count, :cog, 'Rentals'
+
+.row
+  .col-sm-6
+    .panel.panel-default
+      .panel-heading
+        = icon :calendar
+        Events
+      .panel-body
+        = column_chart events_count_by_month, height: '200px'
+  .col-sm-6
+    .panel.panel-default
+      .panel-heading
+        = icon :gear
+        Rentals
+      .panel-body
+        = column_chart rentals_count_by_month, height: '200px'
+.row
+  .col-sm-6
+    .panel.panel-default
+      .panel-heading
+        = icon :calendar
+        Bookings
+      .panel-body
+        = column_chart bookings_count_by_month, height: '200px'
+  .col-sm-6
+    .panel.panel-default
+      .panel-heading
+        = icon :user
+        Customers
+      .panel-body
+        = column_chart customers_count_by_month, height: '200px'

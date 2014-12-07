@@ -10,6 +10,6 @@
       .col-sm-8
         = f.input :name
 
-  %p.form-actions
-    = f.button :submit
+  .form-actions
+    = f.button :submit, class: 'btn btn-primary'
     = link_to t(:back), :back, class: 'btn btn-default'

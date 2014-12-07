@@ -1,9 +1,7 @@
-%tr
+- customer = booking.customer
+%tr[booking]
   %td
-    %i.fa.fa-user
-    = link_to booking.customer.full_name, booking.customer
-    %small.text-muted= booking.customer.certification_name
-
-    .pull-right
-      = link_to 'Edit', [:edit, event, booking]
-      = link_to 'Destroy', [event, booking], :method => :delete, :data => { :confirm => 'Are you sure?' }
+    = link_to customer_name_with_icon(customer), customer
+    %small.text-muted= customer.certification_name
+  %td.actions-column
+    = action_links_for [event, booking], :delete

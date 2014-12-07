@@ -1,0 +1,7 @@
+.customers-recent
+  %h5.text-muted
+    = icon :calendar
+    Displaying
+    %strong= customers.count
+    recent customers
+  = render 'table', customers: customers

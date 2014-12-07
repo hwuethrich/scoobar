@@ -1,4 +1,4 @@
-.panel.panel{class: event.current? ? 'panel-info' : 'panel-default'}
+.panel.panel.panel-event[event, :panel]{class: event.current? ? 'panel-info' : 'panel-default'}
   .panel-heading
     .pull-right
       - if event.fully_booked?
@@ -17,18 +17,26 @@
         = event.boat_code
       - else
         &mdash;
+
       = ' | '
       %i.fa.fa-mail-reply
       = l event.end_time, format: '%H:%M'
+
       = ' | '
       %i.fa.fa-user
       - if event.limited_capacity?
         = '%d/%d' % [event.number_of_bookings, event.capacity]
       - else
         = event.number_of_bookings
+
       = ' | '
-      %i.fa.fa-star
-      LIZ
+      - if event.guided_dive?
+        = icon :star
+        = event.guide.name
+      - else
+        = icon 'star-o'
+        non-guided
+
       - if event.night_dive?
         = ' | '
         %i.fa.fa-moon-o
@@ -43,15 +51,19 @@
               - customer = booking.customer
               %tr
                 %td
-                  %i.fa.fa-user
-                  = link_to customer.full_name, [event, booking]
+                  = link_to customer_name_with_icon(customer), [customer, :bookings]
                   %small.text-muted= customer.certification_name
 
     .panel-footer
       = link_to [:edit, event], class: 'btn btn-default btn-sm' do
         %i.fa.fa-pencil
-        Details
-
+        Edit
+      = ' '
       = link_to [event, :bookings], class: 'btn btn-default btn-sm' do
-        %i.fa.fa-plus
-        Add Booking
+        = icon 'check-square-o'
+        Bookings
+
+      = link_to event, class: 'btn btn-danger btn-sm pull-right', method: :delete, confirm: 'Are you sure?' do
+        = icon 'trash'
+        Delete
+

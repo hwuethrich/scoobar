@@ -21,26 +21,23 @@
 // body { font-weight: 200; }
 
 // Bootswatch
-// @import "bootswatch/yeti/variables";
+// @import "bootswatch/lumen/variables";
 
 // Bootstrap
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
 // Bootstrap body padding for fixed navbar
-body { padding-top: 50px; }
+body { padding: 50px 0; }
 
 // And finally bootswatch style itself
-// @import "bootswatch/yeti/bootswatch";
+// @import "bootswatch/lumen/bootswatch";
 
 // Bootstrap Datepicker
 @import "bootstrap-datetimepicker";
 
 // Bootstrap Colorpicker
 @import "bootstrap-colorpicker";
-
-// Font Awesome
-@import "font-awesome/font-awesome";
 
 // Fullcalendar
 @import "fullcalendar";
@@ -51,8 +48,16 @@ body { padding-top: 50px; }
 @import "select2-bootstrap";
 @import "select2-theme";
 
+// Font Awesome
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
 // Utils
 @import "utils";
+
+// Tables
+@import "components/tables";
+@import "components/flash_messages";
 
 // .page-header { margin-top: 20px; }
 
@@ -89,17 +94,18 @@ tr.table-divider > th {
   // border-top: 4px solid #D5D5D5 !important;
 }
 
-table .maximize-column {
+.table .maximize-column {
   width: 100%;
 }
 
-table .actions-column {
+.table .actions-column {
   text-align: right;
 }
 
-table .label-column {
-  width: 60px;
+.table .label-column {
+  width: 40px;
   text-align: right;
+  padding-right: 0;
 }
 
 table .thumbnail-column {
@@ -143,4 +149,13 @@ table .thumbnail-column {
 // Links
 a:hover {
   text-decoration: none;
+}
+
+.nav-equipment {
+  margin-bottom: 1em;
+}
+
+.form-actions {
+  border-top: 2px solid $gray-lighter;
+  padding-top: 15px;
 }

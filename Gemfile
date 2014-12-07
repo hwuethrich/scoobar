@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.1.4'
+ruby '2.1.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0.beta4'
@@ -12,12 +12,18 @@ gem 'pg'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0.0.beta1'
+gem 'sass', '~> 3.2.15'
 
 # CSS vendor prefixes
 gem 'autoprefixer-rails'
 
 # Font Awesome
-# gem 'font-awesome-rails'
+gem 'font-awesome-sass', '~> 4.2.0'
+
+# Charts
+gem 'groupdate', github: 'ankane/groupdate'
+gem 'chartkick', github: 'ankane/chartkick'
+gem 'highcharts-rails', '~> 4.0.0'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -50,7 +56,11 @@ gem 'rails-html-sanitizer', '~> 1.0'
 # gem 'unicorn'
 
 # Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+group :development do
+  gem 'capistrano-rails', require: false
+  gem 'capistrano-passenger', require: false
+  gem 'capistrano-safe-deploy-to', require: false
+end
 
 gem 'prawn'
 # gem 'prawn-table'
@@ -80,6 +90,8 @@ group :test do
   gem 'poltergeist'
   gem 'database_cleaner'
   gem 'shoulda-matchers', require: false
+  gem 'timecop'
+  gem 'codeclimate-test-reporter', require: false
 end
 
 # Use HAML
@@ -90,7 +102,7 @@ gem 'simple_form', '~> 3.1.0'
 
 gem 'decent_exposure'
 
-gem 'date_validator'
+gem 'validates_timeliness', '~> 3.0'
 
 gem 'rails-i18n', '~> 4.0.0'
 
@@ -98,7 +110,7 @@ gem 'faker'
 
 gem 'kaminari'
 
-gem 'squeel', '= 1.2.1'
+gem 'squeel', '>= 1.2.1'
 
 # Puma
 gem 'puma'
@@ -129,3 +141,5 @@ gem 'bootstrap3-datetimepicker-rails', '~> 3.1.1'
 
 # Heroku/Dokku deployments
 gem 'rails_12factor', group: :production
+
+gem 'newrelic_rpm'

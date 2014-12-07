@@ -1,6 +1,6 @@
 class BoatsController < ApplicationController
 
-  active_navbar_item :boats
+  active_navbar_item :admin
 
   expose(:boats) { Boat.alphabetical }
   expose(:boat, attributes: :boat_params)

@@ -18,13 +18,15 @@
   .tab-content
     #customer-personal.tab-pane.fade.in.active
       = render 'customers/form/personal', form: form
-    #customer-address.tab-pane.fade
-      = render 'customers/form/address', form: form
     #customer-certification.tab-pane.fade
       = render 'customers/form/certification', form: form
+    #customer-address.tab-pane.fade
+      = render 'customers/form/address', form: form
 
-  %hr
-
-  %p.form-actions
+  .form-actions
     = form.button :submit, class: 'btn btn-success'
     = link_to t(:back), :back, class: 'btn btn-default'
+
+    - if customer.persisted?
+      = link_to customer, method: :delete, class: 'btn btn-danger pull-right' do
+        = icon :trash, 'Delete'

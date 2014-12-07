@@ -1,0 +1,15 @@
+%tr[boat]
+  %td.label-column
+    - if boat.code.present?
+      .label.label-primary<
+        = boat.code
+  %td.col-sm-3.col-xs-4
+    = link_to edit_boat_path(boat) do
+      = boat.name
+  %td.text-muted
+    - if boat.capacity.present?
+      %i.fa.fa-user
+      &times;
+      = boat.capacity
+  %td.actions-column
+    = action_links_for boat, :delete

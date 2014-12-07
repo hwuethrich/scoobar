@@ -1,4 +1,10 @@
 = collection_placeholder bookings, message: 'This customer has no bookings yet' do
+  - total_dives      = bookings.size
+  - guided_dives     = bookings.joins{event}.merge(Event.guided_dives).size
+  - non_guided_dives = total_dives - guided_dives
+  - boat_dives       = bookings.joins{event}.merge(Event.boat_dives).size
+  - night_dives      = bookings.joins{event}.merge(Event.night_dives).size
+
   %table.table.table-striped
     %tbody
       = render partial: 'row', collection: bookings, as: :booking
@@ -7,15 +13,18 @@
         %td
           %strong Total
         %td
-          - total_dives = bookings.size
           %strong= total_dives
           = 'dive'.pluralize(total_dives)
         %td
-          - night_dives = bookings.joins{event}.merge(Event.night_dives).size
-          %strong= night_dives
-          = 'night dive'.pluralize(night_dives)
+          %strong= non_guided_dives
+          = 'non-guided dive'.pluralize(guided_dives)
         %td
-          - boat_dives = bookings.joins{event}.merge(Event.boat_dives).size
+          %strong= guided_dives
+          = 'guided dive'.pluralize(guided_dives)
+        %td
           %strong= boat_dives
           = 'boat dive'.pluralize(boat_dives)
+        %td
+          %strong= night_dives
+          = 'night dive'.pluralize(night_dives)
         %td
