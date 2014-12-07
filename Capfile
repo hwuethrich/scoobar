@@ -9,6 +9,9 @@ require 'capistrano/rails'
 require 'capistrano/passenger'
 require 'capistrano/safe_deploy_to'
 
+# Record deployments with New Relic
+require 'new_relic/recipes'
+
 # Include tasks from other gems included in your Gemfile
 #
 # For documentation on these, see for example:
