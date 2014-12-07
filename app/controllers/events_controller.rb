@@ -27,6 +27,11 @@ class EventsController < ApplicationController
     respond_with event, location: [:edit, event]
   end
 
+  def destroy
+    event.destroy
+    respond_with event, location: events_path(date: event.start_time.to_date)
+  end
+
   private
 
   def current_day

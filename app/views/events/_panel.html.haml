@@ -1,4 +1,4 @@
-.panel.panel{class: event.current? ? 'panel-info' : 'panel-default'}
+.panel.panel.panel-event[event, :panel]{class: event.current? ? 'panel-info' : 'panel-default'}
   .panel-heading
     .pull-right
       - if event.fully_booked?
@@ -46,8 +46,13 @@
     .panel-footer
       = link_to [:edit, event], class: 'btn btn-default btn-sm' do
         %i.fa.fa-pencil
-        Details
+        Edit
 
       = link_to [event, :bookings], class: 'btn btn-default btn-sm' do
-        %i.fa.fa-plus
-        Add Booking
+        = icon 'check-square-o'
+        Bookings
+
+      = link_to event, class: 'btn btn-danger btn-sm pull-right', method: :delete, confirm: 'Are you sure?' do
+        = icon 'trash'
+        Delete
+
