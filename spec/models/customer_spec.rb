@@ -42,8 +42,8 @@ RSpec.describe Customer do
         customers = Customer.recent
 
         expect(customers.count).to eq 10
-        expect(customers[0].first_name).to eq 'Customer 11'
-        expect(customers[9].first_name).to eq 'Customer 02'
+        expect(customers[0].first_name).to eq 'Customer 01'
+        expect(customers[9].first_name).to eq 'Customer 10'
       end
 
     end

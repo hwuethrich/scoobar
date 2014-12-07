@@ -63,7 +63,7 @@ RSpec.feature 'Customers:', type: :feature do
     end
 
     context 'When there is exactly one hits' do
-      let(:search_term) { 'müller'}
+      let(:search_term) { 'müller' }
 
       scenario 'shows matching customer' do
         customer = customers[1]
@@ -82,9 +82,9 @@ RSpec.feature 'Customers:', type: :feature do
 
     visit customers_path
 
-    expect(page).to have_content 'Customer 02'
-    expect(page).to have_content 'Customer 11'
-    expect(page).not_to have_content 'Customer 01'
+    expect(page).to have_content 'Customer 01'
+    expect(page).to have_content 'Customer 10'
+    expect(page).not_to have_content 'Customer 11'
 
   end
 

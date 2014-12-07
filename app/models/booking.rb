@@ -1,6 +1,6 @@
 class Booking < ActiveRecord::Base
   belongs_to :event
-  belongs_to :customer
+  belongs_to :customer, touch: true
 
   validates :event, presence: true
   validates :customer, presence: true
