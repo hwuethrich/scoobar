@@ -6,7 +6,7 @@ module Customers
 
     def show
       logbook = CustomerLogbook.new customer
-      send_data logbook.render, filename: 'logbook.pdf', type: 'application/pdf'
+      send_data logbook.render, disposition: :inline, filename: 'logbook.pdf', type: 'application/pdf'
     end
 
   end

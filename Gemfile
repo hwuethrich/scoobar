@@ -63,7 +63,7 @@ group :development do
 end
 
 gem 'prawn'
-# gem 'prawn-table'
+gem 'prawn-table'
 
 group :development, :test do
   # Call 'debugger' anywhere in the code to stop execution and get a debugger console
@@ -77,6 +77,7 @@ group :development, :test do
 
   # Use rspec for testing
   gem 'rspec-rails', '~> 3.1.0'
+  gem 'rspec-its'
 
   # Silence assets in console log
   gem 'quiet_assets'

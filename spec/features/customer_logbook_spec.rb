@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature 'Customer logbook:' do
+RSpec.feature 'Customer Logbook:' do
 
   let(:customer) { create(:customer) }
 
@@ -11,6 +11,8 @@ RSpec.feature 'Customer logbook:' do
     click_on 'Bookings'
 
     click_on 'Logbook'
+
+    expect(page.response_headers['Content-Type']).to eq 'application/pdf'
   end
 
 end

@@ -3,15 +3,17 @@
 
 %tr[booking]
   %td{:style => 'width: 150px'}
-    %i.fa.fa-calendar
-    = l event.start_time, format: :short
+    = icon :calendar
+    = link_to [:edit, event] do
+      = l event.start_time, format: :short
 
   %td
     - trip = booking.trip
-    - if trip.code.present?
-      .label.label-default{ :style => 'background-color: %s;' % trip.color }<
-        = trip.code
-    = trip.name
+    - if trip.present?
+      - if trip.code.present?
+        .label.label-default{ :style => 'background-color: %s;' % trip.color }<
+          = trip.code
+      = trip.name
 
   %td
     - unless event.guided_dive?
