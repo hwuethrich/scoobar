@@ -59,4 +59,19 @@ RSpec.feature 'Customers:', type: :feature do
 
   end
 
+  scenario 'Delete customer from edit form' do
+
+    customer = create :customer
+
+    visit edit_customer_path(customer)
+
+    within('.form-actions') do
+      click_on 'Delete'
+    end
+
+    expect(page.current_path).to eq customers_path
+    expect(Customer.count).to be_zero
+
+  end
+
 end

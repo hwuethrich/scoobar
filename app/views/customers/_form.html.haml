@@ -26,3 +26,7 @@
   .form-actions
     = form.button :submit, class: 'btn btn-success'
     = link_to t(:back), :back, class: 'btn btn-default'
+
+    - if customer.persisted?
+      = link_to customer, method: :delete, class: 'btn btn-danger pull-right' do
+        = icon :trash, 'Delete'

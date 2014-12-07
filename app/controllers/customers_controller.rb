@@ -28,6 +28,11 @@ class CustomersController < ApplicationController
     respond_with customer
   end
 
+  def destroy
+    customer.destroy
+    respond_with customer
+  end
+
   private
 
   def customer_params

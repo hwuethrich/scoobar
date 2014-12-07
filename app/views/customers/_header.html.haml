@@ -1,11 +1,6 @@
 #customer-header
   = page_header customer_name_with_icon(customer) do
-    .btn-group
-      = link_to [:edit, customer], class: 'btn btn-default' do
-        %i.fa.fa-pencil
-        Edit
-      = link_to customer, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default' do
-        %i.fa.fa-ban
-        Delete
+    = link_to [:edit, customer], class: 'btn btn-default' do
+      = icon :pencil, 'Edit'
 
 = render 'customers/navbar', current_nav: current_nav
