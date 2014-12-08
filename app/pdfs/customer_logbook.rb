@@ -6,7 +6,7 @@ class CustomerLogbook
 
     font 'Open Sans' do
       render_cover_page customer
-      render_bookings customer.bookings
+      render_bookings customer.bookings.includes{[event.trip, event.logbook]}
     end
   end
 
