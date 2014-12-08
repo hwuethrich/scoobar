@@ -12,7 +12,7 @@
 
     .row
       .col-sm-9
-        = f.input :comments
+        = f.input :comments, input_html: { rows: 5 }
 
   .form-actions
     = f.button :submit, class: 'btn btn-primary'
