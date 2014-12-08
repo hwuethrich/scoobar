@@ -2,10 +2,13 @@
 
 %ul#customer-nav.nav.nav-tabs
   %li{:class => (current_nav == :overview ? 'active' : '')}
-    = link_to 'Overview', customer
+    = link_to customer do
+      = icon :eye, 'Details'
 
   %li{:class => (current_nav == :bookings ? 'active' : '')}
-    = link_to 'Bookings', [customer, :bookings]
+    = link_to [customer, :bookings] do
+      = icon 'check-square-o', 'Bookings'
 
   %li{:class => (current_nav == :rentals ? 'active' : '')}
-    = link_to 'Rentals', [customer, :rentals]
+    = link_to [customer, :rentals] do
+      = icon :gear, 'Rentals'
