@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   end
 
   resources :customers do
+    resource :logbook, module: :customers
     resources :bookings, module: :customers
     resources :rentals, module: :customers do
       post :return, on: :member
