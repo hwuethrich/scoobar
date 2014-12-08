@@ -39,13 +39,17 @@
 
       - if event.night_dive?
         = ' | '
-        %i.fa.fa-moon-o
-        Nightdive
+        = icon 'moon-o', 'night dive'
+
+      - if event.logbook.present?
+        = ' | '
+        = icon :book, 'logged'
+
   .panel-collapse.collapse{:id => 'event-panel-%d' % event.id}
     .panel-body
 
       = collection_placeholder event.bookings, message: 'No bookings for this event' do
-        %table.table.table-condensed
+        %table.table.table-condensed.table-bordered
           %tbody
             - event.bookings.each do |booking|
               - customer = booking.customer
