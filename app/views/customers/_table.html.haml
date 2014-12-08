@@ -1,3 +1,5 @@
 %table.table-customers.table.table-striped
+  - if defined?(caption) && caption.present?
+    %caption= caption
   %tbody
     = render partial: 'row', collection: customers, as: :customer

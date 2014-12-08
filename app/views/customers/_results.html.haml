@@ -5,8 +5,8 @@
     %strong= search_query
 
   = collection_placeholder customers, message: placeholder_message do
-    %h5.text-muted
+    - caption = capture do
       = icon 'search'
       = page_entries_info customers
-    = render 'table', customers: customers
+    = render 'table', customers: customers, caption: caption
     = render 'common/pager', collection: customers
