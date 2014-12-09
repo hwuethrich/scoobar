@@ -1,5 +1,15 @@
 = render 'events/events_header', mode: :calendar
 
 .row
-  .col-sm-12
+  .col-sm-9
     #events-calendar.reset-box-sizing
+  .col-sm-3
+    #events-planner.panel.panel-default
+      .panel-heading
+        = icon 'plus-circle'
+        Add Event
+      .list-group
+        - Trip.alphabetical.each do |trip|
+          - duration = trip.duration.present? ? ('%02d:%02d' % trip.duration.divmod(60)) : '01:00'
+          %li.list-group-item.draggable{data: { duration: duration, trip: { id: trip.id }}}
+            = trip_code_and_name trip

@@ -26,4 +26,6 @@
 #= require select2
 #= require highcharts
 #= require chartkick
+#= require jquery-ui/draggable
+#= require jquery-ui/droppable
 #= require_tree .

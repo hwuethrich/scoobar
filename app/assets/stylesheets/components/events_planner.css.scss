@@ -1,0 +1,17 @@
+#events-planner {
+  .draggable {
+    cursor: move;
+
+    &:hover {
+      background-color: whitesmoke;
+    }
+  }
+
+  .ui-draggable-dragging {
+    background-color: rgba(255, 255, 255, 0.75);
+    border: 1px solid $gray-lighter;
+    border-radius: 3px;
+    z-index: 1000;
+  }
+
+}
