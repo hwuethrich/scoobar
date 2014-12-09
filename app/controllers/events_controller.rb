@@ -4,12 +4,16 @@ class EventsController < ApplicationController
   respond_to :html, :json
 
   expose(:event, attributes: :event_params)
-  expose(:events) { Event.chronological.includes{[trip, boat, guide, logbook, bookings.customer]} }
+  expose(:events) { Event }
   expose(:events_on_current_day) { events.intersects(current_start_time, current_end_time) }
   expose(:events_in_morning)   { events_on_current_day.select(&:starts_in_morning?)   }
   expose(:events_in_afternoon) { events_on_current_day.select(&:starts_in_afternoon?) }
 
   expose(:current_day) { current_day }
+
+  def index
+    self.events = Event.chronological.includes{[trip, boat, guide, logbook, bookings.customer]}
+  end
 
   def new
     event.attributes = event_params if params[:event]
