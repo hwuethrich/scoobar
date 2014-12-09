@@ -8,7 +8,7 @@
       .panel-heading
         = icon 'plus-circle'
         Add Event
-      .list-group
+      %ul.list-group
         - Trip.alphabetical.each do |trip|
           - duration = trip.duration.present? ? ('%02d:%02d' % trip.duration.divmod(60)) : '01:00'
           %li.list-group-item.draggable{data: { duration: duration, trip: { id: trip.id }}}
