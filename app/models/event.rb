@@ -29,11 +29,11 @@ class Event < ActiveRecord::Base
 
   # DELEGATES
 
-  delegate :code, :duration, :color, to: :trip, prefix: true, allow_nil: true
+  delegate :code, :duration, :color, :price, :name, to: :trip, prefix: true, allow_nil: true
   delegate :code, :capacity, to: :boat, prefix: true, allow_nil: true
 
   def name
-    name? ? super : trip.try(:name)
+    name? ? super : trip_name
   end
 
   def color
@@ -42,6 +42,10 @@ class Event < ActiveRecord::Base
 
   def capacity
     super || boat_capacity
+  end
+
+  def price
+    super || trip_price
   end
 
   def number_of_bookings

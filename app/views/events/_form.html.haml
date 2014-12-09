@@ -6,7 +6,7 @@
       .col-sm-4
         = f.association :trip, as: :trip
       .col-sm-2
-        = f.input :duration, as: :numeric, placeholder: event.trip_duration.to_s
+        = f.input :duration, as: :numeric
       .col-sm-6
         = f.input :name
 
@@ -18,11 +18,13 @@
       .col-sm-4
         = f.association :boat, as: :boat
       .col-sm-2
-        = f.input :capacity, as: :numeric, placeholder: event.boat_capacity.to_s
+        = f.input :capacity, as: :numeric
 
     .row
-      .col-sm-6
+      .col-sm-4
         = f.association :guide
+      .col-sm-2
+        = f.input :price, placeholder: event.trip_price.to_s
       .col-sm-6
         = f.input :description, input_html: { rows: 5 }
 

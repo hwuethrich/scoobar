@@ -45,6 +45,15 @@
         = ' | '
         = icon :book, 'logged'
 
+      - if event.price.present?
+        = ' | '
+        = icon :money
+
+        = '%.2f' % event.price
+        - trip_price = event.trip_price
+        - if trip_price.present? && trip_price != event.price
+          = '(%+.2f)' % (event.price - trip_price)
+
   .panel-collapse.collapse{:id => 'event-panel-%d' % event.id}
     .panel-body
 

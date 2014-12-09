@@ -3,6 +3,7 @@
 - non_guided_dives = total_dives - guided_dives
 - boat_dives       = bookings.joins{event}.merge(Event.boat_dives).size
 - night_dives      = bookings.joins{event}.merge(Event.night_dives).size
+- total_price      = bookings.to_a.sum { |b| b.price || 0 }
 
 %table.table.table-striped
   %tbody
@@ -26,4 +27,7 @@
       %td
         %strong= night_dives
         = 'night dive'.pluralize(night_dives)
+      %td.text-right
+        = icon :money
+        %strong= '%0.2f' % total_price
       %td

@@ -1,0 +1,15 @@
+= simple_form_for([customer, booking]) do |f|
+  = f.error_notification
+
+  .form-inputs
+    .form-group
+      %label.control-label Event
+      .form-control
+        = trip_code_and_name booking.event.trip
+        %small.text-muted= l booking.event.start_time, format: :short
+
+    = f.input :price, placeholder: booking.event_price.to_s
+
+  %p.form-actions
+    = f.button :submit
+

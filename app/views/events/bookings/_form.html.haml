@@ -2,8 +2,15 @@
   = f.error_notification
 
   .form-inputs
-    = f.association :customer, as: :customer, readonly: booking.persisted?
+    - if booking.new_record?
+      = f.association :customer, as: :customer, readonly: booking.persisted?
+    - else
+      .form-group
+        %label.control-label Customer
+        .form-control= booking.customer
 
-  %p.form-actions
-    = f.button :submit
+    = f.input :price, placeholder: booking.event_price.to_s
+
+  .form-actions
+    = f.button :submit, class: 'btn btn-success'
 
