@@ -3,26 +3,27 @@
 
   .form-inputs
     .row
-      .col-sm-7
+      .col-sm-4
         = f.association :trip, as: :trip
-      .col-sm-5
+      .col-sm-2
+        = f.input :duration, as: :numeric, placeholder: event.trip_duration.to_s
+      .col-sm-6
         = f.input :name
+
     .row
-      .col-sm-3
+      .col-sm-4
         = f.input :start_time
       .col-sm-2
-        = f.input :duration, as: :numeric
-      .col-sm-2
         = f.input :night_dive, as: :select, include_blank: false
-      .col-sm-3
+      .col-sm-4
         = f.association :boat, as: :boat
       .col-sm-2
         = f.input :capacity, as: :numeric, placeholder: event.boat_capacity.to_s
 
     .row
-      .col-sm-7
+      .col-sm-6
         = f.association :guide
-      .col-sm-5
+      .col-sm-6
         = f.input :description, input_html: { rows: 5 }
 
   .form-actions

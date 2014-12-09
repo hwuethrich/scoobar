@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.feature 'Events:', type: :feature do
 
   scenario 'Plan a new event' do
-
     trip = create :trip, code: 'PI', name: 'Pescador Island'
     guide = create :guide, name: 'John Doe'
 
@@ -11,9 +10,12 @@ RSpec.feature 'Events:', type: :feature do
     click_on 'Add Event'
 
     fill_in 'Trip', with: trip.id
+    fill_in 'Duration', with: 60
     select 'John Doe', from: 'Guide'
 
     click_on 'Create Event'
+
+    expect(Event.count).to eq 1
 
     event = Event.last
     expect(event.guide).to eq guide

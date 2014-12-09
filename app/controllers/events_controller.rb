@@ -18,17 +18,14 @@ class EventsController < ApplicationController
   def new
     event.attributes = event_params if params[:event]
     event.start_time ||= event_default_start_time
-    event.duration   ||= 60
   end
 
   def create
-    event.save
-    respond_with event, location: [:edit, event]
+    save_and_respond_with_event
   end
 
   def update
-    event.save
-    respond_with event, location: [:edit, event]
+    save_and_respond_with_event
   end
 
   def destroy
@@ -37,6 +34,11 @@ class EventsController < ApplicationController
   end
 
   private
+
+  def save_and_respond_with_event
+    event.save
+    respond_with event, location: -> { [:edit, event] }
+  end
 
   def current_day
     Date.parse params[:date]

@@ -1,1 +1,1 @@
-json.extract! boat, :id, :code, :name
+json.extract! boat, :id, :code, :name, :capacity

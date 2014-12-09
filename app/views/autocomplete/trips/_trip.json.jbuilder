@@ -1,1 +1,1 @@
-json.extract! trip, :id, :code, :name, :color
+json.extract! trip, :id, :code, :name, :color, :duration

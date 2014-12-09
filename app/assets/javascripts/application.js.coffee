@@ -12,6 +12,7 @@
 #
 #= require jquery
 #= require jquery_ujs
+#= require jquery-ui
 #= require turbolinks
 #= require moment
 #= require moment/de
@@ -26,6 +27,4 @@
 #= require select2
 #= require highcharts
 #= require chartkick
-#= require jquery-ui/draggable
-#= require jquery-ui/droppable
 #= require_tree .

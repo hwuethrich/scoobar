@@ -25,10 +25,11 @@ class Event < ActiveRecord::Base
 
   validates :start_time, presence: true
   validates :capacity, numericality: { greater_than: 0 }, allow_nil: true
+  validates :duration, numericality: { greater_than: 0 }, presence: true
 
   # DELEGATES
 
-  delegate :code, to: :trip, prefix: true, allow_nil: true
+  delegate :code, :duration, to: :trip, prefix: true, allow_nil: true
   delegate :code, :capacity, to: :boat, prefix: true, allow_nil: true
 
   def name
