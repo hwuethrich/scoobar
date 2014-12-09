@@ -3,7 +3,7 @@ class Event < ActiveRecord::Base
   include TimeRange::Validations
   include TimeRange::Scopes
 
-  DEFAULT_COLOR = '#999'
+  DEFAULT_COLOR = '#999999'
 
   # ASSOCIATIONS
 
@@ -29,7 +29,7 @@ class Event < ActiveRecord::Base
 
   # DELEGATES
 
-  delegate :code, :duration, to: :trip, prefix: true, allow_nil: true
+  delegate :code, :duration, :color, to: :trip, prefix: true, allow_nil: true
   delegate :code, :capacity, to: :boat, prefix: true, allow_nil: true
 
   def name
@@ -37,7 +37,7 @@ class Event < ActiveRecord::Base
   end
 
   def color
-    trip.try(:color) || DEFAULT_COLOR
+    trip_color.blank? ? DEFAULT_COLOR : trip_color
   end
 
   def capacity
