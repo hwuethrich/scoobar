@@ -9,6 +9,7 @@ formatTripItem = (trip)->
 $(document).on 'page:change', ->
   $('input[type=trip].autocomplete').select2
     minimumInputLength: 0
+    allowClear: true
 
     initSelection: (element, callback)->
       if id = element.val()
