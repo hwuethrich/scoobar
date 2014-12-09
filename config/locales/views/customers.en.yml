@@ -4,7 +4,6 @@ en:
     index:
       title: 'Customers'
       register_customer: 'Register customer'
-      search_customer: 'Search Customer'
 
     new:
       title: 'Register Customer'
@@ -16,6 +15,3 @@ en:
       personal_info: 'Personal'
       address: 'Address'
       certification: 'Certification'
-
-    common:
-      search_customers: 'Search Customers'
