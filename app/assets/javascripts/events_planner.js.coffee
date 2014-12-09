@@ -8,7 +8,7 @@ $(document).on 'page:change', ->
     revertDuration: 0
 
   planner.find('.trip-filter').keyup (event)->
-    query = $(event.target).val()
+    query = $(event.target).val().toLowerCase()
 
     match = ->
       $(this).text().toLowerCase().indexOf(query) > -1
