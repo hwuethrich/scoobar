@@ -9,6 +9,9 @@
         = icon 'plus-circle'
         Add Event
       %ul.list-group
+        %li.list-group-item
+          = text_field_tag :filter, '', class: 'form-control trip-filter', placeholder: 'Filter Trips'
+
         - Trip.alphabetical.each do |trip|
           - duration = trip.duration.present? ? ('%02d:%02d' % trip.duration.divmod(60)) : '01:00'
           %li.list-group-item.draggable{data: { duration: duration, trip: { id: trip.id }}}

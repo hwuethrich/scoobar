@@ -1,4 +1,18 @@
 $(document).on 'page:change', ->
-  $('#events-planner .draggable').draggable
+  planner = $('#events-planner')
+
+  trips = planner.find('.draggable')
+
+  trips.draggable
     revert: true
     revertDuration: 0
+
+  planner.find('.trip-filter').keyup (event)->
+    query = $(event.target).val()
+
+    match = ->
+      $(this).text().toLowerCase().indexOf(query) > -1
+
+    trips.hide().filter(match).show()
+
+
