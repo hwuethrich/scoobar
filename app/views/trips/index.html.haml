@@ -3,4 +3,5 @@
     %i.fa.fa-plus-circle
     = t '.add_trip'
 
-= render 'table'
+= collection_placeholder trips, message: 'No trips yet' do
+  = render 'table'

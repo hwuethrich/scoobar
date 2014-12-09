@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141206133946) do
+ActiveRecord::Schema.define(version: 20141209094101) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,10 +25,11 @@ ActiveRecord::Schema.define(version: 20141206133946) do
   end
 
   create_table "bookings", force: true do |t|
-    t.integer  "event_id",    null: false
-    t.integer  "customer_id", null: false
+    t.integer  "event_id",                            null: false
+    t.integer  "customer_id",                         null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "price",       precision: 8, scale: 2
   end
 
   add_index "bookings", ["customer_id"], name: "index_bookings_on_customer_id", using: :btree
@@ -89,18 +90,19 @@ ActiveRecord::Schema.define(version: 20141206133946) do
 
   create_table "events", force: true do |t|
     t.string   "name"
-    t.datetime "start_time",                     null: false
-    t.datetime "end_time",                       null: false
+    t.datetime "start_time",                                             null: false
+    t.datetime "end_time",                                               null: false
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "trip_id"
-    t.integer  "bookings_count", default: 0,     null: false
+    t.integer  "bookings_count",                         default: 0,     null: false
     t.integer  "trips_id"
-    t.boolean  "night_dive",     default: false, null: false
+    t.boolean  "night_dive",                             default: false, null: false
     t.integer  "boat_id"
     t.integer  "capacity"
     t.integer  "guide_id"
+    t.decimal  "price",          precision: 8, scale: 2
   end
 
   add_index "events", ["end_time"], name: "index_events_on_end_time", using: :btree
@@ -129,12 +131,13 @@ ActiveRecord::Schema.define(version: 20141206133946) do
   add_index "rentals", ["start_time"], name: "index_rentals_on_start_time", using: :btree
 
   create_table "trips", force: true do |t|
-    t.string   "code",       null: false
-    t.string   "name",       null: false
+    t.string   "code",                               null: false
+    t.string   "name",                               null: false
     t.integer  "duration"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "color"
+    t.decimal  "price",      precision: 8, scale: 2
   end
 
   add_foreign_key "bookings", "customers"

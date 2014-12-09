@@ -8,8 +8,12 @@
       = trip.name
   %td.text-muted
     - if trip.duration.present?
-      %i.fa.fa-clock-o
+      = icon 'clock-o'
       = trip.duration
       min
+  %td.text-muted
+    - if trip.price.present?
+      = icon :money
+      = '%0.2f' % trip.price
   %td.actions-column
     = action_links_for trip, :delete

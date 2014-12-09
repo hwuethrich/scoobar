@@ -3,15 +3,18 @@
 
   .form-inputs
     .row
-      .col-sm-2
+      .col-sm-3
         = f.input :code, maxlength: true
-      .col-sm-2
+      .col-sm-3
         = f.input :color, as: :color_picker
-      .col-sm-8
+      .col-sm-6
         = f.input :name
+
     .row
-      .col-sm-4
+      .col-sm-3
         = f.input :duration, min_max: true
+      .col-sm-3
+        = f.input :price, min_max: true
 
   .form-actions
     = f.button :submit, class: 'btn btn-primary'

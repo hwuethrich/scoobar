@@ -12,6 +12,7 @@ RSpec.feature 'Events:', type: :feature do
     fill_in 'Trip', with: trip.id
     fill_in 'Duration', with: 60
     select 'John Doe', from: 'Guide'
+    fill_in 'Price', with: 100.25
 
     click_on 'Create Event'
 
@@ -20,6 +21,7 @@ RSpec.feature 'Events:', type: :feature do
     event = Event.last
     expect(event.guide).to eq guide
     expect(event.trip).to eq trip
+    expect(event.price).to eq 100.25
   end
 
   describe 'Deleting events:' do

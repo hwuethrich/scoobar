@@ -7,11 +7,16 @@ class Booking < ActiveRecord::Base
   validates :customer_id, uniqueness: { scope: :event_id }
 
   delegate :trip, to: :event
+  delegate :price, to: :event, prefix: true
 
   scope :chronological, -> { joins{event}.merge(Event.chronological) }
 
   def date
     event.start_time.to_date
+  end
+
+  def price
+    super.present? ? super : event_price
   end
 
 end

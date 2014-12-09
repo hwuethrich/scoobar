@@ -21,8 +21,10 @@
         = f.input :capacity, as: :numeric, placeholder: event.boat_capacity.to_s
 
     .row
-      .col-sm-6
+      .col-sm-4
         = f.association :guide
+      .col-sm-2
+        = f.input :price, placeholder: event.trip_price.to_s
       .col-sm-6
         = f.input :description, input_html: { rows: 5 }
 
