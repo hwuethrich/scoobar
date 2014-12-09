@@ -44,7 +44,10 @@
       .btn-group
         %button.btn.btn-default.btn-xs.dropdown-toggle{type: 'button', data: { toggle: 'dropdown' }}
           = icon :money
-          = '%0.2f' % booking.price
+          - if booking.price > 0
+            = '%0.2f' % booking.price
+          - else
+            free
           %span.caret
 
         %ul.dropdown-menu{role: 'menu'}
