@@ -54,9 +54,6 @@ $(document).on 'page:change', ->
       element.bind 'dblclick', ->
         window.location.href = "/events/#{event.id}/edit"
 
-    eventReceive: (event)->
-      console.log 'rec', arguments
-
     drop: (date, event) ->
       el = $(event.target)
 
