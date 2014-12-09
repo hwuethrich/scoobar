@@ -53,12 +53,12 @@ class CustomerLogbook
       cells.borders = []
       cells.padding = [5, 10]
 
-      column(0).width = 35
+      column(0).width = 30
       column(0).align = :center
       column(0).text_color = 'FFFFFF'
       column(0).background_color = '333333'
 
-      columns(0..1).size = 18
+      columns(0..1).size = 14
 
       columns(2).align = :right
       columns(2).padding = [5, 0]
