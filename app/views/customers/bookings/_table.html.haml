@@ -6,6 +6,16 @@
 - total_price      = bookings.to_a.sum { |b| b.price || 0 }
 
 %table.table.table-striped
+  %thead
+    %tr
+      %th
+        = icon 'fw'
+        Event
+      %th
+        Trip
+      %th{colspan: 4}
+      %th.text-right Price
+      %th
   %tbody
     = render partial: 'row', collection: bookings, as: :booking
   %tfooter

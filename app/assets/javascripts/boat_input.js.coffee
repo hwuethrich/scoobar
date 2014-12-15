@@ -7,7 +7,7 @@ formatBoatItem = (boat)->
   #{boat.name}
   """
 
-$(document).on 'page:change', ->
+$(document).on 'page:change ready', ->
   $('input[type=boat].autocomplete').select2
     minimumInputLength: 0
     allowClear: true

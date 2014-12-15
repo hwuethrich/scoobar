@@ -1,5 +1,6 @@
 %tr[equipment]
   %td.col-xs-4
+    = icon :gear, '', class: 'fa-fw text-muted'
     = link_to equipment.name, [:edit, equipment]
   %td
     - equipment.rentals.current.includes{customer}.each_with_index do |rental, i|

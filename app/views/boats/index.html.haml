@@ -1,5 +1,7 @@
-= page_header t('.title'), icon: 'anchor' do
+- page_header t('.title'), icon: 'anchor' do
   = link_to new_boat_path, class: 'btn btn-success' do
     = icon 'plus-circle', t('.add_boat')
 
-= render 'table'
+.box
+  .box-body.no-padding
+    = render 'table'

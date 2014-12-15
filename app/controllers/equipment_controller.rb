@@ -32,7 +32,7 @@ class EquipmentController < ApplicationController
   private
 
   def respond_with_equipment
-    anchor = 'nav-category-%d' % equipment.category_id
+    anchor = 'nav-category-%d' % equipment.category_id if equipment.category_id.present?
     respond_with equipment, location: equipment_index_path(anchor: anchor)
   end
 

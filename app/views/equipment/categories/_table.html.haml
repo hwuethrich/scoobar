@@ -1,3 +1,9 @@
 %table.table.table-striped.equipment-categories
+  %thead
+    %tr
+      %th
+        = icon 'fw'
+        Name
+      %th
   %tbody
     = render partial: 'row', collection: categories, as: :category

@@ -1,5 +1,6 @@
 %tr[category]
   %td
+    = icon 'folder-open', '', class: 'fa-fw text-muted'
     = link_to category.name, [:edit, category]
   %td.actions-column
     = action_links_for category, :delete

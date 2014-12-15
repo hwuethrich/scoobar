@@ -1,2 +1,2 @@
-= render 'events/event_header', current_nav: :logbook
-= render 'form'
+= render layout: 'events/event_header', locals: { current_nav: :logbook } do
+  = render 'form'

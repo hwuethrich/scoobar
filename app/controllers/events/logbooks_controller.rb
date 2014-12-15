@@ -1,8 +1,9 @@
 module Events
-
   class LogbooksController < ApplicationController
 
     respond_to :html
+
+    active_navbar_item :events
 
     expose(:event)
     expose(:logbook) { event.logbook || event.build_logbook(time_in: event.start_time) }

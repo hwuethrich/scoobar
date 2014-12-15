@@ -1,5 +1,7 @@
-= page_header equipment.name, subtitle: equipment.category.name, icon: 'gear' do
+- page_header equipment.name, subtitle: equipment.category.name, icon: 'gear' do
   = link_to equipment_index_path(anchor: 'nav-category-%d' % equipment.category.id), class: 'btn btn-default' do
     = icon :list, t('equipment.common.list_equipment')
 
-= render 'form'
+.box
+  .box-body
+    = render 'form'

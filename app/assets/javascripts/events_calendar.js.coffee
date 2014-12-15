@@ -1,4 +1,4 @@
-$(document).on 'page:change', ->
+$(document).on 'page:change ready', ->
 
   container = $('#events-calendar')
 

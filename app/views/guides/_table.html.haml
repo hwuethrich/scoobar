@@ -1,3 +1,9 @@
 %table.table.table-striped.table-guides
+  %thead
+    %tr
+      %th
+        = icon 'fw'
+        Name
+      %th
   %tbody
     = render partial: 'row', collection: guides, as: :guide

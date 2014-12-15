@@ -1,6 +1,8 @@
-= page_header t('.title'), icon: :star do
+- page_header t('.title'), icon: :star do
   = link_to new_guide_path, class: 'btn btn-success' do
     = icon 'plus-circle', t('.add_guide')
 
 = collection_placeholder guides, message: 'No guides yet' do
-  = render 'table'
+  .box
+    .box-body.no-padding
+      = render 'table'

@@ -1,4 +1,4 @@
-= page_header t('.title'), icon: 'folder-open' do
+- page_header t('.title'), icon: 'folder-open' do
   = link_to [:equipment, :index], class: 'btn btn-default' do
     = icon 'gear', t('equipment.categories.common.manage_equipment')
   = ' '
@@ -6,4 +6,6 @@
     = icon 'plus-circle', t('.add_category')
 
 = collection_placeholder categories, message: 'No equipment categories yet' do
-  = render 'table'
+  .box
+    .box-body.no-padding
+      = render 'table'

@@ -1,3 +1,10 @@
 %table.table.table-striped.table-trips
+  %thead
+    %tr
+      %th
+      %th Name
+      %th Duration
+      %th Price
+      %th
   %tbody
     = render partial: 'row', collection: trips, as: :trip

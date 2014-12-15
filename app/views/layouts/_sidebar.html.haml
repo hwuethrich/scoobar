@@ -1,0 +1,72 @@
+%section.sidebar
+
+  // LOGO
+
+  .user-panel.text-center
+    = image_tag 'logo-dolphin-web.png', width: '60%'
+
+  // CUSTOMER SEARCH
+  = form_tag :customers, method: :get, id: 'customer-search', class: 'sidebar-form', role: 'search' do
+    .input-group
+      = text_field_tag :search, '', class: 'form-control', placeholder: 'Search Customer'
+      %span.input-group-btn
+        %button.btn.btn-flat.btn-search{type: 'submit'}
+          = icon :search
+
+  // MENU
+  %ul.sidebar-menu
+
+    // CUSTOMERS
+    %li.treeview{class: navbar_item_state(:customers)}
+      %a{href: '#'}
+        = icon :users, t('.customers.title')
+        %i.fa.fa-angle-left.pull-right
+
+      %ul.treeview-menu
+        %li
+          = link_to :customers do
+            = icon 'angle-double-right', t('.customers.recent')
+        %li.divider
+        %li
+          = link_to [:new, :customer] do
+            = icon 'angle-double-right', t('.customers.add')
+
+      // EVENTS
+      %li.treeview{class: navbar_item_state(:events)}
+        %a{href: '#'}
+          = icon :calendar, t('.events.title')
+          %i.fa.fa-angle-left.pull-right
+
+        %ul.treeview-menu
+          %li
+            = link_to :events do
+              = icon 'angle-double-right', t('.events.list')
+          %li
+            = link_to [:events, :calendar] do
+              = icon 'angle-double-right', t('.events.calendar')
+          %li
+            = link_to [:new, :event] do
+              = icon 'angle-double-right', t('.events.add')
+
+      // ADMIN
+      %li.treeview{class: navbar_item_state(:admin)}
+        %a{href: '#'}
+          %i.fa.fa-angle-left.pull-right
+          = icon :wrench, t('.admin.title')
+
+        %ul.treeview-menu
+          %li
+            = link_to :trips do
+              = icon :compass, t('.admin.trips')
+          %li
+            = link_to :boats do
+              = icon :anchor, t('.admin.boats')
+          %li
+            = link_to :guides do
+              = icon :star, t('.admin.guides')
+          %li
+            = link_to [:equipment, :index] do
+              = icon :cog, t('.admin.equipment')
+          %li
+            = link_to :statistics do
+              = icon 'bar-chart', t('.admin.statistics')

@@ -1,10 +1,13 @@
 - subtitle = l(event.start_time, format: :short) if event.start_time?
 
-= page_header event.name, icon: :calendar, subtitle: subtitle do
+- page_header event.name, icon: :calendar, subtitle: subtitle do
   - date = event.start_time || Date.today
   = link_to events_path(date: date.to_date), class: 'btn btn-default' do
     = icon :list
     Events on
     = l(date.to_date, format: :short)
 
-= render 'events/navbar', current_nav: defined?(current_nav) ? current_nav : nil
+.nav-tabs-custom
+  = render 'events/navbar', current_nav: defined?(current_nav) ? current_nav : nil
+  .tab-content
+    = yield

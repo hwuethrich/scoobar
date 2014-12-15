@@ -1,6 +1,16 @@
 #customer-header
-  = page_header customer_name_with_icon(customer) do
+  - page_header customer_name_with_icon(customer) do
+    - if customer.bookings.any?
+      = link_to [customer, :logbook], class: 'btn btn-default' do
+        = icon 'file-pdf-o', 'Logbook'
+      = ' '
     = link_to [:edit, customer], class: 'btn btn-default' do
       = icon :pencil, 'Edit'
 
-= render 'customers/navbar', current_nav: current_nav
+
+.nav-tabs-custom
+  - padding = defined?(padding) ? padding : nil
+  - padding = true if padding.nil?
+  = render 'customers/navbar', current_nav: current_nav
+  .tab-content{class: (padding ? '' : 'no-padding') }
+    = yield

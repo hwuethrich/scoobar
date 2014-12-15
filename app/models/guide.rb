@@ -8,4 +8,8 @@ class Guide < ActiveRecord::Base
 
   scope :alphabetical, -> { order :name }
 
+  # ASSOCIATIONS
+
+  has_many :events, dependent: :nullify
+
 end

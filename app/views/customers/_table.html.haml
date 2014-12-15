@@ -1,5 +1,9 @@
-%table.table-customers.table.table-striped
+.box
   - if defined?(caption) && caption.present?
-    %caption= caption
-  %tbody
-    = render partial: 'row', collection: customers, as: :customer
+    .box-header
+      %h3.box-title= caption
+
+  .box-body.no-padding
+    %table.table-customers.table.table-striped
+      %tbody
+        = render partial: 'row', collection: customers, as: :customer
