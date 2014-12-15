@@ -1,5 +1,7 @@
-= page_header t('.title'), icon: 'compass' do
+- page_header t('.title'), icon: 'compass' do
   = link_to :trips, class: 'btn btn-default' do
     = icon :list, t('trips.common.list_trips')
 
-= render 'form'
+.box
+  .box-body
+    = render 'form'

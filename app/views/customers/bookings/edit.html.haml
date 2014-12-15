@@ -1,3 +1,2 @@
-= render 'customers/header', current_nav: :bookings
-
-= render 'form'
+= render layout: 'customers/header', locals: { current_nav: :bookings } do
+  = render 'form'

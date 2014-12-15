@@ -1,3 +1,11 @@
 %table.table.table-striped.table-equipment
+  %thead
+    %tr
+      %th
+        = icon 'fw'
+        Name
+      %th
+        Rentals
+      %th
   %tbody
     = render partial: 'row', collection: equipments, as: :equipment

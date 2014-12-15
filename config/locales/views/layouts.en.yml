@@ -1,6 +1,6 @@
 en:
   layouts:
-    navbar:
+    sidebar:
       customers:
         title: 'Customers'
         recent: 'Recent Customers'

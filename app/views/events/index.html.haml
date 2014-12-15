@@ -1,35 +1,36 @@
 = render 'events_header', mode: :list
 
-%p
-  .row
-    .col-xs-6.col-sm-3.text-left
-      .btn-group
-        = link_to url_for(date: current_day - 1.week), class: 'btn btn-default' do
-          %i.fa.fa-angle-double-left.fa-fw
-        = link_to url_for(date: current_day - 1.day), class: 'btn btn-default' do
-          %i.fa.fa-angle-left.fa-fw
+.box
+  .box-body
+    .row
+      .col-xs-6.col-sm-3.text-left
+        .btn-group
+          = link_to url_for(date: current_day - 1.week), class: 'btn btn-default' do
+            %i.fa.fa-angle-double-left.fa-fw
+          = link_to url_for(date: current_day - 1.day), class: 'btn btn-default' do
+            %i.fa.fa-angle-left.fa-fw
 
-    .col-sm-6.text-center.hidden-xs
-      .btn-group
-        = link_to url_for(date: Date.today), class: 'btn btn-default', disabled: current_day.today? do
-          %i.fa.fa-calendar
+      .col-sm-6.text-center.hidden-xs
+        .btn-group
+          = link_to url_for(date: Date.today), class: 'btn btn-default', disabled: current_day.today? do
+            %i.fa.fa-calendar
 
-        = button_tag class: 'btn btn-default date-switcher' do
-          = hidden_field_tag :switcher_date, l(current_day, format: '%D'), data: { 'date-format' => 'MM/DD/YY' }
-          = l current_day, format: :long
-          %span.caret
+          = button_tag class: 'btn btn-default date-switcher' do
+            = hidden_field_tag :switcher_date, l(current_day, format: '%D'), data: { 'date-format' => 'MM/DD/YY' }
+            = l current_day, format: :long
+            %span.caret
 
-    .col-xs-6.col-sm-3.text-right
-      .btn-group
-        = link_to url_for(date: current_day + 1.day), class: 'btn btn-default' do
-          %i.fa.fa-angle-right.fa-fw
-        = link_to url_for(date: current_day + 1.week), class: 'btn btn-default' do
-          %i.fa.fa-angle-double-right.fa-fw
+      .col-xs-6.col-sm-3.text-right
+        .btn-group
+          = link_to url_for(date: current_day + 1.day), class: 'btn btn-default' do
+            %i.fa.fa-angle-right.fa-fw
+          = link_to url_for(date: current_day + 1.week), class: 'btn btn-default' do
+            %i.fa.fa-angle-double-right.fa-fw
 
-%hr
+    %hr
 
-.row
-  .col-sm-6
-    = render 'list', events: events_in_morning, id: 'event-slot-morning'
-  .col-sm-6
-    = render 'list', events: events_in_afternoon, id: 'event-slot-afternoon'
+    .row
+      .col-sm-6
+        = render 'list', events: events_in_morning, id: 'event-slot-morning'
+      .col-sm-6
+        = render 'list', events: events_in_afternoon, id: 'event-slot-afternoon'

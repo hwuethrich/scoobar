@@ -27,4 +27,5 @@
 #= require select2
 #= require highcharts
 #= require chartkick
+#= require admin-lte/sidebar
 #= require_tree .

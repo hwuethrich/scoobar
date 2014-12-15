@@ -1,4 +1,6 @@
-= page_header t('.title'), icon: :star do
+- page_header t('.title'), icon: :star do
   = link_to icon(:list, t('guides.common.list_guides')), guides_path, class: 'btn btn-default'
 
-= render 'form'
+.box
+  .box-body
+    = render 'form'

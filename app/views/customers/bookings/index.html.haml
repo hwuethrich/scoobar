@@ -1,9 +1,3 @@
-= render 'customers/header', current_nav: :bookings
-
-
-= collection_placeholder bookings, message: 'This customer has no bookings yet' do
-  %p.clearfix
-    = link_to [customer, :logbook], class: 'btn btn-default pull-right' do
-      = icon :book, 'Logbook'
-
-  = render 'table', bookings: bookings
+= render layout: 'customers/header', locals: { current_nav: :bookings, padding: false } do
+  = collection_placeholder bookings, message: 'This customer has no bookings yet' do
+    = render 'table', bookings: bookings

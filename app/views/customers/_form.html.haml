@@ -1,32 +1,33 @@
 = simple_form_for(customer, html: { id: 'customer-form' }) do |form|
   = form.error_notification
 
-  %ul.nav.nav-tabs
-    %li.active
-      = link_to '#customer-personal', data: { toggle: 'tab' } do
-        %i.fa.fa-user
-        = t '.personal_info'
-    %li
-      = link_to '#customer-address', data: { toggle: 'tab' } do
-        %i.fa.fa-home
-        = t '.address'
-    %li
-      = link_to '#customer-certification', data: { toggle: 'tab' } do
-        %i.fa.fa-certificate
-        = t '.certification'
+  .nav-tabs-custom
+    %ul.nav.nav-tabs
+      %li.active
+        = link_to '#customer-personal', data: { toggle: 'tab' } do
+          %i.fa.fa-user
+          = t '.personal_info'
+      %li
+        = link_to '#customer-address', data: { toggle: 'tab' } do
+          %i.fa.fa-home
+          = t '.address'
+      %li
+        = link_to '#customer-certification', data: { toggle: 'tab' } do
+          %i.fa.fa-certificate
+          = t '.certification'
 
-  .tab-content
-    #customer-personal.tab-pane.fade.in.active
-      = render 'customers/form/personal', form: form
-    #customer-certification.tab-pane.fade
-      = render 'customers/form/certification', form: form
-    #customer-address.tab-pane.fade
-      = render 'customers/form/address', form: form
+    .tab-content
+      #customer-personal.tab-pane.fade.in.active
+        = render 'customers/form/personal', form: form
+      #customer-certification.tab-pane.fade
+        = render 'customers/form/certification', form: form
+      #customer-address.tab-pane.fade
+        = render 'customers/form/address', form: form
 
-  .form-actions
-    = form.button :submit, class: 'btn btn-success'
-    = link_to t(:back), :back, class: 'btn btn-default'
+      .form-actions
+        = form.button :submit, class: 'btn btn-success'
+        = link_to t(:back), :back, class: 'btn btn-default'
 
-    - if customer.persisted?
-      = link_to customer, method: :delete, class: 'btn btn-danger pull-right' do
-        = icon :trash, 'Delete'
+        - if customer.persisted?
+          = link_to customer, method: :delete, class: 'btn btn-danger pull-right' do
+            = icon :trash, 'Delete'

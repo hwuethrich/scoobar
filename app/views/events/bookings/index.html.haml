@@ -1,8 +1,7 @@
-= render 'events/event_header', current_nav: :bookings
+= render layout: 'events/event_header', locals: { current_nav: :bookings } do
+  .row
+    .col-sm-8
+      = render 'table', bookings: bookings
 
-.row
-  .col-sm-8
-    = render 'table', bookings: bookings
-
-  .col-sm-4
-    .well= render 'form'
+    .col-sm-4
+      .well= render 'form'

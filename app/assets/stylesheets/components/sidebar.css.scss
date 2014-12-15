@@ -1,0 +1,14 @@
+.sidebar {
+
+  .sidebar-menu {
+    li.treeview > a {
+      text-transform: uppercase;
+      font-weight: 600;
+      color: $gray-light;
+    }
+
+    .treeview-menu {
+      padding-bottom: 20px;
+    }
+  }
+}

@@ -1,7 +1,8 @@
-= render 'customers/header', current_nav: :rentals
+= render layout: 'customers/header', locals: { current_nav: :rentals } do
 
-= collection_placeholder rentals, message: 'No equipment rented by this customer' do
-  = render 'table', rentals: rentals
+  = collection_placeholder rentals, message: 'No equipment rented by this customer' do
+    = render 'table', rentals: rentals
 
-= link_to [:new, customer, :rental], class: 'btn btn-default' do
-  Rent Equipment
+  = link_to [:new, customer, :rental], class: 'btn btn-primary' do
+    = icon 'plus-circle'
+    Rent Equipment

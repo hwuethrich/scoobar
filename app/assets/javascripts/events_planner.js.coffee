@@ -1,4 +1,4 @@
-$(document).on 'page:change', ->
+$(document).on 'page:change ready', ->
   planner = $('#events-planner')
 
   trips = planner.find('.draggable')

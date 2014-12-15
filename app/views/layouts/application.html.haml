@@ -1,7 +1,7 @@
 !!!html
 %html{:lang => I18n.locale}
   %head
-    %title SCOOBAR
+    %title= content_for?(:page_title) ? content_for(:page_title) : 'SCOOBAR'
     %meta(charset="utf-8")
     %meta(http-equiv="X-UA-Compatible" content="IE=edge")
     %meta(name="viewport" content="width=device-width, initial-scale=1")
@@ -9,12 +9,19 @@
     = stylesheet_link_tag    'print',       media: 'print'
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
-  %body{class: page_class}
 
-    = render 'layouts/navbar'
+  %body.skin-blue{class: page_class}
+    = render 'layouts/header'
 
-    .container
+    .wrapper.row-offcanvas.row-offcanvas-left
+      %aside.left-side.sidebar-offcanvas
+        = render 'layouts/sidebar'
 
-      = render 'layouts/flash_messages', flash: flash
+      %aside.right-side
 
-      = yield
+        %section.content-header
+          = yield :page_header
+
+        %section.content
+          = render 'layouts/flash_messages', flash: flash
+          = yield

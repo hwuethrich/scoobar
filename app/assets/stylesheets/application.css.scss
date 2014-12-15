@@ -27,11 +27,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-// Bootstrap body padding for fixed navbar
-body { padding: 50px 0; }
-
-// And finally bootswatch style itself
-// @import "bootswatch/lumen/bootswatch";
+@import "admin-lte/main";
 
 // Bootstrap Datepicker
 @import "bootstrap-datetimepicker";
@@ -55,114 +51,17 @@ body { padding: 50px 0; }
 // Utils
 @import "utils";
 
-// Tables
+// Components
+@import "components/header";
+@import "components/content-header";
 @import "components/tables";
-@import "components/flash_messages";
-@import "components/events_planner";
+@import "components/forms";
+@import "components/flash-messages";
+@import "components/events-planner";
+@import "components/text";
+@import "components/placeholder";
+@import "components/counters";
+@import "components/sidebar";
 
 // .page-header { margin-top: 20px; }
 
-// Customers
-#customer-header {
-  margin-bottom: 1em;
-}
-
-#customer-header th {
-  width: 140px;
-  color: $gray-light;
-}
-
-#customer-nav {
-  margin-bottom: 1em;
-}
-
-#customer-form {
-  .tab-pane { margin-top: 1em; }
-}
-
-// Quick Links
-#quick-links .btn {
-  padding: 30px 10px;
-  margin-bottom: 10px;
-}
-
-// Table
-tr.table-divider > th {
-  background-color: white !important;
-  color: #808080;
-  font-size: 85%;
-  // font-weight: 400;
-  // border-top: 4px solid #D5D5D5 !important;
-}
-
-.table .maximize-column {
-  width: 100%;
-}
-
-.table .actions-column {
-  text-align: right;
-}
-
-.table .label-column {
-  width: 40px;
-  text-align: right;
-  padding-right: 0;
-}
-
-table .thumbnail-column {
-  width: 60px;
-}
-
-// Placeholder
-.text-placeholder {
-  color: $gray-light;
-  text-align: center;
-  margin: 15px 15px 20px 15px;
-}
-
-.panel-placeholder {
-  color: $gray-light;
-  border: 2px dashed $gray-lighter;
-  text-align: center;
-  box-shadow: none;
-}
-
-// Events
-.events-table .event-code {
-  font-size: 1.5432em;
-  vertical-align: middle;
-  text-align: center;
-  font-weight: 400;
-}
-
-.events-table .event-details {
-  width: 100%;
-}
-
-#event-nav {
-  margin-bottom: 1em;
-}
-
-.event-list table {
-  margin-bottom: 0;
-}
-
-// Links
-a:hover {
-  text-decoration: none;
-}
-
-.nav-equipment {
-  margin-bottom: 1em;
-}
-
-.form-actions {
-  border-top: 2px solid $gray-lighter;
-  padding-top: 15px;
-}
-
-// Text
-
-.text-huge {
-  font-size: 5em;
-}

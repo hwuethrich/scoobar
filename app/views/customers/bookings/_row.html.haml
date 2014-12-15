@@ -3,7 +3,7 @@
 
 %tr[booking]
   %td{:style => 'width: 150px'}
-    = icon :calendar
+    = icon :calendar, '', class: 'fa-fw text-muted'
     = link_to [:edit, event] do
       = l event.start_time, format: :short
 

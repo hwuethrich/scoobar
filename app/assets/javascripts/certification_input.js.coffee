@@ -1,4 +1,4 @@
-$(document).on 'page:change', ->
+$(document).on 'page:change ready', ->
   $('.certification input').select2
     allowClear: true
 

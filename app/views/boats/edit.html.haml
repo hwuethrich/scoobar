@@ -1,4 +1,6 @@
-= page_header boat.name, icon: 'anchor', subtitle: icon(:pencil, t('.subtitle')) do
+- page_header boat.name, icon: 'anchor', subtitle: icon(:pencil, t('.subtitle')) do
   = link_to icon(:list, t('boats.common.list_boats')), boats_path, class: 'btn btn-default'
 
-= render 'form'
+.box
+  .box-body
+    = render 'form'

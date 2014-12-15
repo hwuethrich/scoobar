@@ -1,71 +1,72 @@
-= render 'header', current_nav: :overview
 
-%h5.page-header.text-muted
-  = icon :user
-  Personal
+= render layout: 'header', locals: { current_nav: :overview } do
 
-.row
-  .col-xs-12.col-sm-6
-    %table.table.table-attributes
-      %tbody
-        %tr
-          %th Date of birth
-          %td= customer_date_of_birth_with_age customer
-        %tr
-          %th Gender
-          %td= customer_gender customer
+  %h4.text-muted
+    = icon :user
+    Personal
 
-  .col-xs-12.col-sm-6
-    %table.table.table-attributes
-      %tbody
-        %tr
-          %th E-Mail
-          %td= customer_email customer
-        %tr
-          %th Phone
-          %td= customer.phone_number
+  .row
+    .col-xs-12.col-sm-6
+      %table.table.table-attributes
+        %tbody
+          %tr
+            %th Date of birth
+            %td= customer_date_of_birth_with_age customer
+          %tr
+            %th Gender
+            %td= customer_gender customer
 
-%h5.page-header.text-muted
-  = icon :certificate
-  Certification
+    .col-xs-12.col-sm-6
+      %table.table.table-attributes
+        %tbody
+          %tr
+            %th E-Mail
+            %td= customer_email customer
+          %tr
+            %th Phone
+            %td= customer.phone_number
 
-.row
-  .col-sm-6
-    %table.table.table-attributes
-      %tbody
-        %tr
-          %th Name
-          %td= placeholder customer.certification_name
-        %tr
-          %th Number
-          %td= placeholder customer.certification_number
-        %tr
-          %th Certified on
-          %td= customer_certification_date customer
-  .col-sm-6
-    %table.table.table-attributes
-      %tbody
-        %tr
-          %th Number of dives
-          %td= customer.number_of_dives
-        %tr
-          %th Last dive on
-          %td= customer_last_dive_on customer
+  %h4.text-muted
+    = icon :certificate
+    Certification
 
-%h5.page-header.text-muted
-  = icon :home
-  Address
+  .row
+    .col-sm-6
+      %table.table.table-attributes
+        %tbody
+          %tr
+            %th Name
+            %td= placeholder customer.certification_name
+          %tr
+            %th Number
+            %td= placeholder customer.certification_number
+          %tr
+            %th Certified on
+            %td= customer_certification_date customer
+    .col-sm-6
+      %table.table.table-attributes
+        %tbody
+          %tr
+            %th Number of dives
+            %td= customer.number_of_dives
+          %tr
+            %th Last dive on
+            %td= customer_last_dive_on customer
 
-.row
-  .col-sm-6
-    %table.table.table-attributes
-      %tbody
-        %tr
-          %th Home
-          %td= customer_address customer
-  .col-sm-6
-    %table.table.table-attributes
-      %tbody
-        %tr
-          %th Hotel
-          %td= customer_hotel customer
+  %h4.text-muted
+    = icon :home
+    Address
+
+  .row
+    .col-sm-6
+      %table.table.table-attributes
+        %tbody
+          %tr
+            %th Home
+            %td= customer_address customer
+    .col-sm-6
+      %table.table.table-attributes
+        %tbody
+          %tr
+            %th Hotel
+            %td= customer_hotel customer

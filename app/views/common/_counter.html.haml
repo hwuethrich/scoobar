@@ -1,4 +1,10 @@
-.well.text-center
-  .text-muted
-    = icon icon, label
-  .text-huge= count
+.box.box-solid.bg-green
+  .box-header
+    %h3.box-title= label
+  .box-body
+    .row
+      .col-xs-3
+        = icon icon, '', class: 'fa-fw fa-3x'
+      .col-xs-9
+        .text-lg.text-right= count
+

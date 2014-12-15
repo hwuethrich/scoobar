@@ -1,7 +1,9 @@
-= page_header t('.title'), icon: :compass do
+- page_header t('.title'), icon: :compass do
   = link_to new_trip_path, class: 'btn btn-success' do
     %i.fa.fa-plus-circle
     = t '.add_trip'
 
 = collection_placeholder trips, message: 'No trips yet' do
-  = render 'table'
+  .box
+    .box-body.no-padding
+      = render 'table'

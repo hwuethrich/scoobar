@@ -1,4 +1,4 @@
-= page_header t('.title'), icon: 'bar-chart', subtitle: year do
+- page_header t('.title'), icon: 'bar-chart', subtitle: year do
   .btn-group
     = link_to url_for(year: year-1), class: 'btn btn-default' do
       = icon 'angle-left'
@@ -8,49 +8,53 @@
       = icon 'angle-right'
 
 .row
-  .col-sm-3
+  .col-sm-3.col-xs-6
     #customers-count
       = counter customer_statistics.count, :user, 'Customers'
 
-  .col-sm-3
+  .col-sm-3.col-xs-6
     #bookings-count
       = counter booking_statistics.count, 'check-square-o', 'Bookings'
 
-  .col-sm-3
+  .col-sm-3.col-xs-6
     #events-count
       = counter event_statistics.count, :calendar, 'Events'
 
-  .col-sm-3
+  .col-sm-3.col-xs-6
     #rentals-count
-      = counter rental_statistics.count, :cog, 'Rentals'
+      = counter rental_statistics.count, :tags, 'Rentals'
 
 .row
   .col-sm-6
-    .panel.panel-default
-      .panel-heading
-        = icon :calendar
-        Events
-      .panel-body
+    .box
+      .box-header
+        %h3.box-title
+          = icon :calendar
+          Events
+      .box-body
         = column_chart events_count_by_month, height: '200px'
   .col-sm-6
-    .panel.panel-default
-      .panel-heading
-        = icon :gear
-        Rentals
-      .panel-body
+    .box
+      .box-header
+        %h3.box-title
+          = icon :tags
+          Rentals
+      .box-body
         = column_chart rentals_count_by_month, height: '200px'
 .row
   .col-sm-6
-    .panel.panel-default
-      .panel-heading
-        = icon :calendar
-        Bookings
-      .panel-body
+    .box
+      .box-header
+        %h3.box-title
+          = icon :calendar
+          Bookings
+      .box-body
         = column_chart bookings_count_by_month, height: '200px'
   .col-sm-6
-    .panel.panel-default
-      .panel-heading
-        = icon :user
-        Customers
-      .panel-body
+    .box
+      .box-header
+        %h3.box-title
+          = icon :user
+          Customers
+      .box-body
         = column_chart customers_count_by_month, height: '200px'
