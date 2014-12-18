@@ -8,7 +8,9 @@
   %li{:class => (current_nav == :bookings ? 'active' : '')}
     = link_to [customer, :bookings] do
       = icon 'check-square-o', 'Bookings'
+      %span.label.label-success= customer.bookings.count
 
   %li{:class => (current_nav == :rentals ? 'active' : '')}
     = link_to [customer, :rentals] do
       = icon :tags, 'Rentals'
+      %span.label.label-success= customer.rentals.current.count
