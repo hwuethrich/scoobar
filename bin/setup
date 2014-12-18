@@ -12,10 +12,13 @@ Dir.chdir APP_ROOT do
   system "gem install bundler --conservative"
   system "bundle check || bundle install"
 
-  # puts "\n== Copying sample files =="
-  # unless File.exist?("config/database.yml")
-  #   system "cp config/database.yml.sample config/database.yml"
-  # end
+  puts "\n== Copying sample files =="
+  unless File.exist?("config/database.yml")
+    system "cp config/database.yml.sample config/database.yml"
+    puts "Example database configuration copied to config/database.yml"
+  else
+    puts "Database configuration config/database.yml exists already! Nothing copied..."
+  end
 
   puts "\n== Preparing database =="
   system "bin/rake db:setup"
@@ -24,6 +27,6 @@ Dir.chdir APP_ROOT do
   system "rm -f log/*"
   system "rm -rf tmp/cache"
 
-  puts "\n== Restarting application server =="
-  system "touch tmp/restart.txt"
+  puts "\n== SUCCESS =="
+  puts "All done! You may now run 'rails server' and open http://localhost:3000 in your browser."
 end
