@@ -6,7 +6,7 @@ module Customers
     active_navbar_item :customers
 
     expose(:customer)
-    expose(:rentals) { customer.rentals }
+    expose(:rentals) { customer.rentals.includes{equipment.category} }
     expose(:rental, attributes: :rental_params)
 
     def new
