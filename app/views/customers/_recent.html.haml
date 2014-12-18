@@ -1,7 +1,11 @@
 .customers-recent
-  - caption = capture do
-    = icon :calendar
-    Displaying
-    %strong= customers.count
-    recent customers
-  = render 'table', customers: customers, caption: caption
+
+  = collection_placeholder customers, message: 'No customers yet' do
+
+    - caption = capture do
+      = icon :calendar
+      Displaying
+      %strong= customers.count
+      recent customers
+
+    = render 'table', customers: customers, caption: caption
