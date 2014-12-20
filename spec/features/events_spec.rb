@@ -25,11 +25,10 @@ RSpec.feature 'Events:', type: :feature do
   end
 
   describe 'Deleting events:' do
+
+    let!(:event) { create :event, start_time: Date.tomorrow.midday }
+
     scenario 'Delete event from panel in list' do
-
-      trip  = create :trip, code: 'ABC', name: 'My Trip'
-      event = create :event, trip: trip, start_time: Date.tomorrow.midday
-
       visit events_path(date: Date.tomorrow)
 
       within('.panel-event') do
@@ -41,10 +40,6 @@ RSpec.feature 'Events:', type: :feature do
     end
 
     scenario 'Delete event from event form' do
-
-      trip  = create :trip, code: 'ABC', name: 'My Trip'
-      event = create :event, trip: trip, start_time: Date.tomorrow.midday
-
       visit edit_event_path(event)
 
       within('.form-actions') do
