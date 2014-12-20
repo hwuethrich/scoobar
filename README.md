@@ -35,6 +35,8 @@ Please note that this project is still WIP and the following features are still 
 * Ruby 2.x
 * PostgreSQL 9.x
 
+**Other versions might work as well.**
+
 ### Installation
 
 ```
