@@ -1,0 +1,2 @@
+class EventInput < AutocompleteInput
+end

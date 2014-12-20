@@ -29,6 +29,7 @@ Rails.application.routes.draw do
     resources :customers,      only: [:index, :show]
     resources :trips,          only: [:index, :show]
     resources :boats,          only: [:index, :show]
+    resources :events,         only: [:index, :show]
     resources :certifications, only: :index
   end
 
