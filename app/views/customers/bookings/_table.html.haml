@@ -13,7 +13,7 @@
         Event
       %th
         Trip
-      %th{colspan: 4}
+      %th{colspan: 3}
       %th.text-right Price
       %th
   %tbody
@@ -26,17 +26,17 @@
         %strong= total_dives
         = 'dive'.pluralize(total_dives)
       %td
-        %strong= non_guided_dives
-        = 'non-guided dive'.pluralize(guided_dives)
-      %td
+        = icon 'star'
         %strong= guided_dives
-        = 'guided dive'.pluralize(guided_dives)
+        = ' / '
+        = icon 'star-o'
+        %strong= non_guided_dives
       %td
+        = icon 'anchor'
         %strong= boat_dives
-        = 'boat dive'.pluralize(boat_dives)
       %td
+        = icon 'moon-o'
         %strong= night_dives
-        = 'night dive'.pluralize(night_dives)
       %td.text-right
         = icon :money
         %strong= '%0.2f' % total_price

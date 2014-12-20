@@ -2,42 +2,28 @@
 - trip = booking.trip
 
 %tr[booking]
-  %td{:style => 'width: 150px'}
+  %td
     = icon :calendar, '', class: 'fa-fw text-muted'
     = link_to [:edit, event] do
       = l event.start_time, format: :short
 
   %td
-    - trip = booking.trip
-    - if trip.present?
-      - if trip.code.present?
-        .label.label-default{ :style => 'background-color: %s;' % trip.color }<
-          = trip.code
-      = trip.name
+    = trip_code_and_name booking.trip
 
   %td
     - unless event.guided_dive?
       %small.text-muted<
         %i.fa.fa-star-o
-        non-guided dive
-
-  %td
-    - if event.guided_dive?
-      %small.text-muted<
-        %i.fa.fa-star
-        guided dive
 
   %td
     - if event.boat_dive?
       %small.text-muted<
         %i.fa.fa-anchor
-        boat dive
 
   %td
     - if event.night_dive?
       %small.text-muted<
         %i.fa.fa-moon-o
-        night dive
 
   %td.text-right
     - if booking.price.present?

@@ -11,7 +11,7 @@ module Customers
 
     def destroy
       booking.destroy
-      render :index
+      respond_with booking, location: [customer, :bookings]
     end
 
     def update
@@ -19,10 +19,15 @@ module Customers
       respond_with booking, location: [customer, :bookings]
     end
 
+    def create
+      booking.save
+      respond_with booking, location: [customer, :bookings], action: :index
+    end
+
     private
 
     def booking_params
-      params.require(:booking).permit(:price)
+      params.require(:booking).permit(:price, :event_id)
     end
 
   end
