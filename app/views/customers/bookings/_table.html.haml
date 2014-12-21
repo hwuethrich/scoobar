@@ -1,10 +1,3 @@
-- total_dives      = bookings.size
-- guided_dives     = bookings.joins{event}.merge(Event.guided_dives).size
-- non_guided_dives = total_dives - guided_dives
-- boat_dives       = bookings.joins{event}.merge(Event.boat_dives).size
-- night_dives      = bookings.joins{event}.merge(Event.night_dives).size
-- total_price      = bookings.to_a.sum { |b| b.price || 0 }
-
 - bookings_by_month = bookings.group_by { |booking| I18n.l(booking.event.start_date, format: '%b %Y') }
 
 %table.table.table-striped

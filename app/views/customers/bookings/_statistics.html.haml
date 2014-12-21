@@ -1,0 +1,27 @@
+- total_dives      = bookings.size
+- guided_dives     = bookings.joins{event}.merge(Event.guided_dives).size
+- non_guided_dives = total_dives - guided_dives
+- boat_dives       = bookings.joins{event}.merge(Event.boat_dives).size
+- night_dives      = bookings.joins{event}.merge(Event.night_dives).size
+- total_price      = bookings.to_a.sum { |b| b.price || 0 }
+
+.text-center
+  .row
+    .col-sm-3.col-xs-4
+      .text-big
+        = non_guided_dives
+        = ' / '
+        = guided_dives
+      %small Non-/Guided
+    .col-sm-2.col-xs-4
+      .text-big= night_dives
+      %small Night dives
+    .col-sm-2.col-xs-4
+      .text-big= boat_dives
+      %small Boat dives
+    .col-sm-2.col-xs-4
+      .text-big= total_dives
+      %small Total dives
+    .col-sm-3.col-xs-4
+      .text-big= total_price
+      %small Total price
