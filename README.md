@@ -1,6 +1,8 @@
-# SCOOBAR
+# SCOOBAR [![Build Status](https://semaphoreapp.com/api/v1/projects/2dff0449-01db-4afe-b594-9f02e8298bf1/280213/shields_badge.svg)](https://semaphoreapp.com/hwuethrich/scoobar) [![Code Climate](https://codeclimate.com/github/hwuethrich/scoobar/badges/gpa.svg)](https://codeclimate.com/github/hwuethrich/scoobar) [![Test Coverage](https://codeclimate.com/github/hwuethrich/scoobar/badges/coverage.svg)](https://codeclimate.com/github/hwuethrich/scoobar)
 
 *Simple and easy management application for your SCUBA dive center - built with love and [Ruby on Rails](http://rubyonrails.org).*
+
+
 
 [![image](doc/screenshots/combined.png "See more screenshots")](doc/screenshots)
 
