@@ -1,0 +1,12 @@
+#customer-booking-form
+  = simple_form_for([customer, booking]) do |f|
+    = f.error_notification
+
+    .form-inputs
+      .row
+        .col-sm-6
+          = f.association :event, as: :event, label: false, placeholder: 'Add Booking'
+        .col-sm-4
+          = f.input :price, label: false, placeholder: 'Add Booking', placeholder: 'Price'
+        .col-sm-2
+          = f.button :submit

@@ -1,7 +1,9 @@
 = render layout: 'customers/header', locals: { current_nav: :bookings } do
+
   .row
     .col-sm-8
       = collection_placeholder bookings, message: 'This customer has no bookings yet' do
         = render 'table', bookings: bookings
     .col-sm-4
-      .well= render 'form'
+      .well
+        = render 'form'

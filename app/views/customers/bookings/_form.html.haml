@@ -3,18 +3,18 @@
     = f.error_notification
 
     .form-inputs
-      .form-group
-        - if booking.persisted?
+      - if booking.persisted?
+        .form-group
           %label.control-label Event
           .form-control
             = trip_code_and_name booking.trip
             %small.text-muted= l booking.event.start_time, format: :short
-        - else
-          = f.association :event, as: :event
+      - else
+        = f.association :event, as: :event
 
       = f.input :price, placeholder: booking.event_price.to_s
 
-    %p.form-actions
+    .form-actions
       = f.button :submit
 
       - unless params[:action] == 'index'
