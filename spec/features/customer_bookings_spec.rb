@@ -23,8 +23,8 @@ RSpec.feature 'Customer Bookings:', type: :feature do
       click_on 'Bookings'
 
       expected_bookings = [
-        { start_time: '01 Oct 10:00', trip_code: 'T1', trip_name: 'Trip 1'},
-        { start_time: '01 Oct 12:00', trip_code: 'T2', trip_name: 'Trip 2'}
+        { start_time: 'Wed 01', trip_code: 'T1', trip_name: 'Trip 1'},
+        { start_time: 'Wed 01', trip_code: 'T2', trip_name: 'Trip 2'}
       ]
 
       expect(listed_bookings(page)).to eq expected_bookings
@@ -48,8 +48,8 @@ RSpec.feature 'Customer Bookings:', type: :feature do
     end
 
     expected_bookings = [
-      { start_time: '01 Oct 10:00', trip_code: 'T1', trip_name: 'Trip 1'},
-      { start_time: '01 Oct 12:00', trip_code: 'T2', trip_name: 'Trip 2'}
+      { start_time: 'Wed 01', trip_code: 'T1', trip_name: 'Trip 1'},
+      { start_time: 'Wed 01', trip_code: 'T2', trip_name: 'Trip 2'}
     ]
 
     expect(listed_bookings(page)).to eq expected_bookings
