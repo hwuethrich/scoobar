@@ -20,6 +20,7 @@ class Event < ActiveRecord::Base
   scope :boat_dives, -> { where { boat_id != nil }}
   scope :night_dives, -> { where { night_dive == true }}
   scope :guided_dives, -> { where { guide_id != nil }}
+  scope :search, ->(query) { joins{trip}.merge(Trip.search(query)) }
 
   # VALIDATIONS
 
@@ -66,6 +67,10 @@ class Event < ActiveRecord::Base
 
   def guided_dive?
     guide.present?
+  end
+
+  def start_date
+    start_time.to_date if start_time.present?
   end
 
   def to_s

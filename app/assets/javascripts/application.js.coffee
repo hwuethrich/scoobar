@@ -29,3 +29,6 @@
 #= require chartkick
 #= require admin-lte/sidebar
 #= require_tree .
+#= require_self
+
+Turbolinks.enableProgressBar()

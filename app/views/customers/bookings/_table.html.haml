@@ -1,43 +1,10 @@
-- total_dives      = bookings.size
-- guided_dives     = bookings.joins{event}.merge(Event.guided_dives).size
-- non_guided_dives = total_dives - guided_dives
-- boat_dives       = bookings.joins{event}.merge(Event.boat_dives).size
-- night_dives      = bookings.joins{event}.merge(Event.night_dives).size
-- total_price      = bookings.to_a.sum { |b| b.price || 0 }
+- bookings_by_month = bookings.group_by { |booking| I18n.l(booking.event.start_date, format: '%b %Y') }
 
 %table.table.table-striped
-  %thead
-    %tr
-      %th
-        = icon 'fw'
-        Event
-      %th
-        Trip
-      %th{colspan: 4}
-      %th.text-right Price
-      %th
-  %tbody
-    = render partial: 'row', collection: bookings, as: :booking
-  %tfooter
-    %tr
-      %td
-        %strong Total
-      %td
-        %strong= total_dives
-        = 'dive'.pluralize(total_dives)
-      %td
-        %strong= non_guided_dives
-        = 'non-guided dive'.pluralize(guided_dives)
-      %td
-        %strong= guided_dives
-        = 'guided dive'.pluralize(guided_dives)
-      %td
-        %strong= boat_dives
-        = 'boat dive'.pluralize(boat_dives)
-      %td
-        %strong= night_dives
-        = 'night dive'.pluralize(night_dives)
-      %td.text-right
-        = icon :money
-        %strong= '%0.2f' % total_price
-      %td
+  - bookings_by_month.each do |month, bookings|
+    %thead
+      %tr.text-muted
+        %th{colspan: 5}
+          = icon :calendar, month, class: 'fa-fw'
+    %tbody
+      = render partial: 'row', collection: bookings, as: :booking
